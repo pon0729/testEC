@@ -1,0 +1,175 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'mypage' %}
+
+{% set mypageno = 'yamatosubscription' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block stylesheet %}
+<style>
+.ec-radio .ec-errorMessage {
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #DE5D50;
+}
+
+@media only screen and (min-width: 768px) {
+    .subs-month-period label {
+        padding-right: 2em;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .subs-month-period {
+        display : -webkit-box;     /* old Android */
+        display : -webkit-flex;    /* Safari etc. */
+        display : -ms-flexbox;     /* IE10        */
+        display: flex;
+
+        -webkit-flex-direction: column;          /* Safari etc. */
+        -ms-flex-direction    : column;          /* IE10        */
+        flex-direction: column;
+    }
+}
+
+/*--------------------------------------------------*/
+
+.ec-orderAttention {
+    margin-bottom: 30px;
+}
+
+.ec-orderAttention__check {
+    display: inline-block;
+    color: #3030ff;
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.ec-orderAttention__check ul {
+    list-style: none;
+    padding-left: 0.5em;
+}
+
+.ec-orderAttention__check li {
+    line-height: 2em;
+}
+
+.ec-orderAttention__check input[type="checkbox"] {
+    position: relative;
+    top: 0.1em;
+}
+</style>
+{% endblock %}
+
+{% block javascript %}
+<script>
+
+$(function() {
+    const $updateButton = $('#update_button');
+
+    // move subs_month_period radio button into label
+    $('input[name="mypage_detail\\[subs_month_period\\]"]').each(function(index, e) {
+        $(e).prependTo($(e).next());
+    });
+
+    // 定期お届け間隔の選択時処理
+    $('input[name="mypage_detail\\[subs_month_period\\]"]').on('change', function(e) {
+        const subsMonthPeriod = parseInt($(this).val(), 10);
+        $('.subs_month_period_text').text( subsMonthPeriod );
+    });
+    $('input[name="mypage_detail\\[subs_month_period\\]"]:checked').trigger('change');
+
+    $updateButton.on('click', function(e) {
+        // 確認事項の未選択
+        if ($('.attention-message-checkbox:checked').length < $('.attention-message-checkbox').length) {
+            alert("{{ 'yamatosubscription.mypage.detail.error.check_all_attention_message'|trans }}");
+            $('html,body').animate({ scrollTop: ($('.ec-orderAttention').offset().top - 100) }, 'slow');
+            e.preventDefault();
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="ec-layoutRole__main">
+    <div class="ec-mypageRole">
+        <div class="ec-pageHeader">
+            <h1>{{ 'front.mypage.title'|trans }}/{{ 'yamatosubscription.mypage.list.nav'|trans }}</h1>
+        </div>
+        {% include 'Mypage/navi.twig' %}
+    </div>
+    <div class="ec-mypageRole">
+        <div class="ec-editRole">
+            <div class="ec-off1Grid">
+                <div class="ec-off1Grid__cell">
+                    <form method="post" action="{{ url('plugin_yamato_subscription_mypage_detail', {'id': YamatoSubs.id}) }}" novalidate class="h-adr">
+                        {{ form_widget(form._token) }}
+                        <div class="ec-borderedDefs">
+                            <dl>
+                                <dt>
+                                    {{ form_label(form.subs_month_period, 'yamatosubscription.mypage.detail.subs_month_period', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                </dt>
+                                <dd>
+                                    <div class="ec-radio{{ has_errors(form.subs_month_period) ? ' error'}}">
+                                        {{ form_widget(form.subs_month_period, { attr: { 'class': 'subs-month-period' } }) }}
+                                        {{ form_errors(form.subs_month_period) }}
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <div class="ec-orderAttention">
+                            <div class="ec-rectHeading">
+                                <h2>{{ 'yamatosubscription.shopping.attention.title'|trans|raw }}</h2>
+                            </div>
+                            <div class="ec-orderAttention__check">
+                                <ul>
+                                    <li><label for="attention_message_1"><input type="checkbox" id="attention_message_1" name="attention_message_1" class="attention-message-checkbox" />
+                                        {{ 'yamatosubscription.shopping.attention.attention_1' | trans({'%subs_month_period_text%': '<span class="subs_month_period_text"></span>'}) | raw }}
+                                    </label></li>
+
+                                    <li><label for="attention_message_2"><input type="checkbox" id="attention_message_2" name="attention_message_2" class="attention-message-checkbox" />
+                                        {{ 'yamatosubscription.shopping.attention.attention_2' | trans }}
+                                    </label></li>
+
+                                    <li><label for="attention_message_3"><input type="checkbox" id="attention_message_3" name="attention_message_3" class="attention-message-checkbox" />
+                                        {{ 'yamatosubscription.shopping.attention.attention_3' | trans({'%shop_name%': BaseInfo.shopName}) }}
+                                    </label></li>
+
+                                    <li><label for="attention_message_4"><input type="checkbox" id="attention_message_4" name="attention_message_4" class="attention-message-checkbox" />
+                                        {{ 'yamatosubscription.shopping.attention.attention_4' | trans({'%contact_email%': BaseInfo.email02}) | raw }}
+                                    </label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.ec-orderAttention -->
+
+                        <div class="ec-RegisterRole__actions">
+                            <div class="ec-off4Grid">
+                                <div class="ec-off4Grid__cell">
+                                    <button type="submit"
+                                            id="update_button"
+                                            class="ec-blockBtn--cancel">{{ 'common.registration'|trans }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

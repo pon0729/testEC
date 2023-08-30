@@ -1,0 +1,520 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'product_page' %}
+
+{% block javascript %}
+    <script>
+        eccube.classCategories = {{ class_categories_as_json(Product)|raw }};
+
+        // 規格2に選択肢を割り当てる。
+        function fnSetClassCategories(form, classcat_id2_selected) {
+            var $form = $(form);
+            var product_id = $form.find('input[name=product_id]').val();
+            var $sele1 = $form.find('select[name=classcategory_id1]');
+            var $sele2 = $form.find('select[name=classcategory_id2]');
+            eccube.setClassCategories($form, product_id, $sele1, $sele2, classcat_id2_selected);
+        }
+
+        {% if form.classcategory_id2 is defined %}
+        fnSetClassCategories(
+            $('#form1'), {{ form.classcategory_id2.vars.value|json_encode|raw }}
+        );
+        {% elseif form.classcategory_id1 is defined %}
+        eccube.checkStock($('#form1'), {{ Product.id }}, {{ form.classcategory_id1.vars.value|json_encode|raw }}, null);
+        {% endif %}
+    </script>
+    <script>
+        $(function() {
+            // bfcache無効化
+            $(window).bind('pageshow', function(event) {
+                if (event.originalEvent.persisted) {
+                    location.reload(true);
+                }
+            });
+        });
+        $(window).on('load', function() {
+            $('.item_visual').slick(
+                {
+                dots: false,
+                arrows: false,
+                responsive: [{
+                    breakpoint: 1000,
+                    settings: {
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 415,
+                    settings: {
+                        dots: false
+                    }
+                }]
+            });
+
+            $('.slideThumb').on('click', function() {
+                var index = $(this).attr('data-index');
+                $('.item_visual').slick('slickGoTo', index, false);
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $('.add-cart').on('click', function(event) {
+                {% if form.classcategory_id1 is defined %}
+                // 規格1フォームの必須チェック
+                if ($('#classcategory_id1').val() == '__unselected' || $('#classcategory_id1').val() == '') {
+                    $('#classcategory_id1')[0].setCustomValidity('{{ '項目が選択されていません'|trans }}');
+                    return true;
+                } else {
+                    $('#classcategory_id1')[0].setCustomValidity('');
+                }
+                {% endif %}
+
+                {% if form.classcategory_id2 is defined %}
+                // 規格2フォームの必須チェック
+                if ($('#classcategory_id2').val() == '__unselected' || $('#classcategory_id2').val() == '') {
+                    $('#classcategory_id2')[0].setCustomValidity('{{ '項目が選択されていません'|trans }}');
+                    return true;
+                } else {
+                    $('#classcategory_id2')[0].setCustomValidity('');
+                }
+                {% endif %}
+
+                // 個数フォームのチェック
+                if ($('#quantity').val() < 1) {
+                    $('#quantity')[0].setCustomValidity('{{ '1以上で入力してください。'|trans }}');
+                    return true;
+                } else {
+                    $('#quantity')[0].setCustomValidity('');
+                }
+
+                event.preventDefault();
+                $form = $('#form1');
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: $form.attr('method'),
+                    data: $form.serialize(),
+                    dataType: 'json',
+                    beforeSend: function(xhr, settings) {
+                        // Buttonを無効にする
+                        $('.add-cart').prop('disabled', true);
+                    }
+                }).done(function(data) {
+                    // レスポンス内のメッセージをalertで表示
+                    $.each(data.messages, function() {
+                        $('#ec-modal-header').html(this);
+                    });
+
+                    $('#ec-modal-checkbox').prop('checked', true);
+
+                    // カートブロックを更新する
+                    $.ajax({
+                        url: "{{ url('block_cart') }}",
+                        type: 'GET',
+                        dataType: 'html'
+                    }).done(function(html) {
+                        $('.ec-headerRole__cart').html(html);
+                    });
+                }).fail(function(data) {
+                    alert('{{ 'カートへの追加に失敗しました。'|trans }}');
+                }).always(function(data) {
+                    // Buttonを有効にする
+                    $('.add-cart').prop('disabled', false);
+                });
+            });
+        });
+    </script>
+    <script>
+    (function() {
+      // 関連商品プラグインの表示位置調整、およびslick適応
+      function plgRelatedProduct_onLoad() {
+        var attachSlick = function attachSlick() {
+          $wrapper
+            .find('.ec-productRelatedRole__plugin .ec-shelfGrid')
+            .slick({
+              swipe: true,
+              autoplay: true,
+              fade: false,
+              speed: 500,
+              infinite: true,
+              slidesToShow: 6,
+              slidesToScroll: 6,
+              prevArrow:'<button type="button" class="slick-prev"><span class="angle-circle"><svg class="cb cb-angle-right"><use xlink:href="#cb-angle-right" /></svg></span></button>',
+              nextArrow:'<button type="button" class="slick-next"><span class="angle-circle"><svg class="cb cb-angle-right"><use xlink:href="#cb-angle-right" /></svg></span></button>',
+              responsive: [
+                {
+                  breakpoint: 1020,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true,
+                  }
+                },
+                {
+                  breakpoint: 800,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                  }
+                }
+              ]
+            });
+          /*
+            .slick({
+              infinite: false,
+              speed: 300,
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              responsive: [{
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3
+                }
+              }]
+            });
+            */
+        };
+
+        var $plgRelatedProduct = $('#RelatedProduct-product_area'),
+            $wrapper = $('.ec-productRelatedRole'),
+            item_count = $plgRelatedProduct.find('.ec-shelfGrid__item').length;
+
+        if (item_count > 0) {
+          $plgRelatedProduct.prependTo($wrapper.find('.ec-productRelatedRole__plugin'));
+          setTimeout(attachSlick, 100);
+        } else {
+          $plgRelatedProduct.hide();
+          $wrapper.hide();
+        }
+      }
+
+      // 商品レビュープラグインのタイトル位置調整
+      function plgProductReview_onLoad() {
+        $('#product_review_area #reviewContent li').each(function() {
+          var $title = $(this).find('.review_date + strong');
+          $('.review_date .recommend_name').after($title);
+        });
+      }
+
+      $(window).on('load', function() {
+        plgRelatedProduct_onLoad();
+        plgProductReview_onLoad();
+      });
+    })();
+    // 数量ボタンアクション
+      (() => {
+        const num = document.getElementById('quantity');
+        const up = document.getElementById('btn-up');
+        const down = document.getElementById('btn-down');
+
+        //ボタンが押されたらカウント減
+        down.addEventListener('click', (event) => {
+          if(num.value >= 1) {
+            num.value--;
+          }
+        });
+        //ボタンが押されたらカウント増
+        up.addEventListener('click', (event) => {
+            num.value++;
+          })
+      })();
+    </script>
+{% endblock %}
+
+{% block main %}
+    <div class="ec-productRole">
+      <div class="all_topicpath">
+        <ol class="ec-topicpath_all">
+          <li class="home_path"><a href="https://gift-communication.shop/">TOP</a></li>
+          <li class="ec-topicpath_all_divider"> ＞</li>
+            {% for ProductCategory in Product.ProductCategories %}
+                <li class="ec-topicpath_all_category">
+                    {% for Category in ProductCategory.Category.path %}
+                        <a href="{{ url('product_list') }}?category_id={{ Category.id }}">{{ Category.name }}</a> {%- if loop.last == false %}
+                        {% endif -%}
+                    {% endfor %}
+                </li>
+                <li class="ec-topicpath_all_divider"> ＞</li>
+            {% endfor %}
+          <li class="ec-topicpath_all_product">{{ Product.name }}</li>
+      　</ol>
+      </div>
+        <div class="ec-grid2">
+            <div class="ec-grid2__cell">
+                <div class="ec-sliderItemRole ec-productRole__slider">
+                    <div class="item_visual">
+                        {% for ProductImage in Product.ProductImage %}
+                            <div class="slide-item"><img src="{{ asset(ProductImage, 'save_image') }}"></div>
+                        {% else %}
+                            <div class="slide-item"><img src="{{ asset(''|no_image_product, 'save_image') }}"/></div>
+                        {% endfor %}
+                    </div>
+                    <div class="item_nav">
+                        {% for ProductImage in Product.ProductImage %}
+                            <div class="slideThumb" data-index="{{ loop.index0 }}"><img src="{{ asset(ProductImage, 'save_image') }}"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="ec-grid2__cell">
+                <div class="ec-productRole__profile">
+                    {# 商品名 #}
+                    <div class="ec-productRole__title">
+                        <h2 class="ec-headingTitle">{{ Product.name }}</h2>
+                    </div>
+                    {% if Product.message %}
+                        <div class="ec-productRole__summary">
+                             {{ include(template_from_string(Product.message)) }}
+                        </div>
+                    {% endif %}
+                    {# タグ #}
+                    {% if Product.Tags is not empty %}
+                        <ul class="ec-productRole__tags">
+                            {% for Tag in Product.Tags %}
+                                <li class="ec-productRole__tag tag_{{ Tag.id }}">{{ Tag }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {# 通常価格 #}
+                    {% if Product.hasProductClass -%}
+                        <div class="ec-productRole__priceRegular">
+                            {% if Product.getPrice01Min is not null and Product.getPrice01IncTaxMin == Product.getPrice01IncTaxMax %}
+                                <span class="ec-productRole__priceRegularPrice">{{ '通常価格'|trans }}：<span class="price01-default">{{ Product.getPrice01IncTaxMin|price }}</span></span>
+                                <span class="ec-productRole__priceRegularTax">{{ '(税込)'|trans }}</span>
+                            {% elseif Product.getPrice01Min is not null and Product.getPrice01Max is not null %}
+                                <span class="ec-productRole__priceRegularPrice">{{ '通常価格'|trans }}：<span class="price01-default">{{ Product.getPrice01IncTaxMin|price }}～ {{ Product.getPrice01IncTaxMax|price }}</span></span>
+                                <span class="ec-productRole__priceRegularTax">{{ '(税込)'|trans }}</span>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        {% if Product.getPrice01Max is not null %}
+                            <span class="ec-productRole__priceRegularPrice">{{ '通常価格'|trans }}：<span class="price01-default">{{ Product.getPrice01IncTaxMin|price }}</span></span>
+                            <span class="ec-productRole__priceRegularTax">{{ '(税込)'|trans }}</span>
+                        {% endif %}
+                    {% endif %}
+                    {# 販売価格 #}
+                    <div class="ec-productRole__price">
+                        {% if Product.hasProductClass -%}
+                            {% if Product.getPrice02IncTaxMin == Product.getPrice02IncTaxMax %}
+                                <div class="ec-price">
+                                    <span class="ec-price__price price02-default">{{ Product.getPrice02IncTaxMin|price }}</span>
+                                    <span class="ec-price__tax">{{ '(税込)'|trans }}</span>
+                                </div>
+                            {% else %}
+                                <div class="ec-price">
+                                    <span class="ec-price__price price02-default">{{ Product.getPrice02IncTaxMin|price }} ～ {{ Product.getPrice02IncTaxMax|price }}</span>
+                                    <span class="ec-price__tax">{{ '(税込)'|trans }}</span>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="ec-price">
+                                <span class="ec-price__price">{{ Product.getPrice02IncTaxMin|price }}</span>
+                                <span class="ec-price__tax">{{ '(税込)'|trans }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {# 重さとサイズ #}
+                    {# <div>
+                        {{ include('Product/weight_size.twig') }}
+                    </div>
+                    #}
+                    <div class="ec-productRole__cartWrapper">
+                        <form action="{{ url('product_add_cart', {id:Product.id}) }}" method="post" id="form1" name="form1">
+                            {% if Product.stock_find %}
+                                <div class="ec-productRole__actions">
+                                    {% if form.classcategory_id1 is defined %}
+                                        <div class="ec-select">
+                                            {{ form_widget(form.classcategory_id1) }}
+                                            {{ form_errors(form.classcategory_id1) }}
+                                        </div>
+                                        {% if form.classcategory_id2 is defined %}
+                                            <div class="ec-select">
+                                                {{ form_widget(form.classcategory_id2) }}
+                                                {{ form_errors(form.classcategory_id2) }}
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    <div class="ec-numberInput"><span>{{ '数量'|trans }}</span>
+                                        {{ form_widget(form.quantity) }}
+                                        {{ form_errors(form.quantity) }}
+                                    </div>
+                                </div>
+                                <div class="ec-productRole__btn">
+                                    <button type="submit" class="ec-blockBtn--action add-cart">
+                                        {{ 'カートに入れる'|trans }}
+                                    </button>
+                                </div>
+                            {% else %}
+                                <div class="ec-productRole__btn">
+                                    <button type="button" class="ec-blockBtn--action" disabled="disabled">
+                                        {{ 'ただいま品切れ中です。'|trans }}
+                                    </button>
+                                </div>
+                            {% endif %}
+
+                            {{ form_rest(form) }}
+                        </form>
+                        {% if Product.stock_find %}
+                            <div class="quantity-btn">
+                                <button id="btn-up" class="input-btn">＋</button>
+                                <button id="btn-down" class="input-btn">－</button>
+                            </div>
+                            {% else %}
+                            <div class="empty-area"></div>
+                        {% endif %}
+                        <div class="ec-modal">
+                            <input type="checkbox" id="ec-modal-checkbox" class="checkbox">
+                            <div class="ec-modal-overlay">
+                                <label for="ec-modal-checkbox" class="ec-modal-overlay-close"></label>
+                                <div class="ec-modal-wrap">
+                                    <label for="ec-modal-checkbox" class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></label>
+                                    <div id="ec-modal-header" class="text-center">{{ 'カートに追加しました。'|trans }}</div>
+                                    <div class="ec-modal-box">
+                                        <div class="ec-role">
+                                            <label for="ec-modal-checkbox" class="ec-inlineBtn--cancel">{{ 'お買い物を続ける'|trans }}</label>
+                                            <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'カートへ進む'|trans }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if BaseInfo.option_favorite_product %}
+                            <form action="{{ url('product_add_favorite', {id:Product.id}) }}" method="post">
+                                <div class="ec-productRole__btn">
+                                    {% if is_favorite == false %}
+                                        <button type="submit" id="favorite" class="ec-blockBtn--cancel">
+                                            {#{{ 'お気に入りに追加'|trans }} #}
+                                            <img src="/html/user_data/assets/img/memu/sp_favorite.svg">
+                                        </button>
+                                    {% else %}
+                                        <button type="submit" id="favorite" class="ec-blockBtn--cancel"
+                                                disabled="disabled">{#{{ 'お気に入りに追加済です。'|trans }}#}
+                                                <img src="/html/user_data/assets/img/top/sp_favorite_over.svg">
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div> <!-- ec-productRole__cartWrapper[END] -->
+
+                    {# 商品コード #}
+                    {% if Product.code_min is not empty %}
+                        <div class="ec-productRole__code">
+                            {{ '商品コード'|trans }}： <span class="product-code-default">{{ Product.code_min }}{% if Product.code_min != Product.code_max %} ～ {{ Product.code_max }}{% endif %}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="ec-productRole-guide">
+                    <div class="ec-productRole-guide__shipping">
+                        <a href="{{ url('help_guide') }}#shipping">
+                            <span><img src="/html/user_data/assets/img/guide/guide_shipping.svg"></span>
+                            <p>送料について</p>
+                        </a>
+                    </div>
+                    <div class="ec-productRole-guide__payment">
+                        <a href="{{ url('help_guide') }}#payment">
+                            <span><img src="/html/user_data/assets/img/guide/guide_paument.svg"></span>
+                            <p>お支払いについて</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ec-productRole__description">
+            <input id="trigger1" class="grad-trigger" type="checkbox">
+            <label class="grad-btn" for="trigger1">
+                <img src="/html/user_data/assets/img/new_arrival/arrow_next.png">
+            </label>
+            <div class="ec-productRole__description-item">
+                {{ include(template_from_string(Product.description_detail)) }}
+            </div>
+        </div>
+        {% if Product.freearea %}
+            <div class="ec-productRole__description">
+              <input id="trigger-syousai" class="grad-trigger-syousai" type="checkbox">
+                <label class="grad-btn-syousai" for="trigger-syousai">
+                  <img src="/html/user_data/assets/img/new_arrival/arrow_next.png">
+                </label>
+              <div class="ec-productRole__description-item-syousai">
+                 {{ include(template_from_string(Product.freearea)) }}
+              </div>
+            </div>
+        {% endif %}
+        {# プラグインラッパー #}
+        <div class="ec-productRole__plugins">
+          <div class="ec-productRole__plugins--relatedProducts ec-productRelatedRole">
+            <h2 class="ec-productRelatedRole__title">Recommend</h2>
+            <div class="ec-productRelatedRole__plugin"></div>
+          </div>
+        </div>
+
+        <!--▼ガイド　※新着情報ブロックにあります▼-->
+        <div class="ec-guideRole">
+            <div class="ec-guideRole__wrapper">
+                <h3 class="ec-guideRole__title">
+                    Guide
+                </h3>
+                <ul class="ec-guideRole__list">
+                    <li class="ec-guideRole__listItem">
+                        <a href="/user_data/return_exchange">
+                            返品・交換
+                        </a>
+                    </li>
+                    <li class="ec-guideRole__listItem">
+                        <a href="{{ url('help_guide') }}#shipping">
+                            送料について
+                        </a>
+                    </li>
+                    <li class="ec-guideRole__listItem">
+                        <a href="{{ url('help_guide') }}#payment">
+                            お支払いについて
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <!--▲ガイド　※新着情報ブロックにあります▲-->
+
+        {# 関連カテゴリ #}
+        {#{% if Product.ProductCategories is not empty %}
+            <div class="ec-productRole__category">
+                <div>{{ '関連カテゴリ'|trans }}</div>
+                {% for ProductCategory in Product.ProductCategories %}
+                    <ul>
+                        <li>
+                            {% for Category in ProductCategory.Category.path %}
+                                <a href="{{ url('product_list') }}?category_id={{ Category.id }}">{{ Category.name }}</a> {%- if loop.last == false %}
+                                <span>＞</span>{% endif -%}
+                            {% endfor %}
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        {% endif %}#} 
+
+    </div>
+{% endblock %}

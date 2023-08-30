@@ -1,0 +1,62 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{#<div class="ec-headerRole">#}
+<div class="ec-headerRole nav_02 anime_off">
+  <div class="ec-headerRole__title">
+    <div class="ec-headerTitle">
+      <h1 class="ec-headerTitle__title">
+        <a href="{{ url('homepage') }}">
+          <img src="{{ asset('/html/user_data/assets/img/top/logo.svg') }}">
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div class="ec-headerRole__navigation">
+    <ul class="ec-headerNavigation">
+      <li>
+        <a href="{{ url('product_list', {'category_id': 9}) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_cosmetic_bodycare.svg') }}"></span>
+          <p>COSMETIC・BODYCARE</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('product_list', {'category_id': 8}) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_daily.svg') }}"></span>
+          <p>DAILY</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('product_list', {'category_id': 7}) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_food_drink.svg') }}"></span>
+          <p>FOOD・DRINK</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('product_list', {'category_id': 11}) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_room.svg') }}"></span>
+          <p>ROOM</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('product_list', {'category_id': 10}) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_baby.svg') }}"></span>
+          <p>BABY</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('product_list', {'category_id': null }) }}">
+          <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_all.svg') }}"></span>
+          <p>ALL</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'favorite' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }} - {{ 'お気に入り一覧'|trans }}</h1>
+            </div>
+            {% include 'Mypage/navi.twig' %}
+        </div>
+
+        <div class="ec-mypageRole">
+            <div class="ec-favoriteRole">
+                <p class="ec-TitleList">お気に入り一覧</p>
+                {% if pagination.totalItemCount > 0 %}
+                    <div class="ec-favoriteRole__header">
+                        <p>{{ '%count%件'|trans({'%count%':pagination.totalItemCount}) }}</p>
+                    </div>
+                    <div class="ec-favoriteRole__detail">
+                        <ul class="ec-favoriteRole__itemList">
+                            {% for FavoriteProduct in pagination %}
+                                {% set Product = FavoriteProduct.Product %}
+                                <li class="ec-favoriteRole__item">
+                                    <a class="ec-closeBtn--circle"
+                                        href="{{ url('mypage_favorite_delete', { id : Product.id }) }}" {{ csrf_token_for_anchor() }}
+                                        data-method="delete">
+                                        <div class="ec-icon">
+                                            <img src="{{ asset('/html/user_data/assets/img/top/sp_close_padding.svg') }}" alt="close">
+                                        </div>
+                                    </a>
+                                    <a class="ec-favoriteRole__itemThumb" href="{{ url('product_detail', {'id': Product.id}) }}">
+                                        <p class="ec-favoriteRole__item-image">
+                                            <img src="{{ asset(Product.main_list_image|no_image_product, 'save_image') }}">
+                                        </p>
+                                    </a>
+                                    <p class="ec-favoriteRole__itemTitle">{{ Product.name }}</p>
+                                    <p class="ec-favoriteRole__itemPrice">
+                                        {% if Product.price02_inc_tax_min == Product.price02_inc_tax_max %}
+                                            {{ Product.price02_inc_tax_min|price }}
+                                        {% else %}
+                                            {{ Product.price02_inc_tax_min|price }}～{{ Product.price02_inc_tax_max|price }}
+                                        {% endif %}
+                                    </p>
+                                </li>
+                            {% endfor %}
+                            {% if pagination.totalItemCount % 2 != 0%}
+                                    {% set Product = 189 %}{# テスト用商品IDを利用 #}
+                                    <li class="ec-favoriteRole__item">
+                                        <a class="ec-closeBtn--circle">
+                                            <div class="ec-icon">
+                                                <img src="{{ asset('/html/user_data/assets/img/top/sp_close_padding.svg') }}" alt="close">
+                                            </div>
+                                        </a>
+                                        <a class="ec-favoriteRole__itemThumb" href="{{ url('product_detail', {'id': Product.id}) }}">
+                                            <p class="ec-favoriteRole__item-image">
+                                                <img src="{{ asset('/html/user_data/assets/img/common/ni_01.jpg') }}">
+                                            </p>
+                                        </a>
+                                        <p class="ec-favoriteRole__itemTitle">{{ '「ありがとう」を形に込めた商品を取り扱っております。' }}</p>
+                                        <p class="ec-favoriteRole__itemPrice">
+                                            {% if Product.price02_inc_tax_min == Product.price02_inc_tax_max %}
+                                                {{ Product.price02_inc_tax_min|price }}
+                                            {% else %}
+                                                {{ Product.price02_inc_tax_min|price }}～{{ Product.price02_inc_tax_max|price }}
+                                            {% endif %}
+                                        </p>
+                                    </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="ec-pagerRole">
+                        {% include "pager.twig" with {'pages': pagination.paginationData} %}
+                    </div>
+                {% else %}
+                    <div class="ec-favoriteRole_background">
+                        <div class="ec-favoriteRole__header_nodata">{{ 'お気に入りは登録されていません。'|trans }}</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="ec-navlistRole_SP">
+        <ul class="ec-navlistRole__navlist_SP">
+            <li class="ec-navlistRole__item_SP">
+                <a href="https://gift-communication.shop/mypage/">ご注文履歴</a>
+            </li>
+            <li class="ec-navlistRole__item_SP">
+                <a href="https://gift-communication.shop/plugin/yamatosubscription/mypage">定期購入履歴</a>
+            </li>
+            <li class="ec-navlistRole__item_SP active">
+                <a href="https://gift-communication.shop/mypage/favorite">お気に入り一覧</a>
+            </li>
+            <li class="ec-navlistRole__item_SP">
+                <a href="https://gift-communication.shop/mypage/change">会員情報編集</a>
+            </li>
+            <li class="ec-navlistRole__item_SP">
+                <a href="https://gift-communication.shop/mypage/delivery">お届け先一覧</a>
+            </li>
+            <li class="ec-navlistRole__item_SP">
+                <a href="https://gift-communication.shop/mypage/kuronekocredit">カード編集</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

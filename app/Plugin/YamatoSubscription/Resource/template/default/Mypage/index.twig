@@ -1,0 +1,167 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'yamatosubscription' %}
+
+{% set body_class = 'mypage' %}
+
+{% block stylesheet %}
+<style>
+.ec-historyListHeader .ec-historyListHeader__action a {
+    font-weight: bold;
+}
+</style>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$(function() {
+    $('button[data-path]').on('click', function(e) {
+        /*
+        loadingOverlay();
+        setTimeout(function () {
+            loadingOverlay("hide");
+        }, 2000);
+        */
+        location.href = $(this).data('path');
+    });
+
+    $('.cancel-subscription-button').on('click', function(e) {
+
+        if (!confirm("{{ 'yamatosubscription.mypage.list.confirm_cancel'|trans }}")) {
+            e.preventDefault();
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="ec-layoutRole__main">
+    <div class="ec-mypageRole">
+        <div class="ec-pageHeader">
+            <h1>{{ 'front.mypage.title'|trans }}/{{ 'yamatosubscription.mypage.list.nav'|trans }}</h1>
+        </div>
+        {% include 'Mypage/navi.twig' %}
+    </div>
+    <div class="ec-mypageRole">
+        {% if pagination.totalItemCount > 0 %}
+            <p class="ec-para-normal">{{ 'front.mypage.history_count'|trans({'%count%':pagination.totalItemCount}) }}</p>
+            {% for yamatoSubsOrders in pagination %}
+                <div class="ec-historyRole">
+                    <div class="ec-historyRole__contents">
+
+                        <div class="ec-historyRole__header">
+                            <div class="ec-historyListHeader">
+                                <p class="ec-historyListHeader__date">{{ yamatoSubsOrders.o.orderDate|date_sec }}</p>
+                                <dl class="ec-definitions">
+                                    <dt>{{ 'front.mypage.order_no'|trans }}</dt>
+                                    <dd>{{ yamatoSubsOrders.o.orderNo }}</dd>
+                                </dl>
+                                <dl class="ec-definitions">
+                                    <dt>{{ 'yamatosubscription.mypage.list.subs_month_period'|trans }}</dt>
+                                    <dd>{{ yamatoSubsOrders.ys.subsMonthPeriod }}ヶ月</dd>
+                                </dl>
+                                <dl class="ec-definitions">
+                                    <dt>{{ 'yamatosubscription.mypage.list.delivery_count'|trans }}</dt>
+                                    <dd>{{ yamatoSubsOrders.ys.deliveryCount }}</dd>
+                                </dl>
+                                {% if yamatoSubsOrders.ys.cancelledDate is not null %}
+                                    <p class="ec-historyListHeader__action">
+                                        {{ 'yamatosubscription.mypage.list.already_cancelled_at'|trans({'%cancelled_date%': yamatoSubsOrders.ys.cancelledDate|date('Y/m/d')}) }}
+                                    </p>
+                                {% else %}
+                                    <p class="ec-historyListHeader__action">
+                                        <button type="button" class="ec-inlineBtn" data-path="{{ path('plugin_yamato_subscription_mypage_detail', {'id': yamatoSubsOrders.ys.id}) }}">{{ 'yamatosubscription.mypage.list.update_subs_month_period_button'|trans }}</button>
+                                    </p>
+                                    <p class="ec-historyListHeader__action">
+                                        <button type="button" class="ec-inlineBtn" data-path="{{ path('plugin_yamato_subscription_mypage_change_credit_card', {'id': yamatoSubsOrders.ys.id}) }}">{{ 'yamatosubscription.mypage.list.change_using_credit_card_button'|trans }}</button>
+                                    </p>
+                                    {% if yamatoSubsOrders.cancellable %}
+                                        <form id="history_cancel_form--{{ yamatoSubsOrders.ys.id }}" method="POST" action="{{ url('plugin_yamato_subscription_mypage_cancel', {'id': yamatoSubsOrders.ys.id}) }}">
+                                            <p class="ec-historyListHeader__action">
+                                                <button type="submit" class="ec-inlineBtn cancel-subscription-button">{{ 'yamatosubscription.mypage.list.cancel_button'|trans }}</button>
+                                            </p>
+                                        </form>
+                                    {% else %}
+                                        <p class="ec-historyListHeader__action">
+                                            <button type="button" class="ec-inlineBtn cancel-subscription-button" data-not-cancellable="1">{{ 'yamatosubscription.mypage.list.cancel_button'|trans }}</button>
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if yamatoSubsOrders.ysuo is null %}
+                        {# 定期購入内容を変更できる対応の実施前に定期購入している場合、YamatoSubsUsersOrderのデータではなくOrderのデータを表示 #}
+                        <div class="ec-historyRole__detail">
+                            {% for OrderItem in yamatoSubsOrders.o.MergedProductOrderItems %}
+                                <div class="ec-imageGrid">
+                                    <div class="ec-imageGrid__img">
+                                        {% if OrderItem.Product is null %}
+                                            <img src="{{ asset(''|no_image_product, 'save_image') }}"/>
+                                        {% else %}
+                                            <img src="{{ asset(OrderItem.Product.MainListImage|no_image_product, 'save_image') }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="ec-imageGrid__content">
+                                        <p class="ec-historyRole__detailTitle">{{ OrderItem.productName }}</p>
+                                        {% if OrderItem.classCategoryName1 is not empty %}
+                                            {{ OrderItem.classCategoryName1 }}
+                                        {% endif %}
+                                        {% if OrderItem.classCategoryName1 is not empty %}
+                                            / {{ OrderItem.classCategoryName2 }}
+                                        {% endif %}
+                                        <p class="ec-historyRole__detailPrice">{{ OrderItem.priceIncTax|price }}
+                                            × {{ OrderItem.quantity }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="ec-historyRole__detail">
+                            {% for YamatoSubsUsersOrderItem in yamatoSubsOrders.ysuo.MergedProductOrderItems %}
+                                <div class="ec-imageGrid">
+                                    <div class="ec-imageGrid__img">
+                                        {% if YamatoSubsUsersOrderItem.Product is null %}
+                                            <img src="{{ asset(''|no_image_product, 'save_image') }}"/>
+                                        {% else %}
+                                            <img src="{{ asset(YamatoSubsUsersOrderItem.Product.MainListImage|no_image_product, 'save_image') }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="ec-imageGrid__content">
+                                        <p class="ec-historyRole__detailTitle">{{ YamatoSubsUsersOrderItem.productName }}</p>
+                                        {% if YamatoSubsUsersOrderItem.classCategoryName1 is not empty %}
+                                            {{ YamatoSubsUsersOrderItem.classCategoryName1 }}
+                                        {% endif %}
+                                        {% if YamatoSubsUsersOrderItem.classCategoryName2 is not empty %}
+                                            / {{ YamatoSubsUsersOrderItem.classCategoryName2 }}
+                                        {% endif %}
+                                        <p class="ec-historyRole__detailPrice">{{ YamatoSubsUsersOrderItem.priceIncTax|price }}
+                                            × {{ YamatoSubsUsersOrderItem.quantity }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="ec-pagerRole">
+                {% include "pager.twig" with {'pages': pagination.paginationData} %}
+            </div>
+        {% else %}
+            <p class="ec-para-normal">{{ 'front.mypage.history_not_found'|trans }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+1690382592
+eccube_entity_news%255Beccube_entity_news_eccube.entity.news_2%255D%255B1%255D
+O:35:"Doctrine\ORM\Cache\EntityCacheEntry":2:{s:4:"data";a:10:{s:2:"id";i:2;s:12:"publish_date";O:8:"DateTime":3:{s:4:"date";s:26:"2021-01-09 15:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:5:"title";s:48:"【※重要】決済の一時停止について";s:11:"description";s:380:"システム改修に伴い、一部決済を停止させていただきます。
+
+--------------------------------------------------
+2021年1月11日(月・祝) 0:00〜8:00
+・クレジットカード決済
+・後払い決済
+--------------------------------------------------
+
+大変申し訳ありませんが、ご確認の上対応よろしくお願い致します。";s:3:"url";N;s:11:"link_method";b:0;s:11:"create_date";O:8:"DateTime":3:{s:4:"date";s:26:"2021-01-09 15:30:34.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:11:"update_date";O:8:"DateTime":3:{s:4:"date";s:26:"2021-03-12 01:42:56.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:7:"visible";b:1;s:10:"creator_id";i:12;}s:5:"class";s:18:"Eccube\Entity\News";}

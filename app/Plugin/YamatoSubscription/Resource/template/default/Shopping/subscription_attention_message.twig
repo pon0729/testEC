@@ -1,0 +1,27 @@
+<style>
+.subscription-attention-message-area {
+    margin: 0.5em auto;
+}
+
+.subscription-attention-message {
+    margin-top: 1em;
+    color: #DE5D50;
+}
+</style>
+
+<script>
+$(function() {
+    // 定期購入の注意書きを常に表示させる事で、定期購入がある事をユーザーに認知させる
+    $('.ec-totalBox').append($('#subscription_attention_message_area'));
+    $('#subscription_attention_message_area_wrapper').remove();
+});
+</script>
+
+<div id="subscription_attention_message_area_wrapper" class="d-none">
+    <div id="subscription_attention_message_area" class="subscription-attention-message-area">
+        <p class="subscription-attention-message">※定期購入をご希望の方はお支払い方法をクレジットカードに選択してください。</p>
+        {% if is_granted('ROLE_USER')  == false %}
+        <p class="subscription-attention-message">※定期購入をご希望の方はログインが必要です。ログインしてから「定期購入」メニューを選択してください。</p>
+        {% endif  %}
+    </div>
+</div>

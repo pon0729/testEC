@@ -1,0 +1,25 @@
+<style>
+.current-referral-code-status {
+    margin-bottom: 0.6em;
+}
+</style>
+<script>
+$(function() {
+    var $contactArea = $('.ec-orderDelivery');
+    $contactArea.before($('#referral_code_shopping_item_confirm_area'));
+    $('#referral_code_shopping_item_confirm_area_wrapper').remove();
+});
+</script>
+<div id="referral_code_shopping_item_confirm_area_wrapper" class="d-none">
+    <div id="referral_code_shopping_item_confirm_area" class="ec-orderPayment">
+        <div class="ec-rectHeading">
+            <h2>{{ 'referral_code.shopping.index.referral_code_info'|trans }}</h2>
+        </div>
+        <div class="ec-input">
+            <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code'|trans({'%referral_code%': ReferralCodeOrder.referralCode}) }}</strong></p>
+            {% if ReferralCodeOrder.discount > 0 %}
+                <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code_sub'|trans }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+</div>

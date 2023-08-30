@@ -1,0 +1,17 @@
+<script>
+$(function() {
+    const $creditDeleteButton = $('#credit_delete');
+    $creditDeleteButton.on('click', function(e) {
+        const $checkedCardKeyRadioButton = $('input[name="card_key"]:checked');
+        const $cardInfoSpan = $checkedCardKeyRadioButton.parent().parent().find("td:nth-child(3) span:contains(カード番号：)");
+        const $last4DigitsCardNumber = $cardInfoSpan.text().split('カード番号：************')[1].substr(0, 4);
+        if ('{{ str_current_subs_credit_card_keys }}'.includes($last4DigitsCardNumber)) {
+            alert('{{ 'yamatosubscription.mypage.creditcard.cannot_delete_if_subscripting'|trans }}');
+            e.stopImmediatePropagation();
+            return false;
+        }
+    });
+    const clickEventHandlers = $._data($creditDeleteButton.get(0)).events.click;
+    clickEventHandlers.unshift(clickEventHandlers.pop());
+});
+</script>

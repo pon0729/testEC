@@ -1,0 +1,145 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% set Categories = repository('Eccube\\Entity\\Category').getList() %}
+
+{% macro tree(Category) %}
+    {% from _self import tree %}
+    <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+        {{ Category.name }}
+    </a>
+    {% if Category.children|length > 0 %}
+        <ul>
+            {% for ChildCategory in Category.children %}
+                <li>
+                    {{ tree(ChildCategory) }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% block javascript %}
+<script>
+$(function() {
+  var isSlideUp = true;
+  $('.ec-headerCategoryArea__heading').on('click', function() {
+    $(this).toggleClass('active');
+    if (isSlideUp = !isSlideUp) {
+      $(this).next('.ec-itemNav').slideUp();
+    } else {
+      $(this).next('.ec-itemNav').slideDown();
+    }
+  });
+});
+</script>
+{% endblock %}
+
+{# @see https://github.com/bolt/bolt/pull/2388 #}
+{% from _self import tree %}
+
+<div class="ec-headerCategoryArea">
+    {#
+    <div class="ec-headerCategoryArea__heading">
+        <p>カテゴリから探す</p>
+    </div>
+    <div class="ec-itemNav" style="display: none">
+        <ul class="ec-itemNav__nav">
+            {% for Category in Categories %}
+                <li>
+                    {{ tree(Category) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    #}
+    <div class="ec-categoryNav__list">
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: 7 }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/SP_category_food.svg') }}">
+                <p><strong>食品</strong></p>
+                <p>FOOD</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: 8 }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/SP_category_daily.svg') }}">
+                <p><strong>日用品</strong></p>
+                <p>DAILY ITEM</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: 11 }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/SP_category_general.svg') }}">
+                <p><strong>日常を彩るもの</strong></p>
+                <p>GENERAL ITEM</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: 10 }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/SP_category_baby.svg') }}">
+                <p><strong>ベビー用品</strong></p>
+                <p>BABY</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: 14 }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/PC_category_supplement.svg') }}">
+                <p><strong>サプリメント</strong></p>
+                <p>SUPPLEMENT</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+        <div class="ec-categoryNav__listItem">
+            <a href="{{ url('product_list', { category_id: null }) }}">
+                <img src="{{ asset('/html/user_data/assets/img/category/SP_category_all.svg') }}">
+                <p><strong>全商品</strong></p>
+                <p>ALL</p>
+            </a>
+        <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+        </div>
+    </div>
+    <div class="ec-itemPageLinkNav">
+      <ul>
+        {#
+        <li>
+          <a href="{{ url('homepage') }}">ホーム</a>
+        </li>
+        <li>
+          <a href="{{ url('product_list') }}">商品一覧</a>
+        </li>
+        #}
+        <li>
+          <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+          <a href="{{ url('help_about') }}">当サイトについて</a>
+        </li>
+        <li>
+          <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+          <a href="{{ url('help_guide') }}">ご利用ガイド</a>
+        </li>
+        <li>
+          <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+          <a href="{{ url('help_privacy') }}">プライバシーポリシー</a>
+        </li>
+        <li>
+          <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+          <a href="{{ url('help_tradelaw') }}">特定商取引法に基づく表記</a>
+        </li>
+        <li>
+          <img src="/html/user_data/assets/img/category/sp_arrow.svg">
+          <a href="{{ url('contact') }}">お問い合わせ</a>
+        </li>
+      </ul>
+    </div>
+</div>

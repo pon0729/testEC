@@ -1,0 +1,89 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+<script>
+// 商品明細行を追加する.
+function fnAddCategory($row, category_id, category_name) {
+    var prototype = $categoryCollectionHolder.data('prototype');
+    var newForm = prototype
+      .replace(/__name__/g, categoryDetailLength)
+      .replace(/99999999998/g, category_id) // 本当は__category_id__で置換したかったが、url()関数のidパラメータが数値なのでdummyで設定したcategory_idを置き換える
+      .replace(/__category_name__/g, category_name);
+    $categoryCollectionHolder.children('tbody').append(newForm);
+    var $lastRow = $categoryCollectionHolder.children('tbody').children('tr').last();
+
+    $($lastRow).find(detailFormIdPrefix + categoryDetailLength + '_Category').val(category_id);
+    $($lastRow).find(detailFormIdPrefix + categoryDetailLength + '_referral_code_type').val({{ constant('Plugin\\ReferralCode\\Entity\\ReferralCode::CATEGORY') }});
+
+    // モーダル閉じる.
+    $('#addCategory').modal('hide');
+
+    categoryDetailLength++;
+
+    return false;
+}
+
+// 商品検索
+$('#category_pagination a').on('click', function(event) {
+    if (!$(this).parent().is('.active')) {
+        var list = $('#searchCategoryModalList');
+        list.children().remove();
+
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data) {
+            $('#searchCategoryModalList').html(data);
+        }).fail(function(data) {
+            alert('search category failed.');
+        });
+    }
+
+    event.preventDefault();
+});
+</script>
+
+
+<table class="table table-striped table-sm mb-3">
+    <thead class="table-active">
+    <tr>
+        <th class="pt-2 pb-2 pl-3">{{ 'referral_code.admin.edit.category_modal.search_result.header.category_id'|trans }}</th>
+        <th class="pt-2 pb-2 pl-3">{{ 'referral_code.admin.edit.category_modal.search_result.header.category_name'|trans }}</th>
+        <th class="pt-2 pb-2 pr-3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for Category in pagination %}
+        <form name="category_form{{ Category.id }}">
+            {% set form = forms[Category.id] %}
+            <tr>
+                <td class="align-middle pl-3">
+                    {{ Category.id }}
+                </td>
+                <td class="align-middle pl-3">
+                    <p class="m-0"> {{ Category.name }}</p>
+                </td>
+                <td class="align-middle pr-3 text-right">
+                    <button type="button" class="btn btn-ec-actionIcon" onclick="fnAddCategory($(this).parent().parent(), {{ Category.id }}, '{{ Category.name }}');" name="mode" value="modal">
+                        <i class="fa fa-plus fa-lg font-weight-bold text-secondary"></i>
+                    </button>
+                </td>
+            </tr>
+        </form>
+    {% endfor %}
+    </tbody>
+</table>
+{% if pagination.totalItemCount > 0 %}
+    <div id="category_pagination" class="row justify-content-md-center mb-4">
+        {% include "@admin/pager.twig" with {'pages': pagination.paginationData, 'routes': 'plugin_referral_code_admin_search_category_page'} %}
+    </div>
+{% endif %}

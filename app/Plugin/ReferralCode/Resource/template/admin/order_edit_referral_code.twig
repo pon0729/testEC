@@ -1,0 +1,26 @@
+<script>
+$(function() {
+    $('.c-contentsArea__cols .c-primaryCol').append($('#order_edit_referral_code_area'));
+    $('#order_edit_referral_code_area_wrapper').remove();
+});
+</script>
+<div id="order_edit_referral_code_area_wrapper" class="d-none">
+    <div id="order_edit_referral_code_area" class="card rounded border-0 mb-4">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-8">
+                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.order.tooltip.referral_code_info'|trans }}"><span class="card-title">{{ 'referral_code.admin.order.referral_code_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                </div>
+                <div class="col-4 text-right"><a data-toggle="collapse" href="#referral_codeArea" aria-expanded="false" aria-controls="referral_codeArea"><i class="fa fa-angle-up fa-lg"></i></a></div>
+            </div>
+        </div>
+        <div class="collapse {# show #}ec-cardCollapse" id="referral_codeArea">
+            <div class="card-body row">
+                <label class="col-3">{{ 'referral_code.admin.order.referral_code_label'|trans }}</label>
+                <div class="col">
+                    {{ referral_code }}&nbsp;&nbsp;{{ referral_code_name }}
+                </div>
+            </div>
+        </div>
+    </div><!-- #order_edit_referral_code_area -->
+</div>

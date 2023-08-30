@@ -1,0 +1,2438 @@
+1690380221
+%255B364f5efe8b66290d4a9ff7c136e78ad0e1697407%255D%255B1%255D
+a:1:{s:4100:"query=SELECT d0_.id AS id_0, d0_.name AS name_1, d0_.note AS note_2, d0_.description_list AS description_list_3, d0_.description_detail AS description_detail_4, d0_.search_word AS search_word_5, d0_.free_area AS free_area_6, d0_.create_date AS create_date_7, d0_.update_date AS update_date_8, d0_.message AS message_9, d0_.reserve_date AS reserve_date_10, d1_.id AS id_11, d1_.product_code AS product_code_12, d1_.stock AS stock_13, d1_.stock_unlimited AS stock_unlimited_14, d1_.sale_limit AS sale_limit_15, d1_.price01 AS price01_16, d1_.price02 AS price02_17, d1_.delivery_fee AS delivery_fee_18, d1_.visible AS visible_19, d1_.create_date AS create_date_20, d1_.update_date AS update_date_21, d1_.currency_code AS currency_code_22, d1_.point_rate AS point_rate_23, d2_.id AS id_24, d2_.tax_rate AS tax_rate_25, d2_.tax_adjust AS tax_adjust_26, d2_.apply_date AS apply_date_27, d2_.create_date AS create_date_28, d2_.update_date AS update_date_29, d3_.id AS id_30, d3_.stock AS stock_31, d3_.create_date AS create_date_32, d3_.update_date AS update_date_33, d4_.id AS id_34, d4_.backend_name AS backend_name_35, d4_.name AS name_36, d4_.sort_no AS sort_no_37, d4_.visible AS visible_38, d4_.create_date AS create_date_39, d4_.update_date AS update_date_40, d5_.id AS id_41, d5_.backend_name AS backend_name_42, d5_.name AS name_43, d5_.sort_no AS sort_no_44, d5_.visible AS visible_45, d5_.create_date AS create_date_46, d5_.update_date AS update_date_47, d6_.id AS id_48, d6_.file_name AS file_name_49, d6_.sort_no AS sort_no_50, d6_.create_date AS create_date_51, d7_.id AS id_52, d7_.create_date AS create_date_53, d0_.discriminator_type AS discriminator_type_54, d0_.creator_id AS creator_id_55, d0_.product_status_id AS product_status_id_56, d1_.discriminator_type AS discriminator_type_57, d1_.product_id AS product_id_58, d1_.sale_type_id AS sale_type_id_59, d1_.class_category_id1 AS class_category_id1_60, d1_.class_category_id2 AS class_category_id2_61, d1_.delivery_duration_id AS delivery_duration_id_62, d1_.creator_id AS creator_id_63, d2_.discriminator_type AS discriminator_type_64, d2_.product_class_id AS product_class_id_65, d2_.creator_id AS creator_id_66, d2_.country_id AS country_id_67, d2_.pref_id AS pref_id_68, d2_.product_id AS product_id_69, d2_.rounding_type_id AS rounding_type_id_70, d3_.discriminator_type AS discriminator_type_71, d3_.product_class_id AS product_class_id_72, d3_.creator_id AS creator_id_73, d4_.discriminator_type AS discriminator_type_74, d4_.class_name_id AS class_name_id_75, d4_.creator_id AS creator_id_76, d5_.discriminator_type AS discriminator_type_77, d5_.class_name_id AS class_name_id_78, d5_.creator_id AS creator_id_79, d6_.discriminator_type AS discriminator_type_80, d6_.product_id AS product_id_81, d6_.creator_id AS creator_id_82, d7_.discriminator_type AS discriminator_type_83, d7_.product_id AS product_id_84, d7_.tag_id AS tag_id_85, d7_.creator_id AS creator_id_86 FROM dtb_product d0_ INNER JOIN dtb_product_class d1_ ON d0_.id = d1_.product_id AND d1_.discriminator_type IN ('productclass') LEFT JOIN dtb_tax_rule d2_ ON d1_.id = d2_.product_class_id AND d2_.discriminator_type IN ('taxrule') INNER JOIN dtb_product_stock d3_ ON d1_.id = d3_.product_class_id AND d3_.discriminator_type IN ('productstock') LEFT JOIN dtb_class_category d4_ ON d1_.class_category_id1 = d4_.id AND d4_.discriminator_type IN ('classcategory') LEFT JOIN dtb_class_category d5_ ON d1_.class_category_id2 = d5_.id AND d5_.discriminator_type IN ('classcategory') LEFT JOIN dtb_product_image d6_ ON d0_.id = d6_.product_id AND d6_.discriminator_type IN ('productimage') LEFT JOIN dtb_product_tag d7_ ON d0_.id = d7_.product_id AND d7_.discriminator_type IN ('producttag') WHERE (d0_.id IN (409, 399, 395, 357, 198, 199, 207, 208, 201, 202, 203, 360, 359, 356, 308, 186, 281, 219, 270, 271) AND d1_.visible = ?) AND d0_.discriminator_type IN ('product') ORDER BY d4_.sort_no DESC, d5_.sort_no DESC, d6_.sort_no ASC&params=a:1:{i:0;b:1;}&types=a:1:{i:0;s:7:"boolean";}&connectionParams=8cb5f3e7305287bc8b447869ed49068f39e2a3dd7694fae4f996e173ec249da3";a:27:{i:0;a:87:{s:4:"id_0";s:3:"186";s:6:"name_1";s:93:"【EARTH】アースハート ナチュラルオイル ヘア&ボディ&ハンド用オイル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:822:"今日はどんな髪型で楽しもうか。<br>
+朝のセットは完ぺきだったのに、午後には乾燥が目立ってきてしまうことありますよね。<br>
+ナチュラルオイルはしっとり感がなんと一日中続き、つけたてのウェットスタイルを一日中楽しめます。<br>
+全国展開されている美容室EARTHが開発し、最高と謳うヘア&ボディ&ハンドオイルです。<br>
+肌にもやさしい成分なので、髪にも安心して使えますよね。<br>
+見た目のシンプルでおしゃれで、洗面台のインテリアにもなりそうです。<br>
+朝も昼も夜もナチュラルでみずみずしいヘアスタイルを保てます。<br>
+ご自身用でも、プレゼントにも。おすすめの商品です。<br>
+<br><br>";s:13:"search_word_5";s:76:"アース,EARTH,ナチュラルオイル,ヘア,ハンド,ボディオイル";s:11:"free_area_6";s:4786:"<div class="product-description">
+    <div class="product-description__title">
+       うるおいの秘密
+    </div>
+    <div class="product-description__contents">
+うるおい効果の秘密は、最近注目されているシアバターです。シアバターには人の皮脂と似た成分が含まれており、髪・肌なじみが良くて長時間保湿力が続きます。<br>
+その他、肌を柔軟化させるコメヌカや浸透力が高いひまわり、うるおいを閉じ込めるオリーブ、抗酸化作用のあるゴマオイルなど厳選された自然のオイルを使用しています。<br>
+天然成分由来であるため、髪を乾燥から守りながらもボディオイルとしても使用できるのが驚きでうれしい特典ですね。<br>
+さらにベルガモットとオレンジのシトラス系の爽やかな香りがリフレッシュにもなります。<br>
+朝の準備の時間に。お出かけ前の気分のリセットに。身も心もナチュラルに楽しむ一日を創りましょう。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+         毎日をキレイに
+    </div>
+    <div class="product-description__contents">
+忙しい毎日の朝の時間も楽しむ時間に。<br>
+お友達へのプレゼントに。<br>
+イメージをガラッと変えたいときに。<br>
+どんな瞬間でもキレイを目指す女性のためのヘア&ボディ&ハンドオイルです。
+    </div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+      商品詳細
+    </div>
+    <div class="product-description__contents">
+    美容室EARTH<br>
+100年続く美容室を。少しでも気分よくなってもらうため、美と健康から世界中を笑顔にしている美容室EARTH。<br>
+非日常空間、最新のヘアスタイル、オーガニック、リラクゼーション、サービスにこだわり全国に約240店舗以上のサロンをオープンしています。<br>
+カットやカラーやスパなどの美容室でできる美だけでなく、普段使いのケアアイテムまでも開発し日々の暮らしから出来る美を再現するために今もなお成長し続け、社会に貢献している企業です。<br>
+<br>
+<ul><li>香り</li>
+ベルガモットとオレンジのシトラスフルーティーな香り。<br>
+<li>適したスタイル</li>
+ボリュームを抑えたタイトなスタイル。パサつく毛先にうるおいを与えたいときに。</ul>
+</div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+コメヌカ油、ミネラルオイル、ゴマ油、サフラワー油、ヒマワリ種子油、ホホバ種子油、シア脂油、オリーブ油、スクワラン、ベルガモット果実油、オレンジ果皮油、グレープフルーツ果皮油、ユズ果皮油、トコフェロール
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+     150mL<br>
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+使用方法
+    </div>
+    <div class="product-description__contents">
+<ul><li>ウェットスタイルにしたい場合は、洗髪後軽くタオルドライし髪が濡れた状態でオイルをなじませます。</li>
+<li>アウトバスオイルとしてご使用の場合はタオルドライ後、適量を手の平でのばし、毛先中心に塗布して髪全体によくなじませ乾かして仕上げます。</li>
+<li>お肌にご使用の場合は適量をよくなじませてお使いください。</li>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>お肌に合わないときは、ご使用をおやめください。</li>
+<li>目に入った際は、すぐに洗い流してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>直射日光の当たる場所や極端に低温・高温の場所に保管しないでください。</li>
+<li>天然由来成分を含んでいるため、まれに変色・沈殿物が出ることがありますが品質に問題はございません。</li></ul>
+</div>
+</div>";s:13:"create_date_7";s:19:"2021-02-23 14:31:59";s:13:"update_date_8";s:19:"2023-04-01 00:28:35";s:9:"message_9";s:116:"一日中ナチュラルを楽しむ。<br> オーガニックのオイルで髪や肌を乾燥から守ります。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"215";s:15:"product_code_12";s:13:"4540688945003";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3190.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-02-23 14:31:59";s:14:"update_date_21";s:19:"2023-04-01 00:28:35";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"215";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2021-02-23 14:31:59";s:14:"update_date_33";s:19:"2023-04-01 00:28:35";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1104";s:12:"file_name_49";s:28:"0401092831_64277aaf79e82.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-04-01 00:28:35";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"186";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"215";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"186";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:1;a:87:{s:4:"id_0";s:3:"198";s:6:"name_1";s:38:"【Be】フォームウォッシング";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:2009:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+洗顔をする時の大切なポイントは、極力摩擦を起こさない事。<br>
+<br>
+肌に優しい洗顔をするためには、しっかりと泡立てた洗顔料で洗った方がいいことをご存じの方は多いのではないでしょうか。
+しかし仕事や家事で疲れた後には、お風呂へ向かっても泡立てるのが面倒になり、泡が粗かったりそもそも泡立てずに使ってしまった経験、皆さまもあるのではないでしょうか。<br>
+<br>
+さらに男性の方は、刺激が強い方がしっかり落ちると思って、ゴシゴシと洗顔してしまう方も多いと思います。<br>
+
+<br>
+フワフワの泡で肌に優しく洗顔することが大切というのは、最近知られるようになりました。<br>
+本製品は配合成分に拘る事はもちろん、ポンプの部分にも拘っている為、ワンプッシュで簡単にきめ細かい泡が出てくる設計となっております。<br>
+<br>
+また自然に油を浮かす事が出来るという研究結果も出ている濃密泡は、ゴシゴシ擦る必要が無いため肌への負担を減らすことが出来ます。<br>
+<br>
+本製品は肌の大敵、紫外線対策にも効果がある成分が入っております。
+それがアロエベラ液汁と呼ばれる成分です。
+アロエベラ液汁は、紫外線を浴びた皮膚の過剰な細胞死を抑制し、皮膚を紫外線から守る効果があります。<br>
+<br>
+
+香りもリラックス効果のあるラベンダーとベルガモット、ハーブ由来のすっきりとしたローズマリーをベースにした独自配合の精油を使用しています。
+ほのかに香る爽やかな香りを是非体感してみませんか。
+
+
+    </div>
+</div>";s:13:"search_word_5";s:104:"be,オーガニック,美容,ギフト,洗顔,スキンケア,基礎化粧品,ご褒美,肌ケア,保湿";s:11:"free_area_6";s:4120:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+独自の精油ブレンド<br>
+1日の始まりと終わりをこの香りで迎えたいと思わせるリラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自のオーガニック精油ブレンドです。<br><br>
+
+精油とは<br>
+精油は植物の香り成分を抽出したエッセンスです。<br>
+花や葉、果皮、根などを蒸したり、皮を搾ったりして抽出します。精油１kgを得るために、ラベンダーなら花穂を100～200kg、<br>ローズなら花を3～5トン※も必要とします。<br>
+大量の原料植物から、ほんの少ししか採れない貴重なエッセンスです。<br>
+<br>
+※ 産地や生産条件などにより異なります。<br>
+
+
+    </div>
+
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+        水、アロエベラ液汁、プロパンジオール、ラウリン酸ポリグリセリル-10、ココイルグルタミン酸2Na、グリコシルトレハロース、加水分解水添デンプン、ジグリセリン、ココイルグルタミン酸Na、ラベンダー水、カミツレ水、ローズマリーエキス、レモングラスエキス、セージ葉エキス、チャ葉エキス、タチジャコウソウ花/葉/茎エキス、ツボクサ葉エキス、ホホバ種子油、アーモンド油、ラベンダー油、ローズマリー葉油、ベルガモット果皮油、フィトスフィンゴシン、スイゼンジノリ多糖体、クエン酸、クエン酸Na、グルコン酸Na、デヒドロ酢酸、ベタイン、ベンジルアルコール、エタノール
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+        150ml
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        手と顔を濡らした後、3～4プッシュを手のひらにとり、顔全体に下から上に均一にのばし、泡を転がすように丁寧に洗顔します。その後、ぬるま湯で洗い流してください。
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+<ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。<br>
+1.使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2.お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。<br>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+
+<li>開封後はお早めにご使用ください。</li>
+</ul>
+
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-29 15:26:02";s:13:"update_date_8";s:19:"2023-04-05 03:34:13";s:9:"message_9";s:177:"ワンプッシュできめ細かな濃密泡が肌を優しく包み込む<br> 擦らないのにしっかり汚れを落とせる濃密泡を実感してみませんか。<br>";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"227";s:15:"product_code_12";s:13:"4580027592017";s:8:"stock_13";N;s:18:"stock_unlimited_14";s:1:"1";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4620.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-29 15:26:02";s:14:"update_date_21";s:19:"2023-04-05 03:34:13";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"227";s:8:"stock_31";N;s:14:"create_date_32";s:19:"2021-05-29 15:26:02";s:14:"update_date_33";s:19:"2022-03-14 13:43:45";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"632";s:12:"file_name_49";s:28:"0423155001_6263a19906796.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 06:50:02";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"198";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"2";s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"227";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"198";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:2;a:87:{s:4:"id_0";s:3:"199";s:6:"name_1";s:23:"【Be】ローション";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:2100:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+        毎日のスキンケアに欠かせないローション。よりお肌に良い成分が入っているものを選びたいですよね。そこでおすすめなのが、このローションです。<br>
+<br>
+        このローションをはじめとするエッセンスとクリームには、お肌のハリや弾力に効果のあるパワープラント幹細胞エリンジウムマリチマムや、お肌の透明感を引き出すマリンプラント幹細胞クリスマムマリチマムが配合されています。角質層にうるおいを与え、ハリのあるお肌だと毎日が楽しいですよね。<br>
+しっとりタイプのローションで伸びがよく、お肌にたっぷりとうるおいを与えます。肌なじみが良いので、ローションをつけた後、時間を置かずにお化粧することができます。<br>
+<br>
+天然由来成分を多く含んでいる化粧品は、化学物質や添加物を最低限に抑えているのが特徴です。このローションには、肌にダメージの少ない天然由来成分が配合されているので、女性ホルモンの乱れや体調崩れによる肌トラブルにお悩みのかたも、イキイキとした美肌を実感できます。<br>
+<br>
+本製品にはローションの他に、美容エッセンスとクリームがあります。スキンケアの多くは同じメーカーのシリーズ製品を使うことで、お肌に必要な成分を得ることができます。お肌にうるおいを与えるローション、美容成分が凝縮されたエッセンス、そして美容成分をお肌に閉じ込めるクリームの3セットでご使用いただくと、よりうるおいをお肌に閉じ込めることができます。ローション→エッセンス→クリームの順番でお使いいただくのがおすすめです。
+    </div>
+</div>";s:13:"search_word_5";s:107:"be,オーガニック,美容,ギフト,化粧水,スキンケア,基礎化粧品,ご褒美,肌ケア,保湿";s:11:"free_area_6";s:5214:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+        本製品は、「鉱物油、パラベン、石油系界面活性剤、合成香料、合成着色料、動物由来原料」を添加しておらず、全成分中の95％が天然由来です。<br>
+また、ラベンダー・ローズマリー・ベルガモットをベースとした独自の精油ブレンドにより、心地よい香りが心もリフレッシュさせてくれます。<br>
+これらの精油は、リラックスやストレス緩和、安眠を促す効果があるといわれております。<br>
+お肌も心も喜ぶ、贅沢なスキンケアタイムを味わってみませんか。<br>
+<br>
+天然由来成分は以下の通りとなっています。<br>
+<br>
+配合成分<br>
+<保湿成分><br>
+スイゼンジノリ多糖体、クリスマムマリチマムカルス培養液（マリンプラント幹細胞エキス）<br>
+<br>
+<整肌成分><br>
+エリンギウムマリチムムカルス培養液（パワープラント幹細胞エキス）<br>
+<br>
+<国産オーガニック原料><br>
+ラベンダー水、カモミール水、ローズマリーエキス、セージエキス、レモングラスエキス、タイムエキス、チャ葉エキス
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+        水／アロエベラ液汁＊／ BG／ペンチレングリコール／エタノール／ミリスチン酸ポリグリ セリル-10／(アスペルギルス／サッカロミセス)／(マグワ果実／コメ)発酵粕エキ ス＊＊／エリンギウムマリチムムカルス培養液／グリセリン／キサンタンガム／クエン酸／ クエン酸Na／クリスマムマリチマムカルス 培養液／セラミドAP／セラミドNP／ヒアル ロン酸Na／フィトスフィンゴシン／ゼニアオイ花／葉／茎エキス＊／セイヨウハッカ葉 エキス＊／セイヨウサクラソウ花エキス＊／ ハゴロモグサ花／葉／茎エキス＊／ベロニカオフィシナリス花／葉／茎エキス＊／メリッサ葉エキス＊／セイヨウノコギリソウ花 ／葉／茎エキス＊／ビサボロール／ シロキクラゲ多糖体／グリチルリチン酸2K／セー ジ葉エキス／チャ葉エキス＊／ツボクサ花／ 葉／茎エキス＊／デヒドロ酢酸／ヘプチルグルコシド／ベルガモット果実油＊／ベンジルアルコール／ラベンダー水＊／ ラベンダー 油＊／ローズマリー葉エキス＊／ローズマ リー葉油＊／ローマカミツレ花水＊<br>
+＊オーガニック原料<br>
+＊＊オーガニック由来原料
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        100ml
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        洗顔後、適量を手にとり、あたためてから顔の下から上に向けて肌になじませます。これを3回くり返します。
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>お肌に異常が生じていないかよく注意して使用してください。</li>
+            <li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。<br>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。</li>
+            <li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+            <li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+            <li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+            <li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+            <li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+            <li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-30 05:12:35";s:13:"update_date_8";s:19:"2023-04-05 03:35:00";s:9:"message_9";s:235:"普段のお肌のお手入れをワンランクアップして、自分のお肌をいたわる時間に。<br>角質層まで届くしっとりタイプのローションで、うるおいのある素肌を手に入れませんか。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"228";s:15:"product_code_12";s:13:"4580027592024";s:8:"stock_13";N;s:18:"stock_unlimited_14";s:1:"1";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"5830.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-30 05:12:35";s:14:"update_date_21";s:19:"2023-04-05 03:35:00";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"228";s:8:"stock_31";N;s:14:"create_date_32";s:19:"2021-05-30 05:12:35";s:14:"update_date_33";s:19:"2022-03-14 13:45:55";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"631";s:12:"file_name_49";s:28:"0423154508_6263a074e4d6a.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 06:45:09";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"199";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"228";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"199";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:3;a:87:{s:4:"id_0";s:3:"201";s:6:"name_1";s:26:"【Be】ボディソープ";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1067:"皆さんはボディソープを選ぶときに何を基準にしていますか。<br>
+化粧水や保湿クリームは成分表までチェックしているのについ、ボディソープは値段や香りで選んだり、またはCMで見かけたものを選ぶ方も多いのではないでしょうか。全身の皮膚につけるものだからこそ、保湿成分・整肌成分がしっかり入ってるか確認することが、とても大事です。<br>
+このボディソープは植物由来の石鹸をベースとして、豊かな泡立ちとしっとりとした洗い上がりを実現したボディソープです。このボディソープに含まれているボタニカルウォーターとは、植物からとれた水のことで、最近とても注目されています。化粧水は水が命と言われていますが、ボディソープもこだわった水を使っていてほしいもの。植物から取れる天然保湿成分をふんだんに使ったボディソープをご紹介いたします。<br><br><br>";s:13:"search_word_5";s:132:"be,オーガニック,健康,インナーケア,美容,ギフト,ボディーソープ,バスグッズ,お風呂,臭いケア,石鹸";s:11:"free_area_6";s:4438:"<div class="product-description">
+    <div class="product-description__title">
+        成分中の95%が天然由来
+    </div>
+    <div class="product-description__contents">
+ このボディソープは、鉱物油、バラペン、石油系界面活性剤、合成香料、合成着色料、動物由来原料を添加しておらず、全成分の95%が天然由来となっています。
+国内の農園で育てたハーブのエキスを配合することで、入浴のリラックスタイムに香りも楽しめます。<br>
+化粧水を選ぶように全身に使用するボディソープを選ぶことで、ご自身の肌トラブルを見直すきっかけやより良い肌ケア方法を見つけられます。<br>
+ぜひ、オーガニック素材にこだわったボディソープを試してみませんか。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+水、カリ石ケン素地、ココアンホ酢酸Na、ココイルメチルタウリンNa、ジステアリン酸グリコール、ラベンダー水、力ミツレ水、ラウラミノジ酢酸Na、力プリル酸グリセリル、ポリクオタニウム-51、クエン酸、塩化Na、エチルヘキシルグリセリン、ポリクオタニウム-7、ベルガモット果皮油、ラベンダー油、ローズマリー油、エタノール、アーモンド油、ホホバ種子油、ベンジルアルコール、デヒドロ酢酸、チャ葉エキス、ローズマリーエキス、セージ葉エキス、タチジャコウソウ花/葉/茎エキス、レモングラスエキス、スイゼンジノリ多糖体、ツボクサ葉エキス、フィトスフィンゴシン、トコフェロール、リン酸2Na、リン酸K、エチドロン酸、フェノキシエタノール
+<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+          240ml(1か月に使い切れるか切れないかくらいの量です)
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        サイズ
+    </div>
+    <div class="product-description__contents">
+      縦4.9cm、横4.9cｍ、高さ19.5cｍ<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用方法
+    </div>
+    <div class="product-description__contents">
+   適量を手に取り、スポンジなどで良く泡立ててから洗ってください。その後、しっかりと洗い流してください。
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意 
+    </div>
+    <div class="product-description__contents">
+    <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。
+(1)使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+(2)使用したお肌に直射日光があたり上記のような異常があらわれた場合。</li>
+<li>お肌に合わないとき・お肌に傷やはれもの、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。
+目に入った場合は、こすらずにきれいな水で洗い流してください。</li>
+<li>使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>開封後はお早めにご使用ください。</li>
+<li>天然由来原料を使用しておりますので、におい、色調などの変化が生じる場合がございますが、ご使用には問題ございません。</li>
+<li>ご使用前にセット箱記載の注意事項を必ずお読みください。</li></ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-30 08:21:50";s:13:"update_date_8";s:19:"2023-04-05 03:36:34";s:9:"message_9";s:134:"化粧水と同じく水へのこだわり。<br> 肌への潤いを考えた植物本来の香りを楽しめるボディソープ。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"230";s:15:"product_code_12";s:13:"4580027592079";s:8:"stock_13";s:2:"10";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3520.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-30 08:21:50";s:14:"update_date_21";s:19:"2023-04-05 03:36:34";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"230";s:8:"stock_31";s:2:"10";s:14:"create_date_32";s:19:"2021-05-30 08:21:50";s:14:"update_date_33";s:19:"2023-04-05 03:36:34";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"629";s:12:"file_name_49";s:28:"0423153759_62639ec737d87.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 06:38:02";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"201";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"230";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"201";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:4;a:87:{s:4:"id_0";s:3:"202";s:6:"name_1";s:23:"【Be】シャンプー";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:976:"髪もファッションの一部として考え、カラーリングやパーマなどでおしゃれを楽しみたい。<br>でも髪や頭皮のダメージも気になる。そう考えたことはありませんか。<br>
+ダメージケアは美容室でのトリートメントだけという方も多いかと思います。しかし、痛んだ髪を薬液で元気にするよりも、日頃のシャンプーでこまめにケアをする、又はダメージを減らす方がいいと思いませんか。<br>
+本シャンプーは髪と頭皮の健康を考え、こだわりのオーガニック素材かつシリコンフリーで出来ています。また天然成分の優しい香りも楽しめるので、毎日のお風呂やシャワーの時間が優雅なリラックスタイムとなります。<br>
+カラーやパーマでおしゃれも楽しみつつ、髪と頭皮を気遣いたい方へおすすめのシャンプーです。<br><br><br>";s:13:"search_word_5";s:126:"be,オーガニック,健康,インナーケア,美容,ギフト,シャンプー,バスグッズ,お風呂,ヘアケア,石鹸";s:11:"free_area_6";s:7649:"<div class="product-description">
+    <div class="product-description__title">
+         シリコンフリーの良いところ
+    </div>
+    <div class="product-description__contents">
+ シリコンとは、人工的に作られるケイ素を含む有機化合物です。ここで言うシリコンは正確にはシリコーンといい、身体に害はないといわれています。シリコンは一部の化粧品やスキンケア商品にも含まれており、肌にハリを与える効果を持つとされています。<br>そのため髪の毛がシリコンによってコーティングされることにより、髪のさわり心地がなめらかになったり、艶やハリが出たりします。その一方で、そのコーティングが一部の人にとってはアレルギーの要因になったり、髪や頭皮の負担になるとも言われ、余計なものを含まないということから自然派の方からシリコンフリーが支持を集めるようになったようです。
+    </div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        シリコンフリーは自然な美しさを保ちたい方に選ばれています
+    </div>
+    <div class="product-description__contents">
+シリコンフリーのシャンプーは、髪や頭皮への負担が少ないことから、髪や頭皮を出来る限り自然な状態で保ちます。コーティングがないことで髪の重さが無くなり、髪がペタンとなってしまう方も、ふんわり仕上がります。またパーマ剤やカラー剤の浸透がスムーズになり、シリコンシャンプー使用時よりも長持ちする傾向があるとされています。<br>
+<br>
+       シリコンフリーシャンプーは髪をコーティングしないことで自然な状態を保つことから、シリコンシャンプーを長く使っていた方にとっては洗った後にきしんだり、パサつきがあるように感じることもあると思います。コーティングがないため当然のことです。ご自身の髪の質と理想の髪に合わせてシリコンフリーかそうでないかを選択していただければと思いますが、肌に余計なものをつけず自然な美しさを保ちたいのであればシリコンフリーが良いでしょう。専門家である美容師に相談するのも一つの方法です。<br>
+シャンプーはほとんど毎日行うこと。毎日のスキンケアと同様に、髪も自然な状態で美しく保つには毎日のケアが欠かせません。頭皮にも髪にもやさしいシリコンフリーを選んでみてはいかがでしょうか。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        精油の香りと植物エキスがやさしく髪を守ります
+    </div>
+    <div class="product-description__contents">
+        このシャンプーは、パサつく髪を豊かな自然に育まれた植物の力でやさしく守ります。自然のものを豊かに配合することで、髪本来の美しさを保ち、いつまでも美しくおしゃれに過ごしたい方の願いを叶えてくれます。<br>
+人工的な香料ではなく、自然なやさしい香りにより入眠前の安らぎの時間を与えてくれます。<br>
+オーガニック素材にこだわったシャンプーを使用したい方におすすめの商品です。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+       水、ラウロイルメチルアラニンNa、ココイルグルタミン酸TEA、コカミドDEA、コカミドプロピルベタイン、スルホコハク酸ラウレス2Na、ラウロイル加水分解シルクNa、グリセリン、ホホバ種子油、オリーブ油、アルガニアスピノサ核油、加水分解ヒアルロン酸、カニナバラ果実エキス、セイヨウノコギリソウエキス、セージ葉エキス、タチジャコウソウ花/葉エキス、ラベンダー花エキス、ローズマリー葉エキス、セイヨウオトギリソウ花/葉/茎エキス、力ミツレ花エキス、フユボダイジュ花エキス、トウキンセンカ花エキス、ヤグルマギク花エキス、ローマカミツレ花エキス、ラウロイルグルタミン酸ジ(フィトステリル/オクチルドデシル)、サリチル酸、ジラウロイルグルタミン酸リシンNa(メタクリル酸グリセリルアミドエチル/メタクリル酸ステアリル)コポリマー、ココイルアルギニンエチルPCA、ベヘンジモニウムエチルリン酸ステアリル、マルトデキストリン、ウンカリアトメントサエキス、ベヘントリモニウムクロリド、ラベンダー油、オレンジ油、マンダリンオレンジ油、ベルガモット果実油、ジオレイン酸PEG-120メチルグルコース、セテアレス-60ミリスチルグリコール、ポリクオタニウム-10、PEG-20ソルビタンココエート、BG、フェノキシエタノール、エタノール、オキシベンゾン-4、クエン酸、EDTA-2Na、安息香酸Na、メチルパラベン、プロピルパラベン
+<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+          240ml(セミダブルの女性が1か月に使い切れるか切れないかくらいの量です)
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        サイズ
+    </div>
+    <div class="product-description__contents">
+     縦4.9cm、横4.9cｍ、高さ19.5cｍ<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用方法
+    </div>
+    <div class="product-description__contents">
+    髪と頭皮をよくぬらした後、適量を手にとり、頭皮をマッサージするように洗い、充分にすすいでください。
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意 
+    </div>
+    <div class="product-description__contents">
+    <ul>
+<li>使用中や、使用後に赤味・はれ・かゆみ・刺激等の異常があらわれた場合、お肌に合わないときはご使用を中止してください。</li>
+<li>使用したお肌に、直射日光があたって上記のような異常があらわれた場合は、そのまま使用を続けますと症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。</li>
+<li>傷・はれもの・湿疹等の異常があるときは、ご使用をおやめください。</li>
+<li>目に入った時は、すぐに洗い流してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>直射日光や高温・低温を避けて保管し、開封後はお早めにご使用ください。</li>
+<li>天然由来成分を含んでいるため、まれに変色・沈殿物が出ることがありますが品質に問題はございません</li>
+<li>ご使用前にセット箱記載の注意事項を必ずお読みください。</li></ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-30 08:30:57";s:13:"update_date_8";s:19:"2023-04-05 03:38:29";s:9:"message_9";s:113:"髪と頭皮のことを考えてつくられたシャンプー。<br> 毎日のケアに自然の豊かさを。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"231";s:15:"product_code_12";s:13:"4580027592055";s:8:"stock_13";s:2:"10";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4070.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-30 08:30:57";s:14:"update_date_21";s:19:"2023-04-05 03:38:29";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"231";s:8:"stock_31";s:2:"10";s:14:"create_date_32";s:19:"2021-05-30 08:30:57";s:14:"update_date_33";s:19:"2023-04-05 03:38:29";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"630";s:12:"file_name_49";s:28:"0423153933_62639f259488c.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 06:39:34";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"202";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"231";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"202";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:5;a:87:{s:4:"id_0";s:3:"203";s:6:"name_1";s:29:"【Be】トリートメント";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:976:"髪もファッションの一部として考え、カラーリングやパーマなどでおしゃれを楽しみたい。<br>でも髪や頭皮のダメージも気になる。そう考えたことはありませんか。<br>
+ダメージケアは美容室でのトリートメントだけという方も多いかと思います。しかし、痛んだ髪を薬液で元気にするよりも、日頃のトリートメントでこまめにケアする、又はダメージを減らす方がいいと思いませんか。<br>
+本商品は髪と頭皮の健康を考え、こだわりのオーガニック素材かつシリコンフリーで出来ています。また天然成分の優しい香りも楽しめるので、毎日のお風呂やシャワーの時間が優雅なリラックスタイムとなります。<br>
+カラーやパーマでおしゃれも楽しみつつ、髪と頭皮を気遣いたい方へおすすめのトリートメントです。<br><br><br>";s:13:"search_word_5";s:132:"be,オーガニック,健康,インナーケア,美容,ギフト,トリートメント,バスグッズ,お風呂,ヘアケア,石鹸";s:11:"free_area_6";s:7903:"<div class="product-description">
+    <div class="product-description__title">
+         シリコンフリーの良いところ
+    </div>
+    <div class="product-description__contents">
+シリコンとは、人工的に作られるケイ素を含む有機化合物です。ここで言うシリコンは正確にはシリコーンといい、身体に害はないといわれています。シリコンは一部の化粧品やスキンケア商品にも含まれており、肌にハリを与える効果を持つとされています。<br>そのため髪の毛がシリコンによってコーティングされることにより、髪のさわり心地がなめらかになったり、艶やハリが出たりします。その一方で、そのコーティングが一部の人にとってはアレルギーの要因になったり、髪や頭皮の負担になるとも言われ、余計なものを含まないということから自然派の方からシリコンフリーが支持を集めるようになったようです。
+    </div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        シリコンフリーは自然な美しさを保ちたい方に選ばれています
+    </div>
+    <div class="product-description__contents">
+シリコンフリーのトリートメントは、髪や頭皮への負担が少ないことから、髪や頭皮を出来る限り自然な状態で保ちます。コーティングがないことで髪の重さが無くなり、髪がペタンとなってしまう方も、ふんわり仕上がります。またパーマ剤やカラー剤の浸透がスムーズになり、シリコントリートメント使用時よりも長持ちする傾向があるとされています。<br>
+<br>
+シリコンフリートリートメントは髪をコーティングしないことで自然な状態を保つことから、シリコントリートメントを長く使っていた方にとっては洗った後にきしんだり、パサつきがあるように感じることもあると思います。コーティングがないため当然のことです。ご自身の髪の質と理想の髪に合わせてシリコンフリーかそうでないかを選択して頂ければと思いますが、肌に余計なものをつけず自然な美しさを保ちたいのであればシリコンフリーが良いでしょう。専門家である美容師に相談するのも一つの方法です。<br>
+トリートメントは毎日行うこと。毎日のスキンケアと同様に、髪も自然な状態で美しく保つには毎日のケアが欠かせません。頭皮にも髪にもやさしいシリコンフリーを選んでみてはいかがでしょうか。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        精油の香りと植物エキスがやさしく髪を守ります
+    </div>
+    <div class="product-description__contents">
+このトリートメントは、シリコンフリーによってパサつく髪を豊かな自然に育まれた植物の力でやさしく守ります。自然のものを豊富に配合することで、髪本来の美しさを保ち、いつまでも美しくおしゃれに過ごしたい方の願いをかなえてくれます。<br>
+人工的な香料ではなく、自然なやさしい香りにより入眠前の安らぎの時間を与えてくれます。<br>
+オーガニック素材にこだわったトリートメントを使用したい方におすすめの商品です。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+      水、グリセリン、水添ナタネ油アルコール、ベヘントリモニウムクロリド、ミリスチルアルコール、ミリスチン酸PPG-3ベンジルエーテル、ソルビトール、ツバキ油、ホホバ種子油、オリーブ油、トリエチルヘキサノイン、オクチルドデカノール、(水添ヒマシ油/セバシン酸)コポリマー、イソステアリン酸フィトステリル、イソアルキル(C10-40)アミドプロピルエチルジモニウムエトサルフェート、ヒドロキシプロピルトリモニウム加水分解ケラチン（羊毛）、アルガニアスピノサ核油、加水分解ヒアルロン酸、(メタクリル酸グリセリルアミドエチル/メタクリル酸ステアリル)コポリマー、ココイルアルギニンエチルPCA、ジラウロイルグルタミン酸リシンNa、セイヨウオトギリソウ花/葉/茎エキス、カミツレ花エキス、フユボダイジュ花エキス、トウキンセンカ花エキス、ヤグルマギク花エキス、ローマカミツレ花エキス、セイヨウノコギリソウエキス、セージ葉エキス、タチジャコウソウ花/葉エキス、カニナバラ果実エキス、ラベンダー花エキス、ローズマリー葉エキス、マルトデキストリン、ウンカリアトメントサエキス、ラベンダー油、オレンジ油、マンダリンオレンジ油、ベルガモット果実油、ベヘンジモニウムエチルリン酸ステアリル、ステアルトリモニウムブロミド、ヒドロキシプロピルグアーヒドロキシプロピルトリモニウムクロリド、メトキシケイヒ酸エチルヘキシル、BG、DPG、イソプロパノール、フェノキシエタノール、エタノール、リンゴ酸、BHT、メチルパラベン、プロピルパラベン、ブチルパラベン
+<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+          240ml(セミダブルの女性が1か月に使い切れるか切れないかくらいの量です)
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        サイズ
+    </div>
+    <div class="product-description__contents">
+      縦4.9cm、横4.9cｍ、高さ19.5cｍ<br>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用方法
+    </div>
+    <div class="product-description__contents">
+   髪シャンプー後、髪の水気を切り、適量を髪全体によくなじませ、3～5分おいてからすすいでください。
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意 
+    </div>
+    <div class="product-description__contents">
+    <ul>
+<li>使用中や、使用後に赤味・はれ・かゆみ・刺激等の異常があらわれた場合、お肌に合わないときはご使用を中止してください。</li>
+<li>使用したお肌に、直射日光があたって上記のような異常があらわれた場合は、そのまま使用を続けますと症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。</li>
+<li>傷・はれもの・湿疹等の異常があるときは、ご使用をおやめください。</li>
+<li>目に入った時は、すぐに洗い流してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>直射日光や高温・低温を避けて保管し、開封後はお早めにご使用ください。</li>
+<li>天然由来成分を含んでいるため、まれに変色・沈殿物が出ることがありますが品質に問題はございません</li>
+<li>ご使用前にセット箱記載の注意事項を必ずお読みください。</li></ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-30 08:35:12";s:13:"update_date_8";s:19:"2023-04-05 03:43:58";s:9:"message_9";s:119:"髪と頭皮のことを考えてつくられたトリートメント。 <br>毎日のケアに自然の豊かさを。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"232";s:15:"product_code_12";s:13:"4580027592062";s:8:"stock_13";s:2:"10";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4070.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-30 08:35:12";s:14:"update_date_21";s:19:"2023-04-05 03:43:58";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"232";s:8:"stock_31";s:2:"10";s:14:"create_date_32";s:19:"2021-05-30 08:35:12";s:14:"update_date_33";s:19:"2023-04-05 03:43:58";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"622";s:12:"file_name_49";s:28:"0423141112_62638a7057a6f.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 05:11:14";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"203";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"232";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"203";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:6;a:87:{s:4:"id_0";s:3:"207";s:6:"name_1";s:23:"【Be】エッセンス";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1843:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+        毎日頑張っているお肌にご褒美をあげたい。よりお肌に良い成分が入っているものを選びたい。そう思っている方におすすめなのが、このエッセンスです。<br>
+このエッセンスをはじめとするローションとクリームには、お肌のハリや弾力に効果のあるパワープラント幹細胞エリンジウムマリチマムや、お肌の透明感を引き出すマリンプラント幹細胞クリスマムマリチマムが配合されています。角質層にうるおいを与え、ハリのあるお肌だと毎日が楽しいですよね。<br>
+<br>
+天然由来成分を多く含んでいる化粧品は、化学物質や添加物を最低限に抑えているのが特徴です。このエッセンスには、肌にダメージの少ない天然由来成分が配合されているので、女性ホルモンの乱れや体調崩れによる肌トラブルにお悩みのかたも、イキイキとした美肌を実感できます。<br>
+<br>
+本製品にはエッセンスの他に、ローションとクリームがあります。スキンケアの多くは同じメーカーのシリーズ製品を使うことで、お肌に必要な成分を得ることができます。お肌にうるおいを与えるローション、美容成分が凝縮されたエッセンス、そして美容成分をお肌に閉じ込めるクリームの3セットでご使用いただくと、よりうるおいをお肌に閉じ込めることができます。ローション→エッセンス→クリームの順番でお使いいただくのがおすすめです。
+    </div>
+</div>";s:13:"search_word_5";s:110:"be,オーガニック,美容,ギフト,美容液,スキンケア,基礎化粧品,ご褒美,肌ケア,幹細胞";s:11:"free_area_6";s:5002:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+        「鉱物油、パラベン、石油系界面活性剤、合成香料、合成着色料」を添加しておらず、全成分中の90％が天然由来。<br>
+代表的な配合成分は以下の通りとなっています。<br>
+<エイジングケア成分※><br>
+エリンギウムマリチムムカルス培養液（パワープラント幹細胞エキス）<br>
+※エイジングケアとは、年を重ねた肌にうるおいを与えることをいいます。<br>
+<br>
+<保湿成分><br>
+クリスマムマリチマムカルス培養液（マリンプラント幹細胞エキス）、水溶性コラーゲン、加水分解コラーゲン、ヒアルロン酸Na、加水分解ヒアルロン酸、ヒアルロン酸ヒドロキシプロピルトリモニウム、セラミドNP、加水分解エラスチン
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+        水／アロエベラ液汁＊／BG／グリセリン／ペンチレングリコール／スクワラン／ミリスチン酸オクチルドデシル／オリーブ油脂肪酸セテアリル／オリーブ油脂肪酸ソルビタン／トレハロース／ペンジルアルコール／キサンタンガム／シロキクラゲ多糖体／ヒポファエラムノイデス果実油＊／ベヘニルアルコール／ベルガモット果実油＊／トコフェロール／デヒドロ酢酸／ラベンダー油＊／ヒマワリ種子油／ローズマリー葉油＊／エタノール／(アスペルギルス／サッカロミセス)／(マグワ果実／コメ)／発酵粕エキス＊＊／エリンギウムマリチムムカルス培養液／クリスマムマリチマムカルス培養液／グリチルリチン酸2K／ヒアルロン酸Na／ビサボロール／フィトスフィンゴシン／ローマカミツレ花水＊／セラミドAP／チャ葉エキス＊／セラミドNP／セイヨウサクラソウ花エキス＊／セイヨウノコギリソウ花／葉／茎エキス＊／セイヨウハッカ葉エキス／ゼニアオイ花／葉／茎エキス＊／ツボクサ花／葉／茎エキス＊／ハゴロモグサ花／葉／茎エキス＊／ベロニカオフィシナリス花／葉／茎エキス＊／メリッサ葉エキス＊／ローズマリー葉エキス＊／セージ葉エキス<br>
+＊オーガニック原料<br>
+＊＊オーガニック由来原料
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        30ml
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        ローションでお肌を整えた後、適量を手にとり顔全体になじませてください。気になる部分には念入りに重ねづけしてください。
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>お肌に異常が生じていないかよく注意して使用してください。</li>
+            <li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。<br>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。</li>
+            <li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+            <li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+            <li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+            <li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+            <li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+            <li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-31 12:33:04";s:13:"update_date_8";s:19:"2023-04-05 03:35:37";s:9:"message_9";s:202:"普段のお肌のお手入れをワンランクアップして、自分のお肌をいたわる時間に。<br>+αのひと手間で素肌に自信を持って、素敵な毎日を送りませんか。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"236";s:15:"product_code_12";s:13:"4580027592031";s:8:"stock_13";N;s:18:"stock_unlimited_14";s:1:"1";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:8:"28600.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-31 12:33:04";s:14:"update_date_21";s:19:"2023-04-05 03:35:37";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"236";s:8:"stock_31";N;s:14:"create_date_32";s:19:"2021-05-31 12:33:04";s:14:"update_date_33";s:19:"2022-03-14 13:46:18";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"626";s:12:"file_name_49";s:28:"0423141216_62638ab01b1d8.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 05:12:17";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"207";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"236";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"207";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:7;a:87:{s:4:"id_0";s:3:"208";s:6:"name_1";s:20:"【Be】クリーム";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:2467:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+        毎日のスキンケアの最後の仕上げに必要なクリーム。クリームを選ぶ際は、使用感がお好みのものであることだけでなく、お肌が喜ぶ成分が入っているものを選びたいですよね。そこでおすすめなのが、このクリームです。<br>
+<br>
+このクリームをはじめとするローションとエッセンスには、お肌のハリや弾力に効果のあるパワープラント幹細胞エリンジウムマリチマムや、お肌の透明感を引き出すマリンプラント幹細胞クリスマムマリチマムが配合されています。角質層にうるおいを与え、ハリのあるお肌だと毎日が楽しいですよね。<br>
+本製品は、肌なじみの良い使用感でみずみずしくやわらかな肌へとみちびいてくれます。肌に乗せると溶け込むような感覚で、角質層までしっかりとうるおいを届けます。つけた瞬間はパックをしているかのようにお肌の表面をカバーし、時間を置くと肌にすーっとなじみます。<br>
+目元や頬、口元など乾燥が気になるところには、より丁寧にケアしていただくことをおすすめします。<br>
+<br>
+天然由来成分を多く含んでいる化粧品は、化学物質や添加物を最低限に抑えているのが特徴です。このクリームには、肌にダメージの少ない天然由来成分が配合されているので、女性ホルモンの乱れや体調崩れによる肌トラブルにお悩みのかたも、イキイキとした美肌を実感できます。<br>
+<br>
+本製品にはクリームの他に、ローションと美容エッセンスがあります。スキンケアの多くは同じメーカーのシリーズ製品を使うことで、お肌に必要な成分を得ることができます。お肌にうるおいを与えるローション、美容成分が凝縮されたエッセンス、そして美容成分をお肌に閉じ込めるクリームの3セットでご使用いただくと、よりうるおいをお肌に閉じ込めることができます。ローション→エッセンス→クリームの順番でお使いいただくのがおすすめです。
+    </div>
+</div>";s:13:"search_word_5";s:107:"be,オーガニック,美容,ギフト,化粧水,スキンケア,基礎化粧品,ご褒美,肌ケア,保湿";s:11:"free_area_6";s:5466:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+        本製品は、「鉱物油、パラベン、石油系界面活性剤、合成香料、合成着色料、動物由来原料」を添加しておらず、全成分中の92％が天然由来。<br>
+また、ラベンダー・ローズマリー・ベルガモットをベースとした独自の精油ブレンドにより、心地よい香りが心もリフレッシュさせてくれます。<br>
+<br>
+天然由来成分は以下の通りとなっています。<br>
+<br>
+配合成分<br>
+<エモリエント成分><br>
+ホホバ種子（ゴールデンホホバオイル）<br>
+<br>
+<保湿成分><br>
+スイゼンジノリ多糖体、クリスマムマリチマムカルス培養液（マリンプラント幹細胞エキス）<br>
+<br>
+<エイジングケア成分※><br>
+エリンギウムマリチムムカルス培養液（パワープラント幹細胞エキス）<br>
+※エイジングケアとは、年を重ねた肌にうるおいを与えることをいいます。<br>
+<br>
+<国産オーガニック原料><br>
+ラベンダー水、カミツレ水、ローズマリーエキス、セージ葉エキス、レモングラスエキス、チャ葉エキス
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+        水／アロエベラ液汁＊／グリセリン／スクワラン／トリ（カプリル酸／カプリン酸)／グリセリル／ミツロウ＊／シア脂＊／ホホバ種子油＊／ペンチレングリコール／ステアリン酸ポリグリセリルー2／オリーブ油脂肪酸セテアリル／ステアリン酸グリセリル／ステアリルアルコール／オリーブ油脂肪酸ソルビタン／ベンジルアルコール／キサンタンガム／ベルガモット果皮油／ラベンダー油＊／デヒドロ酢酸／トコフェロール／ローズマリー葉油＊／ヒマワリ種子油／(アスペルギス／サッカロミセス)／(マグワ果実／コメ)／発酵粕エキス＊＊／エタノール／エリンギウムマリチムムカルス培養液／クリスマムマリチマムカルス培養液／グリチルリチン酸2K／シロキクラゲ多糖体／セージ葉エキス／ゼニアオイ花／葉／茎エキス＊／セラミドNP／チャ葉エキス＊／ツボクサ花水／葉／茎エキス＊／ヒアルロン酸Na／ビサボロール／ローマカミツレ花水＊／フィトスフィンゴシン／セイヨウサクラソウ花エキス＊／セイヨウノコギリソウ花／葉／茎エキス＊／セイヨウハッカ葉エキス＊／セラミドAP／ハゴロモグサ花／葉／茎エキス＊／ベロニカオフィシナリス花／葉／茎エキス＊／メリッサ葉エキス＊／ローズマリー葉エキス＊／<br>
+＊オーガニック原料<br>
+＊＊オーガニック由来原料
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        30g
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        ローション、エッセンスでお肌を整えた後、適量を手にとり顔全体になじませてください。気になる部分には念入りに重ねづけしてください。
+    </div>
+</div>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>お肌に異常が生じていないかよく注意して使用してください。</li>
+            <li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。<br>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。</li>
+            <li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+            <li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+            <li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+            <li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+            <li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+            <li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-05-31 12:35:56";s:13:"update_date_8";s:19:"2023-04-05 03:36:01";s:9:"message_9";s:235:"普段のお肌のお手入れをワンランクアップして、自分のお肌をいたわる時間に。<br>角質層までしっかりとうるおいを届け、みずみずしくやわらかなお肌を手に入れませんか。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"237";s:15:"product_code_12";s:13:"4580027592048";s:8:"stock_13";N;s:18:"stock_unlimited_14";s:1:"1";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"6930.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-05-31 12:35:56";s:14:"update_date_21";s:19:"2023-04-05 03:36:01";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"237";s:8:"stock_31";N;s:14:"create_date_32";s:19:"2021-05-31 12:35:56";s:14:"update_date_33";s:19:"2022-03-14 13:46:08";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"623";s:12:"file_name_49";s:28:"0423141130_62638a82895e4.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-04-23 05:11:31";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"208";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"237";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"208";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:8;a:87:{s:4:"id_0";s:3:"219";s:6:"name_1";s:117:"【カンパニー ド プロバンス】 グルーミングフォーメン　アフターシェービングジェル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1894:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+ご存知の通り、シェービング剤は大きく分けて、泡のフォームタイプとジェルタイプに分かれます。<br>
+「カンパニー ド プロバンス」の「グルーミングフォーメン アフターシェービングジェル」はジェルタイプになります。<br>
+<br>
+ジェルの特徴は、潤滑性が高い、カミソリの滑りがよりなめらかである、肌をより強力に保護するなどの特徴があります。<br>
+<br>
+シェービングジェルは剃りやすいかどうかだけでなく、配合成分が大切であり、市販の物はメントールで爽快感を強めているだけで、肌ケアまでこだわった製品はあまり多くありません。<br>
+本製品は保湿に大切なグリセリンやヒアルロン酸を配合しており、カミソリ後の保湿ケア対策も同時に行えます。<br>
+<br>
+最近はマスクを常時装着するため、口周りに吹き出物ができやすくなります。<br>
+クリームだと吹き出物を隠してしまいますが、ジェルタイプの場合は透明な物が多いため、吹き出物を避けて剃ることが出来ます。<br>
+また髭の形を整える時も今の髭の形を見ながら剃ることが出来るため、イメージ通りの仕上がりを作ることが出来ます。<br>
+<br>
+
+メントール不使用で敏感肌の男性にも使用できるため、人を選ばず贈り物に最適です。<br>
+また髭の形を整えている男性にも喜ばれる一本になっております。<br>
+誕生日の贈り物や仕事でお世話になった方へのギフトにいかがでしょうか。<br>
+    </div>
+</div>";s:13:"search_word_5";s:161:"洗顔,美容,シェービング,メンズ,メンズギフト,男性,ギフト,COMPAGNIE DE PROVENCE,カンパニー ドプロバンス,スキンケア,ジェル";s:11:"free_area_6";s:3246:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+グリセリンとは<br>
+もっとも古くから用いられてきた保湿剤のひとつで、皮脂膜の分解によって生成する皮膚成分でもあるグリセリン。無色無臭の粘りけのある液体で、甘い味がします。保湿剤として、また柔軟剤として使用され、肌にうるおいとしっとりした感触を与えます。<br>
+グリセリンとヒアルロン酸ナトリウムを組み合わせると、さらに水分保持力が高まり、肌の上に薄い皮膜をつくって外気の乾燥からしっかり肌をまもってくれます。<br>
+
+
+    </div>
+</div>
+<br>
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+   水、グリセリン、シクロペンタシロキサン、ＢＧ、トリ（カプリル酸／カプリン酸）グリセリル、ポリアクリル酸Ｎａ、シクロヘキサシロキサン、ジメチコン、チガヤ根エキス、プロパンジオール、香料、カプリリルグリコール、ジメチコンクロスポリマー、トリデセス－６、カプリルヒドロキサム酸、ＥＤＴＡ－２Ｎａ、ヒアルロン酸Ｎａ、ＰＥＧ／ＰＰＧ－１８／１８ジメチコン、カルボマー、クエン酸Ｎａ、カラギーナン、ＰＧ、（アクリレーツ／アクリル酸アルキル（Ｃ１０－３０））クロスポリマー、クエン酸、ビオチン、ラベンダー花エキス
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+        75mL
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        清潔な肌に塗布してください。
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+<ul>
+
+<li>肌に異常が生じていないかよく注意してご使用ください。</li>
+<li>肌に合わない時はご使用をおやめください。</li>
+<li>肌に傷・湿疹等異常のある時はご使用にならないでください。</li>
+<li>肌に赤み・かゆみ・刺激・はれ・色抜け（白斑等)や黒ずみ等の異常があらわれた時はご使用を中止し皮膚科専門医等へご相談ください。そのままご使用を続けますと症状が悪化することがあります。</li>
+<li>製品の性質上、時間の経過とともに色味が変わる場合がありますが、品質に問題はありません。</li>
+<li>高温多湿、直射日光を避け、乳幼児の手の届かないところで保管してください。</li>
+<li>本品は飲食物ではありません。</li>
+
+</ul>
+
+    </div>
+</div>";s:13:"create_date_7";s:19:"2021-07-18 13:27:11";s:13:"update_date_8";s:19:"2023-04-01 00:29:59";s:9:"message_9";s:103:"髭剃りをより上質に。<br>忙しい朝のルーティンに楽しみをつくりませんか。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"256";s:15:"product_code_12";s:13:"4517161155686";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4180.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-07-18 13:27:11";s:14:"update_date_21";s:19:"2023-04-01 00:29:59";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"256";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2021-07-18 13:27:11";s:14:"update_date_33";s:19:"2023-04-01 00:29:59";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1108";s:12:"file_name_49";s:28:"0401092958_64277b06988c4.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-04-01 00:29:59";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"219";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"256";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"219";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:9;a:87:{s:4:"id_0";s:3:"270";s:6:"name_1";s:80:"【Wishing】オーガニックハンド&ボディソープ　スノーリーフ";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1884:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+        「Wishing」
+ご家族みなさんで使えるオーガニックシェアコスメ<br>
+お子さんも安心してお使いいただけるスキンケアグッズです。<br>
+<br>
+安心安全の天然成分配合でこどもから大人まで、家族みんなで全身に使えます。シェアできるため用途別に買い揃える必要が無く省スペースでエコにも貢献できます。<br>
+<br>
+人の皮脂に近い組織を持つオレイン酸が豊富に含まれている植物油を使用することで角質層の乾燥を防ぎ、しっとりとした肌を保ちます。<br>
+<br>
+肌トラブルの原因となる、シリコン、パラベン（防腐剤）、合成着色剤を使用していないため、お子様や敏感肌の方にも安心してご使用いただけます。<br>
+オーガニック認証（エコサートコスモス認証）を取得した成分を配合しています。<br>
+抗糖化、肌質改善、肌荒れ改善、美白、抗炎症、抗酸化、角質水分量増加などの作用が期待できます。<br>
+<br>
+<br>
+オーガニック認証のチャ葉エキスなどで抗菌・洗浄効果が期待できます。包み込まれるような泡立ちと、泡切れの良さ、ほんのり香る良い香り・保湿力でバスタイムを楽しく過ごして頂けます。<br>
+<br>
+アルコール、パラベン、シリコン、鉱物油など不使用です。<br>
+<br>
+<br>
+肌荒れ・かゆみの一番の原因は乾燥です。小さな頃からスキンケアの習慣化に注目して作られたお子さんでも安心してお使い頂けるスキンケアグッズです。<br>
+
+    </div>
+</div>";s:13:"search_word_5";s:101:"Wishing、organic、オーガニック、ハンドソープ、ボディソープ、バスアイテム";s:11:"free_area_6";s:3524:"<div class="product-description">
+    <div class="product-description__title">
+        香りの種類
+
+    </div>
+    <div class="product-description__contents">
+        ブルー：SNOW LEAF(さっぱり)<br>
+ベタつきが気になる方へおすすめです。<br>
+爽やかな新緑の香りになります。<br>
+強い香りが苦手な方や男性にもおすすめです。<br>
+宇治茶葉エキス(京都産)、オリーブ葉エキス(国産)を使用しており、<br>ポリフェノールなどを含むため美肌をサポートする成分です。
+<br><br>
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        450ml<br><br>
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+ 
+SNOW LEAF：水、ラウリン酸、ミリスチン酸、ラウリルベタイン、水酸化K、コカミドDEA、
+プロパンジオール、カワラナデシコ種子エキス*、DPG、BG、アスコルビルグルコシド、アスパラギン酸、
+アラニン、グリシン、セリン、バリン、ヒスチジン、フェニルアラニン、プロリン、PCA-Na、レモン果汁*、
+ヤエヤマアオキ果汁*、カニナバラ果実エキス*、ウメ果実エキス*、チャ葉エキス*、オリーブ葉エキス、
+シャクヤク根エキス*、加水分解ハトムギ種子*、ビルベリー葉エキス*、ハトムギ種子エキス*、パルミチン酸レチノール、
+ダイズステロール、オリーブ果実油、ホホバ種子油、マカデミア種子油、セラミドNG、セラミドAP、セラミドAG、セラミドNP、
+セラミドEOP、塩化Na、乳酸Na、水添レシチン、グリセリン、コーン油、クエン酸、トコフェロール、酢酸トコフェロール、
+EDTA−2Na、香料、カラメル　 *10種のオーガニックエキス（保湿成分）<br><br>
+
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用方法
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>お出掛け後の手洗いに指の間から手首までしっかり洗いましょう。</li>
+            <li>お風呂での使い方、キメの細かい泡を作り（泡ネットがベスト）、手で優しく洗うことで摩擦が減りお肌への負担が減らせます。<br>
+ ほんのりいい香りと共に全身包み込むように洗っていきましょう<br><br>
+</li>
+           
+        </ul>
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>実際の商品の色になるべく近いかたちで掲載しておりますが、モニターの違いなどで実際の商品と色味が異なる場合がございます。予めご了承ください。
+</li>
+            
+            <li>柄がプリント・刺繍されている商品は、生地をランダムに裁断するため、柄の出方に個体差が生じます。出来上がりはひとつひとつ異なりますので、予めご了承ください。
+
+</li>
+
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-02-22 14:55:16";s:13:"update_date_8";s:19:"2023-04-01 00:02:33";s:9:"message_9";s:186:"手先だけでなく全身の肌に使えるボディーソープです。<br> 4つのこだわりで、ご家族みなさんの大切なお肌を優しくキレイに保湿します。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"307";s:15:"product_code_12";s:13:"4571378581133";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"2200.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-02-22 14:55:16";s:14:"update_date_21";s:19:"2023-04-01 00:02:33";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"307";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2022-02-22 14:55:16";s:14:"update_date_33";s:19:"2023-04-01 00:02:33";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1072";s:12:"file_name_49";s:28:"0401090231_642774975d012.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-04-01 00:02:33";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"270";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"307";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"270";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:10;a:87:{s:4:"id_0";s:3:"271";s:6:"name_1";s:89:"【Wishing】オーガニックハンド&ボディソープ　ラベンダーアップル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1876:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+        「Wishing」
+ご家族みなさんで使えるオーガニックシェアコスメ<br>
+お子さんも安心してお使いいただけるスキンケアグッズです。<br>
+<br>
+安心安全の天然成分配合でこどもから大人まで、家族みんなで全身に使えます。シェアできるため用途別に買い揃える必要が無く省スペースでエコにも貢献できます。<br>
+<br>
+人の皮脂に近い組織を持つオレイン酸が豊富に含まれている植物油を使用することで角質層の乾燥を防ぎ、しっとりとした肌を保ちます。<br>
+<br>
+肌トラブルの原因となる、シリコン、パラベン（防腐剤）、合成着色剤を使用していないため、お子様や敏感肌の方にも安心してご使用いただけます。<br>
+オーガニック認証（エコサートコスモス認証）を取得した成分を配合しています。<br>
+抗糖化、肌質改善、肌荒れ改善、美白、抗炎症、抗酸化、角質水分量増加などの作用が期待できます。<br>
+<br>
+オーガニック認証のチャ葉エキスなどで抗菌・洗浄効果が期待できます。包み込まれるような泡立ちと、泡切れの良さ、ほんのり香る良い香り・保湿力でバスタイムを楽しく過ごして頂けます。<br>
+<br>
+アルコール、パラベン、シリコン、鉱物油など不使用です。<br>
+<br>
+肌荒れ・かゆみの一番の原因は乾燥です。小さな頃からスキンケアの習慣化に注目して作られたお子さんでも安心してお使い頂けるスキンケアグッズです。<br><br>
+
+    </div>
+</div>";s:13:"search_word_5";s:101:"Wishing、organic、オーガニック、ハンドソープ、ボディソープ、バスアイテム";s:11:"free_area_6";s:3724:"<div class="product-description">
+    <div class="product-description__title">
+        香りの種類
+
+    </div>
+    <div class="product-description__contents">
+        グリーン：LAVENDER APPLE(とてもしっとり)<br>
+乾燥しやすい方へおすすめです。<br>
+人気のラベンダーにほんのり甘くやわらかにアップルが香ります。<br>
+フレッシュな香りでリラックス効果も期待できます。<br>
+リンゴ果実エキス(長野県産・青森県産)、イチゴ果実エキス(徳島県産)を使用しており、<br>
+保湿作用の上に角質柔軟、おだやかな収れん作用効果などが期待できる成分です。<br><br><br>
+
+
+
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        450ml<br><br><br>
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+LAVENDER APPLE：水、ラウリン酸、ミリスチン酸、ラウリルベタイン、水酸化K、コカミドDEA、プロパンジオール、<br>
+カワラナデシコ種子エキス*、DPG、BG、アスコルビルグルコシド、アスパラギン酸、アラニン、グリシン、セリン、<br>
+バリン、ヒスチジン、フェニルアラニン、プロリン、PCA-Na、レモン果汁*、ヤエヤマアオキ果汁*、イチゴ果実エキス、<br>
+カニナバラ果実エキス*、ウメ果実エキス*、シャクヤク根エキス*、リンゴ果実エキス、チャ葉エキス*、加水分解ハトムギ種子*、<br>
+ビルベリー葉エキス*、ハトムギ種子エキス*、パルミチン酸レチノール、ダイズステロール、オリーブ果実油、ホホバ種子油、<br>
+マカデミア種子油、セラミドNG、セラミドAP、セラミドAG、セラミドNP、セラミドEOP、塩化Na、乳酸Na、コカミドプロピルベタイン、<br>
+水添レシチン、グリセリン、コーン油、クエン酸、トコフェロール、酢酸トコフェロール、EDTA−2Na、香料、カラメル　 *10種のオーガニックエキス（保湿成分）<br><br><br>
+
+
+
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用方法
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>お出掛け後の手洗いに指の間から手首までしっかり洗いましょう。</li>
+            <li>お風呂での使い方、キメの細かい泡を作り（泡ネットがベスト）、手で優しく洗うことで摩擦が減りお肌への負担が減らせます。 ほんのりいい香りと共に全身包み込むように洗っていきましょう
+</li>
+           
+        </ul>
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+            <li>実際の商品の色になるべく近いかたちで掲載しておりますが、モニターの違いなどで実際の商品と色味が異なる場合がございます。予めご了承ください。
+</li>
+            <li>柄がプリント・刺繍されている商品は、生地をランダムに裁断するため、柄の出方に個体差が生じます。出来上がりはひとつひとつ異なりますので、予めご了承ください。
+
+</li>
+
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-02-22 14:56:21";s:13:"update_date_8";s:19:"2023-04-01 00:02:58";s:9:"message_9";s:210:"肌荒れ・かゆみの一番の原因は乾燥です。小さな頃からスキンケアの習慣化に注目して作られたお子さんでも安心してお使い頂けるスキンケアグッズです。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"308";s:15:"product_code_12";s:13:"4571378581157";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"2200.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-02-22 14:56:21";s:14:"update_date_21";s:19:"2023-04-01 00:02:58";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"308";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2022-02-22 14:56:21";s:14:"update_date_33";s:19:"2023-04-01 00:02:58";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1074";s:12:"file_name_49";s:28:"0401090257_642774b1775b4.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-04-01 00:02:58";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"271";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"308";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"271";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:11;a:87:{s:4:"id_0";s:3:"281";s:6:"name_1";s:66:"リップシェービングモイスチャライジングオイル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:270:"低刺激でデリケートゾーンでも使用できるシェービングオイルです。<br>
+サンフラワー油で潤いあるなめらかなシェービングを実現。<br>
+スペアミントの香りで毎日使用してもくどくありません。
+<br>";s:13:"search_word_5";s:171:"植物性オイル,エッセンスオイル,クレンジング,保湿,石鹸,ローズマリー,オーガニック,ギフト,アロマ,リップインティメイトケア";s:11:"free_area_6";s:1968:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+        【LIP intimate care / リップインティメイトケア】 <br>
+LIP intimate careは女性によって、女性の為に作られたスウェーデンのブランドです。デリケートゾーンはからだの中でも最も繊細で、皮膚吸収率がとても高い部分。デリケートで敏感な箇所だからこそ、ケミカル成分の使用は避け、厳選したオーガニック、ナチュラル成分で最適なケアしたいという信念のもと、100%ナチュラル、100%ヴィーガンのデリケートゾーンアイテムを作りました。スウェーデンの医者や助産師にも推薦されており、より肌に安全でありながら、しっかり肌ケアができるアイテムを使いたい方におすすめです。 <br> <br> <br>
+
+    </div>
+</div>
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+     ヒマワリ種子油、ヤシ油、ヒマシ油、トリ（カプリル酸/カプリン酸）グリセリル、スペアミント油、イランイラン花油、パチョリ油、リモネン<br> <br>
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+       75ml<br> <br>
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+        シャワーなどで濡らしたお肌に適量を伸ばし優しくシェービングをして下さい。
+洗い流す際も強く擦らず優しく撫でて下さい。<br> <br>
+
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-04-20 12:48:49";s:13:"update_date_8";s:19:"2023-04-01 00:33:44";s:9:"message_9";s:110:"デリケートゾーンのシェービングに。<br> 肌を大切にデリケートケアができます。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"318";s:15:"product_code_12";s:13:"7350052240026";s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"2970.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-04-20 12:48:49";s:14:"update_date_21";s:19:"2023-04-01 00:33:44";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"318";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2022-04-20 12:48:49";s:14:"update_date_33";s:19:"2023-04-01 00:33:44";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1119";s:12:"file_name_49";s:28:"0401093342_64277be68c591.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-04-01 00:33:44";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"281";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"318";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"281";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:12;a:87:{s:4:"id_0";s:3:"308";s:6:"name_1";s:39:"【Be】フェイス&ボディシート";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:4687:"<div class="product-description">
+    <div class="product-description__title">
+        ①ブランドのこだわり
+    </div>
+    <div class="product-description__contents">
+        肌に喜びを、地球にはやさしさを。<br>
+肌本来の美しさを引き出し、天然精油のやさしい香りに包まれるエシカルなスキンケア。<br>
+オーガニック認証を取得し、国産原料・処方にこだわっています。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ②商品のこだわり
+    </div>
+    <div class="product-description__contents">
+        ・国産へのこだわり<br>
+
+すべての原材料・包装資材の調達、製造工程にメイド・イン・ジャパンを採用しています。<br>
+これにより、環境負荷を低減し、輸送に伴う温室効果ガス排出効果抑制につながります。<br>
+また、日本有数のハーブ園として知られる、落合ハーブ園で育てられたハーブを一部使用。<br>完全無農薬の原料開発を行う静岡県三島市の落合ハーブ園のハーブを使うことで、レモングラスエキス(整肌成分)、ラベンダー水(保湿成分)、カミツレ水(保湿成分)、ローズマリー葉エキス(保湿成分)を配合。加えて、静岡県向島農園のチャ葉エキス(整肌成分)も配合しています。<br><br>
+
+
+・独自の精油ブレンド<br>
+ラベンダー・ローズマリー・ベルガモットをベースとした拘りの独自精油ブレンドを採用しています。<br><br>
+
+・無添加へのこだわり<br>
+鉱物油フリー<br>
+シリコンフリー<br>
+パラベンフリー<br>
+動物由来原料フリー<br>
+合成香料フリー<br>
+合成着色料フリー<br>
+    </div>
+</div>
+
+<br> 
+
+<div class="product-description">
+    <div class="product-description__title">
+       ③おすすめポイント 
+    </div>
+    <div class="product-description__contents">
+        外出時や旅先、日焼け後、汗をかいたとき。気になる匂いまでもさっとふき取り、あと肌をやさしく潤す、マルチに活躍するスキンケアシートです。スキンケアシートには、オリジナル発酵粕エキス、アロエベラ液汁（保湿成分）をはじめとした、美容成分に加え、肌を乾燥などからしっかり守る世界初の天然ヒト型セラミド（セラミドAP、セラミドNP）＊1も配合。先進スキンケア成分として注目のビサボロールも配合し、ゆらぎがちな肌も健やかで澄んだ明るい肌＊2へ導きます。<br><br>
+
+
+
+＊1外出時や旅先、日焼け後、汗をかいたとき。気になる匂いまでもさっとふき取り、あと肌をやさしく潤す、マルチに活躍するスキンケアシートです。スキンケアシートには、オリジナル発酵粕エキス、アロエベラ液汁（保湿成分）をはじめとした、美容成分に加え、肌を乾燥などからしっかり守る世界初の天然ヒト型セラミド（セラミドAP、セラミドNP）＊1も配合。先進スキンケア成分として注目のビサボロールも配合し、ゆらぎがちな肌も健やかで澄んだ明るい肌＊2へ導きます。<br><br>
+
+
+
+＊1　世界初の天然ヒト型セラミド（セラミドAP、セラミドNP）･･･世界初の「天然ヒト型セラミド」https://genuinerd.com/product/ceramide/<br>
+
+＊2　明るい肌･･･キメが整い潤いのある肌状態のこと<br><br>
+
+
+
+アミノ酸豊富なスキンケア共通のオリジナル発酵原料を配合。アロエベラ液汁、1gで6Lもの保水力があると言われる植物由来のシロキクラゲ多糖体、スイゼンジノリ多糖体など、植物由来の保湿成分により、ふき取り後のお肌に、うるおいやハリを与えます。世界初の天然ヒト型セラミド（セラミドAP、セラミドNP）･･･世界初の「天然ヒト型セラミド」<br>
+https://genuinerd.com/product/ceramide/<br>
+
+＊2　明るい肌･･･キメが整い潤いのある肌状態のこと<br>
+<br>
+
+
+アミノ酸豊富なスキンケア共通のオリジナル発酵原料を配合。アロエベラ液汁、1gで6Lもの保水力があると言われる植物由来のシロキクラゲ多糖体、スイゼンジノリ多糖体など、植物由来の保湿成分により、ふき取り後のお肌に、うるおいやハリを与えます。
+
+
+    </div>
+</div>";s:13:"search_word_5";s:44:"Be、ビー、ボディシート、化粧水";s:11:"free_area_6";s:3913:"<div class="product-description">
+    <div class="product-description__title">
+        【ご使用方法】
+    </div>
+    <div class="product-description__contents">
+        
+シートを取り出し、肌をふいてください。シートは両面使えます。水に溶けませんのでトイレに流さないでください。
+
+    </div>
+</div>
+
+<br><br>
+
+<div class="product-description">
+    <div class="product-description__title">
+       
+【ご使用上の注意】
+    </div>
+    <div class="product-description__contents">
+        お肌に異常が生じていないかよく注意して使用してください。<br>
+化粧品がお肌に合わないとき、即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。<br>
+使用中、赤み、はれ、かゆみ、刺激、色抜け(白班等)や黒ずみ等の異常があらわれた場合
+使用したお肌に、直射日光があたって上記のような異常があらわれた場合やはれもの、しっしん等、異常のある部位にはお使いにならないでください。<br>
+目に入らないようにご注意ください。目に入った場合はこすらずにすぐに洗い流してください。目に異物感が残る場合は、眼科医にご相談下さい。<br>
+取り扱いや保管は次のことにご注意ください。<br>
+乳幼児の手の届かないところに保管してください。<br>
+極端に高温又は低温の場所、直射日光のあたる場所に は保管しないでください。<br>
+天然由来原料を使用しておりますので、におい、色調などの変化が生じる場合がございますが、使用には問題ございません。<br>
+シートは水に溶けませんのでトイレに流さないでください。<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+      【内容量】
+    </div>
+    <div class="product-description__contents">
+        10枚
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        【配合成分】
+    </div>
+    <div class="product-description__contents">
+        水、アロエベラ液汁、（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス、エリンギウムマリチムムカルス培養液、クリスマムマリチマムカルス培養液、チャ葉エキス、ツボクサ花／葉／茎エキス、ハゴロモグサ花／葉／茎エキス、セイヨウサクラソウ花エキス、セイヨウノコギリソウ花／葉／茎エキス、セイヨウハッカ葉エキス、セージ葉エキス、ゼニアオイ花／葉／茎エキス、ラベンダー油、ローズマリー葉エキス、ローズマリー葉油、ベルガモット果皮油、ベロニカオフィシナリス花／葉／茎エキス、メリッサ葉エキス、レモングラスエキス、ラベンダー水、カミツレ水、カキタンニン、ガリカバラ花エキス、ルイボスエキス、グリチルリチン酸2K、シロキクラゲ多糖体、スイゼンジノリ多糖体、セラミドAP、セラミドNP、フィトスフィンゴシン、ヒアルロン酸Na、ビサボロール、グリセリン、クエン酸、クエン酸Na、クロラミンT、炭酸水素Na、炭酸Na、デキストリン、シクロデキストリン、BG、デヒドロ酢酸、ベンジルアルコール、1,2-ヘキサンジオール、PEG-50水添ヒマシ油、PPG-4セテスー20、エタノール、カプリリルグリコール、 フェノキシエタノール
+
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-06-15 17:01:17";s:13:"update_date_8";s:19:"2023-03-26 08:59:01";s:9:"message_9";s:81:"シート上のふき取り化粧水で贅沢にうるおう清潔なあと肌へ";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"345";s:15:"product_code_12";N;s:8:"stock_13";N;s:18:"stock_unlimited_14";s:1:"1";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:6:"583.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-06-15 17:01:17";s:14:"update_date_21";s:19:"2023-03-26 08:59:01";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"345";s:8:"stock_31";N;s:14:"create_date_32";s:19:"2022-06-15 17:01:17";s:14:"update_date_33";s:19:"2022-06-15 17:01:17";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"679";s:12:"file_name_49";s:28:"0617010436_62ab54947ffce.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2022-06-16 16:05:13";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"308";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"345";s:13:"creator_id_73";s:2:"19";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"308";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:13;a:87:{s:4:"id_0";s:3:"356";s:6:"name_1";s:35:"【Be】オーガニックバーム";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:3624:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+天然成分100%のオーガニックバーム<br>
+髪の毛、口もと、肌、手もと、爪、ボディと、全身に使える爽やかな香りのバームです。<br>
+空気の乾燥や寒風、エアコンなどの外的刺激から肌をしっかり保護し、ラップするようにうるおいを守ります。<br>
+スキンケア共通の美容成分であるBe独自のオリジナル発酵粕エキス（整肌成分）＊1を配合し、手の体温で柔らかくなるので塗り広げやすく、いつでも気になる場所にたっぷりお使いいただけます。<br>
+軽くて持ち運びがしやすく地球環境にも優しい、リサイクルが可能なアルミ缶を使用しているのも特徴です。<br>
+<br>
+
+＊1（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス<br>
+<br>
+どんなシーンでも季節を問わず使い方も自在。<br>
+バームにお手持ちの美容オイルをプラスして、手のひらで揉み込み肌に塗ることも、毛先になじませてヘアスタイリングの仕上げに濡れ髪をつくることも。<br>
+爪とその周りの肌やアンダーマスクの乾燥対策にもお使いいただけます。<br>
+冬の乾燥だけでなく、一年を通して足先やかかと、肘がカサつく場合のケアにもおすすめです。<br>
+<br>
+
+Be独自の精油ブレンド<br>
+リラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自の精油をブレンドして作りました。<br>
+ご家族・パートナーにも心地よくお使いいただける穏やかな香りたちです。<br>
+<br>
+厳選されたオーガニック認証を取得<br>
+原材料は100%天然由来成分です。<br>
+さらに製造方法と過程においても合成成分を使用しない厳格なJOCA認証＊2を取得。<br>
+エコサートコスモスオーガニック認証＊3とのW認証を取得しました。
+<br>
+<br>
+＊2 http://joca.jp/oc/?page_id=315<br>
+＊3 エコサート／ECOCERTは1991年にフランスで設立され、ヨーロッパを拠点として、80か国以上で検査を実施。<br>
+2010年、エコサートを含む5つのヨーロッパの機関が参画し、国際基準となる世界初のオーガニックコスメ統一基準を打ち出した有機認証としてCOSMOS／コスモス認証が誕生。世界シェア約75%。オーガニック原料の割合に応じて「オーガニック認証」と「ナチュラル認証」の2種類を取り扱う。<br>
+<br>
+・無添加へのこだわり<br>
+・シリコンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成香料フリー<br>
+・合成着色料フリー<br>
+・紫外線吸収剤フリー<br>
+・パラベンフリー<br>
+・防腐剤（フェノキシエタノール）フリー<br>
+・動物由来原料フリー<br>
+<br>
+環境にやさしい容器へのこだわり<br>
+リサイクル可能なアルミ缶を使用しています。<br>
+外装箱の印刷にはベジタブルインキを使用、さらにFSC認証＊4を取得した紙を採用し、環境負荷に配慮しています。<br>
+<br>
+＊4 FSC（Forest Stewardship Council®、森林管理協議会）による国際的な森林認証制度<br>
+
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:57:"Be、ビー、オーガニック、organic、バーム、";s:11:"free_area_6";s:2809:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油＊、シア脂＊、ミツロウ＊、ヒマシ油＊、ツバキ種子油、ベルガモット果皮油、ラベンダー油＊、ローズマリー葉油＊、ヒマワリ種子油、トコフェロール、（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス＊＊、水、エタノール＊＊
+＊オーガニック原料
+＊＊オーガニック由来原料
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+27g
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+適量を指先にとり、乾燥が気になる部分になじませます。<br>顔、唇、手、爪、ひじ、踵、髪などにも使用できます。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。</li>
+<li>そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+　1,使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+　2,使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-12-29 05:34:12";s:13:"update_date_8";s:19:"2023-04-05 03:31:24";s:9:"message_9";s:81:"外的刺激から全身のうるおいを守る、爽やかな香りのバーム";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"393";s:15:"product_code_12";N;s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4290.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 05:34:12";s:14:"update_date_21";s:19:"2023-07-12 04:26:01";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"393";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2022-12-29 05:34:12";s:14:"update_date_33";s:19:"2023-07-12 04:26:01";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"902";s:12:"file_name_49";s:28:"0106012008_63b6f8b886f87.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-01-05 16:20:17";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"356";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"393";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"356";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:14;a:87:{s:4:"id_0";s:3:"357";s:6:"name_1";s:35:"【Be】クレンジングオイル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:4246:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+メイクなじみがよく、しっかり汚れを落として、しかもつっぱらない。<br>
+使い続けても肌にやさしく、地球へのやさしさにも配慮した、サステナブルコスメとしてクレンジングオイルが誕生しました。<br>
+日々のクレンジングはできるだけ素早く気持ちよく落としたい。<br>
+使いやすさも大事だけれど、使い続けることで毛穴汚れが気になる肌のケアも保湿ケアも叶えて美肌をキープしたい。<br>
+そうした声にお応えする、こだわりを詰め込んだ欲張りなクレンジングオイルです。<br>
+洗い上がりは、もっちりとしたうるおい溢れるキメ細かな肌に仕上がります。<br>
+<br>
+▶クレンジングオイル３つのこだわり<br>
+こだわり１　メイク落ちの良さを叶え、毛穴の余分な角栓をオフ。<br>
+こだわり２　12種類の植物美容成分を配合した保湿力。<br>
+こだわり３　メイク・皮脂なじみの良い2種の有機オイルのコクのあるテクスチャー。<br>
+<br>
+▶サステナブルな植物美容成分<br>
+・有機オリーブオイル<br>
+程よい粘度があり、ホホバ油と合わせて使用することで、コクのある肌触りの良い使用感です。<br>
+<br>
+・有機ゴールデンホホバオイル<br>
+皮脂に近い組成のため、油汚れ、毛穴汚れともよくなじんで浮かせる効果を期待できます。<br>
+<br>
+・オリジナル発酵粕エキス<br>
+スキンケア成分と同じ、国産マグワ果実とコメを発酵させて作られた、オーガニックのオリジナル発酵粕エキス「（アスペルギルス／サッカロミセス）（マグワ果実／コメ）発酵粕エキス（整肌成分）」配合。<br>
+アミノ酸を豊富に含み、肌のキメを整えます。有機JAS認定を取得した農地で作られた素材を使用しています。<br>
+<br>
+・シロキクラゲ多糖体<br>
+保湿力のある多糖類成分です。<br>
+楊貴妃も美容のために食べていたといわれるシロキクラゲ多糖体を保湿成分として配合しています。<br>
+ヒアルロン酸よりも保水力があるとされています。<br>
+<br>
+▶オリジナル精油ブレンド<br>
+ほのかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自の精油ブレンドです。<br>
+<br>
+▶厳しいオーガニック認証を取得したサステナブルな原材料<br>
+原材料の100%は天然由来成分<br>
+原材料の55%は有機成分<br>
+エコサートコスモス認証<br>
+<br>
+▶土壌・海洋・気候変動に対するアクションにつなげたい。<br>
+そうした思いで、Beではコスモスオーガニック基準のオーガニック原料を使用しています。<br>
+循環型農法により土壌を守ることは海を守ることにもつながります。<br>
+できる限り国産原料を使用することでトレーサビリティを確保、輸送・保管によるCO2排出削減にもつながります。<br>
+<br>
+▶環境負荷削減への取り組み<br>
+一部の原材料・包装資材の調達、製造工程にメイド・イン・ジャパンを採用しています。<br>
+これにより、環境負荷を削減し、輸送にかかる温室効果ガス排出量の削減につながります。<br>
+<br>
+・無添加へのこだわり<br>
+・シリコーンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成着色料フリー<br>
+・合成防腐剤フリー<br>
+・合成香料フリー<br>
+・動物由来原料フリー<br>
+<br>
+▶環境にやさしい容器へのこだわり<br>
+環境負荷に配慮した使用済みペットボトルから再生されたメカニカルリサイクルPETを使用。<br>
+化粧箱はFSC認証基準の再生紙を使用しています。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:101:"Be、ビー、クレンジング、オイル、クレンジングオイル、スキンケア、化粧";s:11:"free_area_6";s:1425:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油、トリ（カプリル／カプリン酸）グリセリル、セスキオレイン酸ポリグリセリル-2、ホホバ種子油、カプリル酸ポリグリセリル-2、トコフェロール、（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス、セージ葉エキス、チャ葉エキス、ツボクサ花／葉／茎エキス、ローズマリー葉エキス、ミシマサイコ花／葉／茎エキス、ソウハクヒエキス、ベルガモット果皮油、ラベンダー油、ヒマワリ種子油、水、ローズマリー葉油、グリチルリチン酸2K、シロキクラゲ多糖体、グリセリン、エタノール
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+150ml
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+乾いた手に適量をとり、顔全体にやさしくなじませて、ぬるま湯で洗い流してください。<br>
+    </div>
+</div>
+<br>
+        </ul>";s:13:"create_date_7";s:19:"2022-12-29 05:58:05";s:13:"update_date_8";s:19:"2023-04-05 03:42:58";s:9:"message_9";s:106:"人にも地球にもやさしいサステナブルコスメ<br>「欲張りクレンジングオイル」";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"394";s:15:"product_code_12";N;s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"6160.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 05:58:05";s:14:"update_date_21";s:19:"2023-07-03 06:33:15";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"394";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2022-12-29 05:58:05";s:14:"update_date_33";s:19:"2023-07-03 06:33:15";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"901";s:12:"file_name_49";s:28:"0106011900_63b6f874b19d9.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-01-05 16:19:05";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:2:"15";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"357";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"394";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"357";s:13:"creator_id_82";s:2:"15";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:15;a:87:{s:4:"id_0";s:3:"359";s:6:"name_1";s:28:"【Be】ヘアオイル 25ml";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:5815:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+カラーリングやパーマ、睡眠不足や日々の疲れ、紫外線や乾燥、加齢やストレスによる血行不良など、さまざまな要因によって引き起こされるヘアダメージ。<br>
+切れ毛、パサツキ、枝毛、乾燥、白髪、うねりなど、ダメージヘアに悩む方の多くが、頭皮や毛髪を健やかに保つケアを望んでいます。<br>
+<br>
+Beのオーガニックヘアオイルは、毛髪の乾燥や切れ毛・枝毛を防ぎ、ハリ・コシを与え、うるおいに満ちた頭皮と毛髪へ導く、植物由来100%のヘアオイルです。<br>
+国産原料のツバキオイルをはじめ、オリーブオイル、ホホバオイルをベースにし、天然由来100%のJOCA・エコサートコスモスのW認証も取得。<br>
+成分にこだわり、髪だけでなく、フェイス、ハンド、ボディと、全身にもお使いいただけます。<br>
+さらに、シャンプー前の頭皮マッサージ、毛髪ダメージケア、仕上げのスタイリングなどに使えることも魅力です。<br>
+外出先や旅行に携帯できるミニサイズの25mLとたっぷりお得な50mLの2サイズで展開します。<br>
+<br>
+毛髪を健やかに育むには、土台である頭皮を健やかな状態に保つことが大切です。<br>
+髪質を問わず、これひとつで、なめらかな指通り、うるおい溢れるツヤのある健康的な髪を育むケアを叶えます。<br>
+<br>
+・利島のツバキオイル<br>
+有機栽培の利島産ツバキオイル。<br>
+東京から南へ140kmほど離れた島の土壌の玄武岩地質は、植物の成長促進や病害虫への耐性向上に働く二酸化ケイ素を含むことから、椿の完全無農薬栽培を可能にしています。<br>
+ヤブツバキ（藪椿）の種子は、酸化しないよう島内で圧搾し、上質な油を多く含む一番搾りのみをフレッシュなうちに出荷し製品に配合しています。<br>
+有機栽培された日本古来の品種である利島産のヤブツバキ。<br>
+その種子から採れるツバキオイルには、肌の皮脂組成に似たキューティクルにも存在する86%ものオレイン酸が含まれています。<br>
+そのため肌や髪になじみやすく、髪や地肌にうるおいを与えてくれます。<br>
+<br>
+▶5種類の植物オイル（保湿・整肌）<br>
+ツバキオイルを含む5種のオイルが配合されています。<br>
+それぞれのオイルの働きで、髪の健やかな美しさをサポートします。<br>
+<br>
+・精製オリーブオイル<br>
+主成分のオレイン酸は肌になじみやすく、肌の柔軟性を保つビタミンEやポリフェノールを含んでいるのでエイジングケア*にも用いられています。<br>
+<br>
+・ゴールデンホホバオイル<br>
+保湿力があり、髪の毛を包み込むようにして乾燥を防ぎます。<br>
+頭皮の皮脂と近い成分で毛穴汚れにもなじんで浮かせる効果を期待できます。<br>
+<br>
+・国産ヒエヌカオイル<br>
+岩手県でサステナブルに有機栽培・抽出されたオイルです。<br>
+ルテイン、ゼアキサンチン、ビタミンE、リノール酸を含んでいます。<br>
+<br>
+・有機ブロッコリーシードオイル<br>
+エルカ酸を多く含み天然のシリコンと呼ばれる伸びの良いオイルを配合。<br>
+ビタミンAを含み、熱や紫外線から髪を守り、ツヤを与え、うるおいを守ります。<br>
+*年齢に応じたお手入れのこと<br>
+<br>
+▶Beオリジナル発酵原料と独自の精油ブレンド
+スキンケア成分と同じ、有機の国産マグワ果実とコメを発酵させて作られた、オーガニックのオリジナル発酵エキス＝「（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス（整肌成分）」配合。<br>
+アミノ酸を豊富に含み、地肌のキメを整え健やかな髪を育みます。<br>
+<br>
+リラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自のオーガニック精油ブレンドです。<br>
+手のひらに広げて香りをひと息吸ってから髪の毛になじませるとやわらかな香り立ちを楽しめます。<br>
+<br>
+▶厳しいオーガニック認証を取得<br>
+・原材料の100%は天然由来成分<br>
+・原材料の96%は有機成分<br>
+・JOCA認証・エコサートコスモス認証<br>
+<br>
+▶国産へのこだわり<br>
+一部原材料・包装資材の調達、製造工程にメイド・イン・ジャパンを採用しています。<br>
+これにより、環境負荷を削減し、輸送にかかる温室効果ガス排出量の削減につながります。<br>
+<br>
+▶無添加へのこだわり<br>
+・シリコーンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成着色料フリー<br>
+・合成香料フリー<br>
+・紫外線吸収剤フリー<br>
+・パラベンフリー<br>
+・動物由来原料フリー<br>
+<br>
+▶地球環境にやさしい容器へのこだわり<br>
+メカニカルリサイクルPETを使用しています。<br>
+環境負荷に配慮した使用済みペットボトルから再生されたボトルです。<br>
+化粧箱はFSC認証基準の再生紙を使用しています。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:96:"Be、ビー、ヘアオイル、美容、オイル、ヘアケア、オーガニック、organic";s:11:"free_area_6";s:3353:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油*、ホホバ種子油*、ツバキ種子油*、ベルガモット果皮油、ラベンダー油*、ヒエヌカ油、（アスペルギルス／サッカロミセス）／（マグワ果実 ／コメ）発酵粕エキス**、ブロッコリー種子油*、ローズマリー葉油*、グリセリン**、水、ローズマリー葉エキス*、トコフェロール、エタノール**、ヒマワリ種子油、ミシマサイコ花／葉／茎エキス*、マグワ根皮エキス*
+*オーガニック原料
+**オーガニック由来原料
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+25ml
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+適量を手にとり、毛先から乾燥が気になる部分になじませてください。<br>
+タオルドライ後に使用する際は、適量を手のひらでのばし髪全体になじませて乾かしてください。<br>
+シャンプー前に適量を手にとり、頭皮になじませてマッサージいただくのにもおすすめです。その後シャンプーですすいでください。<br>
+スタイリングなど、乾いた髪へもご使用いただけます。<br>
+顔、手、足など全身にもお使いいただけます。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。</li>
+<li>そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+　1,使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+　2,使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-12-29 06:34:57";s:13:"update_date_8";s:19:"2023-04-05 03:32:20";s:9:"message_9";s:51:"毛髪と頭皮をケアして美しい髪を育む";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"396";s:15:"product_code_12";N;s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3960.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 06:34:57";s:14:"update_date_21";s:19:"2023-04-05 03:32:20";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"396";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2022-12-29 06:34:57";s:14:"update_date_33";s:19:"2023-04-05 03:32:20";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"952";s:12:"file_name_49";s:28:"0202090232_63dafd98cedbf.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-02-02 00:02:55";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"359";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"396";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"359";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:16;a:87:{s:4:"id_0";s:3:"360";s:6:"name_1";s:28:"【Be】ヘアオイル 50ml";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:5815:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+カラーリングやパーマ、睡眠不足や日々の疲れ、紫外線や乾燥、加齢やストレスによる血行不良など、さまざまな要因によって引き起こされるヘアダメージ。<br>
+切れ毛、パサツキ、枝毛、乾燥、白髪、うねりなど、ダメージヘアに悩む方の多くが、頭皮や毛髪を健やかに保つケアを望んでいます。<br>
+<br>
+Beのオーガニックヘアオイルは、毛髪の乾燥や切れ毛・枝毛を防ぎ、ハリ・コシを与え、うるおいに満ちた頭皮と毛髪へ導く、植物由来100%のヘアオイルです。<br>
+国産原料のツバキオイルをはじめ、オリーブオイル、ホホバオイルをベースにし、天然由来100%のJOCA・エコサートコスモスのW認証も取得。<br>
+成分にこだわり、髪だけでなく、フェイス、ハンド、ボディと、全身にもお使いいただけます。<br>
+さらに、シャンプー前の頭皮マッサージ、毛髪ダメージケア、仕上げのスタイリングなどに使えることも魅力です。<br>
+外出先や旅行に携帯できるミニサイズの25mLとたっぷりお得な50mLの2サイズで展開します。<br>
+<br>
+毛髪を健やかに育むには、土台である頭皮を健やかな状態に保つことが大切です。<br>
+髪質を問わず、これひとつで、なめらかな指通り、うるおい溢れるツヤのある健康的な髪を育むケアを叶えます。<br>
+<br>
+・利島のツバキオイル<br>
+有機栽培の利島産ツバキオイル。<br>
+東京から南へ140kmほど離れた島の土壌の玄武岩地質は、植物の成長促進や病害虫への耐性向上に働く二酸化ケイ素を含むことから、椿の完全無農薬栽培を可能にしています。<br>
+ヤブツバキ（藪椿）の種子は、酸化しないよう島内で圧搾し、上質な油を多く含む一番搾りのみをフレッシュなうちに出荷し製品に配合しています。<br>
+有機栽培された日本古来の品種である利島産のヤブツバキ。<br>
+その種子から採れるツバキオイルには、肌の皮脂組成に似たキューティクルにも存在する86%ものオレイン酸が含まれています。<br>
+そのため肌や髪になじみやすく、髪や地肌にうるおいを与えてくれます。<br>
+<br>
+▶5種類の植物オイル（保湿・整肌）<br>
+ツバキオイルを含む5種のオイルが配合されています。<br>
+それぞれのオイルの働きで、髪の健やかな美しさをサポートします。<br>
+<br>
+・精製オリーブオイル<br>
+主成分のオレイン酸は肌になじみやすく、肌の柔軟性を保つビタミンEやポリフェノールを含んでいるのでエイジングケア*にも用いられています。<br>
+<br>
+・ゴールデンホホバオイル<br>
+保湿力があり、髪の毛を包み込むようにして乾燥を防ぎます。<br>
+頭皮の皮脂と近い成分で毛穴汚れにもなじんで浮かせる効果を期待できます。<br>
+<br>
+・国産ヒエヌカオイル<br>
+岩手県でサステナブルに有機栽培・抽出されたオイルです。<br>
+ルテイン、ゼアキサンチン、ビタミンE、リノール酸を含んでいます。<br>
+<br>
+・有機ブロッコリーシードオイル<br>
+エルカ酸を多く含み天然のシリコンと呼ばれる伸びの良いオイルを配合。<br>
+ビタミンAを含み、熱や紫外線から髪を守り、ツヤを与え、うるおいを守ります。<br>
+*年齢に応じたお手入れのこと<br>
+<br>
+▶Beオリジナル発酵原料と独自の精油ブレンド
+スキンケア成分と同じ、有機の国産マグワ果実とコメを発酵させて作られた、オーガニックのオリジナル発酵エキス＝「（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス（整肌成分）」配合。<br>
+アミノ酸を豊富に含み、地肌のキメを整え健やかな髪を育みます。<br>
+<br>
+リラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自のオーガニック精油ブレンドです。<br>
+手のひらに広げて香りをひと息吸ってから髪の毛になじませるとやわらかな香り立ちを楽しめます。<br>
+<br>
+▶厳しいオーガニック認証を取得<br>
+・原材料の100%は天然由来成分<br>
+・原材料の96%は有機成分<br>
+・JOCA認証・エコサートコスモス認証<br>
+<br>
+▶国産へのこだわり<br>
+一部原材料・包装資材の調達、製造工程にメイド・イン・ジャパンを採用しています。<br>
+これにより、環境負荷を削減し、輸送にかかる温室効果ガス排出量の削減につながります。<br>
+<br>
+▶無添加へのこだわり<br>
+・シリコーンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成着色料フリー<br>
+・合成香料フリー<br>
+・紫外線吸収剤フリー<br>
+・パラベンフリー<br>
+・動物由来原料フリー<br>
+<br>
+▶地球環境にやさしい容器へのこだわり<br>
+メカニカルリサイクルPETを使用しています。<br>
+環境負荷に配慮した使用済みペットボトルから再生されたボトルです。<br>
+化粧箱はFSC認証基準の再生紙を使用しています。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:96:"Be、ビー、ヘアオイル、美容、オイル、ヘアケア、オーガニック、organic";s:11:"free_area_6";s:3353:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油*、ホホバ種子油*、ツバキ種子油*、ベルガモット果皮油、ラベンダー油*、ヒエヌカ油、（アスペルギルス／サッカロミセス）／（マグワ果実 ／コメ）発酵粕エキス**、ブロッコリー種子油*、ローズマリー葉油*、グリセリン**、水、ローズマリー葉エキス*、トコフェロール、エタノール**、ヒマワリ種子油、ミシマサイコ花／葉／茎エキス*、マグワ根皮エキス*
+*オーガニック原料
+**オーガニック由来原料
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+50ml
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+適量を手にとり、毛先から乾燥が気になる部分になじませてください。<br>
+タオルドライ後に使用する際は、適量を手のひらでのばし髪全体になじませて乾かしてください。<br>
+シャンプー前に適量を手にとり、頭皮になじませてマッサージいただくのにもおすすめです。その後シャンプーですすいでください。<br>
+スタイリングなど、乾いた髪へもご使用いただけます。<br>
+顔、手、足など全身にもお使いいただけます。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。</li>
+<li>そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+　1,使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+　2,使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-12-29 10:54:40";s:13:"update_date_8";s:19:"2023-04-05 03:32:45";s:9:"message_9";s:51:"毛髪と頭皮をケアして美しい髪を育む";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"397";s:15:"product_code_12";N;s:8:"stock_13";s:1:"1";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"5610.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 10:54:40";s:14:"update_date_21";s:19:"2023-05-25 21:56:12";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"397";s:8:"stock_31";s:1:"1";s:14:"create_date_32";s:19:"2022-12-29 10:54:40";s:14:"update_date_33";s:19:"2023-05-25 21:56:12";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"954";s:12:"file_name_49";s:28:"0202090355_63dafdebed33b.jpg";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-02-02 00:04:01";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"360";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"397";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"360";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:17;a:87:{s:4:"id_0";s:3:"395";s:6:"name_1";s:40:"【Lien】オールインワン美容液";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:1423:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+Lien(リアン)のオールインワン美容液は、美容鍼灸の島優太先生（こもの鍼灸院院長）が監修されており、お肌に合う美容品が中々みつからない敏感肌の方に向けて作られました。<br>
+そして、美容に時間をかけるのが難しい方のために、さっとお肌に浸透させればいいオールインワンにしました<br>
+また、この美容液は毎日生まれ変わる大切なお肌を守るために、「保湿」、「肌荒れ予防」、「抗酸化作用」の３つのテーマがあります。<br>
+<br>
+１．保湿<br>
+14種類の保湿成分が配合されています。<br>
+その中でもセラミドが、角質層の水分を上げ乾燥を抑制し肌キメの向上を促します。<br>
+<br>
+２．肌荒れ予防<br>
+α-グルカンオリゴカッサリドにより、お肌の菌環境やpHの値を整えることで皮膚全体の水分量の維持や回復に繋げ、肌荒れの予防となります。<br>
+<br>
+３．抗酸化作用<br>
+ビタミンCの100倍の抗酸化力を備えるフラーレンにより、お肌の老化を防ぎハリの維持やシミなどの色素沈着の予防に働きます。<br>
+<br>
+ </div>
+</div>";s:13:"search_word_5";s:40:"オールインワン、美容液、Lien";s:11:"free_area_6";s:2941:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+     
+「オールインワン」の化粧品は、「化粧水」、「美容液」、「乳液」、「クリーム」の役割を１本に集約した基礎化粧品のことです。<br>
+一般的にオールインワンのイメージは賛否が分かれます。<br>
+よく挙げられる疑問点は、「本当にお肌に浸透するのか」という点です。<br>
+<br>
+Lienは、お肌に浸透させるために研究を重ね、密封閉塞療法を用いりました。<br>
+糖類の成分で閉塞状況を作り出し、成分を肌に浸透させることができました。<br>
+<br>
+通常、お肌は角層状態がバリア機能により、薬物を皮膚に浸透させにくいです。<br>
+密封閉塞療法は、閉塞塗布することによりバリア機能を緩めて、薬物の経皮浸透を促進します。<br>
+<br>
+また、使用においてベタつきが苦手な方は塗布から5～10分浸透させた後にティッシュで取り除く方法があります。<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+        60mL（朝晩使用で約30〜45日分）
+    </div>
+</div>
+<br><br>
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>本商品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま本商品の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+
+<li>本商品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2023-05-19 23:51:16";s:13:"update_date_8";s:19:"2023-06-12 02:39:52";s:9:"message_9";s:61:"毎日生まれ変わる肌に潤いを与える美容液<br>";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"451";s:15:"product_code_12";s:13:"1312345466999";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"7000.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-05-19 23:51:16";s:14:"update_date_21";s:19:"2023-06-12 02:39:52";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"451";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2023-05-19 23:51:16";s:14:"update_date_33";s:19:"2023-06-12 02:39:52";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1212";s:12:"file_name_49";s:28:"0612005256_6485edd87c786.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-06-11 15:53:03";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"3";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"395";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"451";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"395";s:13:"creator_id_82";s:1:"3";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:18;a:87:{s:4:"id_0";s:3:"399";s:6:"name_1";s:88:"【S・HEART・S】スカルプブラシ ワールドモデルロング(スタンド付)";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:768:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+
+「S・HEART・S」のスカルプブラシ　ワールドモデルロングは、髪の長い方でも使いやすいロングタイプのハンドルになつています。<br>
+ブラシも376本の先玉ピンと段差植毛、頭皮密着設計で毛穴の汚れを除去します。<br>
+<br>
+「S・HEART・S」の商品は、健康な頭皮から美しい髪をつくり、さらに髪のお悩みを解決すべく、シャンプー、トリートメント、ブロー、マッサージ、ボリュームアップ等のシーンでご利用いただける商品です。<br>
+ </div>
+</div>";s:13:"search_word_5";s:24:"ブラシ、スカルプ";s:11:"free_area_6";s:1140:"<div class="product-description">
+    <div class="product-description__title">
+        ご使用方法
+    </div>
+    <div class="product-description__contents">
+     
+シャンプーやトリートメント時はもちろん、ブローやアウトバスでのブラッシング、マッサージなどにもご使用いただけます。<br>
+<br>
+頭皮の毛穴に届く376本の先玉ピンは、頭皮を傷つけないように限りなく真球に近いピンになっていて、約4万個あるといわれる頭皮の毛穴をクレンジング&マッサージします。<br>
+指では落とせない汚れをやさしく、しっかり落としてくれます。<br><br>
+また、ブラシを立てて置けるブラシスタンド付きですので、使用後はブラシを立てて水切り・乾燥できるので衛生的です。<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        サイズ
+    </div>
+    <div class="product-description__contents">
+        長さ196×幅45×高さ40(mm) 約85g
+    </div>
+</div>
+<br><br>";s:13:"create_date_7";s:19:"2023-06-14 12:30:38";s:13:"update_date_8";s:19:"2023-06-27 07:11:19";s:9:"message_9";s:96:"頭皮マッサージや毛穴ヨゴレに。特許取得の頭皮密着構造ブラシです。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"455";s:15:"product_code_12";s:13:"4573113841083";s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"7150.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-06-14 12:30:38";s:14:"update_date_21";s:19:"2023-07-12 04:24:49";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"455";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2023-06-14 12:30:38";s:14:"update_date_33";s:19:"2023-07-12 04:24:49";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1225";s:12:"file_name_49";s:28:"0614223941_6489c31dd64d4.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-06-14 13:39:48";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"3";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"399";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"455";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"399";s:13:"creator_id_82";s:1:"3";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:19;a:87:{s:4:"id_0";s:3:"409";s:6:"name_1";s:46:"【MYTHOS】スージングジェル アロエ";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:724:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+
+MYTHOS スージングジェル アロエは、有機農法由来のアロエベラエキスやオリーブエキス、パンテノール＆トウゴマオイルを配合した爽やかなジェルです。<br>
+1年を通して太陽の日差しが降り注ぐ地中海沿岸のギリシャで生まれた、「日焼け後用のジェル」になります。<br>
+毎日の外出後や入浴後、運動後に乾いたお肌へ潤いと心地良い冷涼感を与え、しっとりとなめらかなお肌へと導きます。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:126:"MYTHOS、スージングジェル、アロエ、日焼け止め、ジェル、お肌、スキンケア、オリーブオイル";s:11:"free_area_6";s:3772:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+世界25カ国にて販売されているギリシャのオリーブコスメブランド『MYTHOS（ミトス）』のアロエラインです。<br>
+<br>
+有機農法由来のアロエベラエキスとギリシャで有機栽培されたオリーブの実から採れる一番搾りBIOオリーブオイル、数種類の植物エッセンスを配合しています。<br>
+ナチュラルなやさしい成分がお肌への潤いをサポートします。<br>
+<br>
+“MYTHOS”は、古代ギリシャの歴史から由来し、何世代にも渡って語り継がれてきた、決して古びることのない価値観が込められた言葉です。<br>
+MYTHOS特有の成分は、主にギリシャのコロニ地方の肥沃な土地で育ったオリーブの木から採れるオリーブオイルです。<br>
+この「コロネイキ」と呼ばれるオリーブオイルの品種は、ポリフェノール、オリゴペプチド、ビタミン、微量元素、アミノ酸を豊富に含んでおり、他の品種と比べて、最高品質を誇っています。<br><br>
+    </div>
+</div>
+<br><br>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+100mL<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        原産国
+    </div>
+    <div class="product-description__contents">
+ギリシャ<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+水・PEG-40水添ヒマシ油・パンテノール・ベンジルアルコール・（アクリレーツ／アクリル酸アルキル（C10−30））クロスポリマー・エチルヘキシルグリセリン・香料・ヒドロキシエチルセルロース・水酸化Na・グリセリン・アロエベラ液汁・オリーブ葉エキス・アマ種子エキス<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>本商品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま本商品の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>本商品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2023-07-17 21:58:26";s:13:"update_date_8";s:19:"2023-07-24 23:06:26";s:9:"message_9";s:120:"有機農法由来のアロエベラエキスとオリーブエキスで、お肌に心地良い冷涼感と潤いを。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"465";s:15:"product_code_12";s:13:"5202624547410";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:6:"880.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-07-17 21:58:26";s:14:"update_date_21";s:19:"2023-07-24 23:06:26";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"465";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2023-07-17 21:58:26";s:14:"update_date_33";s:19:"2023-07-24 23:06:26";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1232";s:12:"file_name_49";s:28:"0720004300_64b80484ee6e5.png";s:10:"sort_no_50";s:1:"1";s:14:"create_date_51";s:19:"2023-07-19 15:43:52";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"409";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"465";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"409";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:20;a:87:{s:4:"id_0";s:3:"186";s:6:"name_1";s:93:"【EARTH】アースハート ナチュラルオイル ヘア&ボディ&ハンド用オイル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:822:"今日はどんな髪型で楽しもうか。<br>
+朝のセットは完ぺきだったのに、午後には乾燥が目立ってきてしまうことありますよね。<br>
+ナチュラルオイルはしっとり感がなんと一日中続き、つけたてのウェットスタイルを一日中楽しめます。<br>
+全国展開されている美容室EARTHが開発し、最高と謳うヘア&ボディ&ハンドオイルです。<br>
+肌にもやさしい成分なので、髪にも安心して使えますよね。<br>
+見た目のシンプルでおしゃれで、洗面台のインテリアにもなりそうです。<br>
+朝も昼も夜もナチュラルでみずみずしいヘアスタイルを保てます。<br>
+ご自身用でも、プレゼントにも。おすすめの商品です。<br>
+<br><br>";s:13:"search_word_5";s:76:"アース,EARTH,ナチュラルオイル,ヘア,ハンド,ボディオイル";s:11:"free_area_6";s:4786:"<div class="product-description">
+    <div class="product-description__title">
+       うるおいの秘密
+    </div>
+    <div class="product-description__contents">
+うるおい効果の秘密は、最近注目されているシアバターです。シアバターには人の皮脂と似た成分が含まれており、髪・肌なじみが良くて長時間保湿力が続きます。<br>
+その他、肌を柔軟化させるコメヌカや浸透力が高いひまわり、うるおいを閉じ込めるオリーブ、抗酸化作用のあるゴマオイルなど厳選された自然のオイルを使用しています。<br>
+天然成分由来であるため、髪を乾燥から守りながらもボディオイルとしても使用できるのが驚きでうれしい特典ですね。<br>
+さらにベルガモットとオレンジのシトラス系の爽やかな香りがリフレッシュにもなります。<br>
+朝の準備の時間に。お出かけ前の気分のリセットに。身も心もナチュラルに楽しむ一日を創りましょう。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+         毎日をキレイに
+    </div>
+    <div class="product-description__contents">
+忙しい毎日の朝の時間も楽しむ時間に。<br>
+お友達へのプレゼントに。<br>
+イメージをガラッと変えたいときに。<br>
+どんな瞬間でもキレイを目指す女性のためのヘア&ボディ&ハンドオイルです。
+    </div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+      商品詳細
+    </div>
+    <div class="product-description__contents">
+    美容室EARTH<br>
+100年続く美容室を。少しでも気分よくなってもらうため、美と健康から世界中を笑顔にしている美容室EARTH。<br>
+非日常空間、最新のヘアスタイル、オーガニック、リラクゼーション、サービスにこだわり全国に約240店舗以上のサロンをオープンしています。<br>
+カットやカラーやスパなどの美容室でできる美だけでなく、普段使いのケアアイテムまでも開発し日々の暮らしから出来る美を再現するために今もなお成長し続け、社会に貢献している企業です。<br>
+<br>
+<ul><li>香り</li>
+ベルガモットとオレンジのシトラスフルーティーな香り。<br>
+<li>適したスタイル</li>
+ボリュームを抑えたタイトなスタイル。パサつく毛先にうるおいを与えたいときに。</ul>
+</div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+コメヌカ油、ミネラルオイル、ゴマ油、サフラワー油、ヒマワリ種子油、ホホバ種子油、シア脂油、オリーブ油、スクワラン、ベルガモット果実油、オレンジ果皮油、グレープフルーツ果皮油、ユズ果皮油、トコフェロール
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+     150mL<br>
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+使用方法
+    </div>
+    <div class="product-description__contents">
+<ul><li>ウェットスタイルにしたい場合は、洗髪後軽くタオルドライし髪が濡れた状態でオイルをなじませます。</li>
+<li>アウトバスオイルとしてご使用の場合はタオルドライ後、適量を手の平でのばし、毛先中心に塗布して髪全体によくなじませ乾かして仕上げます。</li>
+<li>お肌にご使用の場合は適量をよくなじませてお使いください。</li>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>お肌に合わないときは、ご使用をおやめください。</li>
+<li>目に入った際は、すぐに洗い流してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>直射日光の当たる場所や極端に低温・高温の場所に保管しないでください。</li>
+<li>天然由来成分を含んでいるため、まれに変色・沈殿物が出ることがありますが品質に問題はございません。</li></ul>
+</div>
+</div>";s:13:"create_date_7";s:19:"2021-02-23 14:31:59";s:13:"update_date_8";s:19:"2023-04-01 00:28:35";s:9:"message_9";s:116:"一日中ナチュラルを楽しむ。<br> オーガニックのオイルで髪や肌を乾燥から守ります。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"215";s:15:"product_code_12";s:13:"4540688945003";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3190.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-02-23 14:31:59";s:14:"update_date_21";s:19:"2023-04-01 00:28:35";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"215";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2021-02-23 14:31:59";s:14:"update_date_33";s:19:"2023-04-01 00:28:35";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"448";s:12:"file_name_49";s:29:"0430223125_608c06ad3a40d.jpeg";s:10:"sort_no_50";s:1:"2";s:14:"create_date_51";s:19:"2021-04-30 13:32:13";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"186";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"215";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"186";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:21;a:87:{s:4:"id_0";s:3:"356";s:6:"name_1";s:35:"【Be】オーガニックバーム";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:3624:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+天然成分100%のオーガニックバーム<br>
+髪の毛、口もと、肌、手もと、爪、ボディと、全身に使える爽やかな香りのバームです。<br>
+空気の乾燥や寒風、エアコンなどの外的刺激から肌をしっかり保護し、ラップするようにうるおいを守ります。<br>
+スキンケア共通の美容成分であるBe独自のオリジナル発酵粕エキス（整肌成分）＊1を配合し、手の体温で柔らかくなるので塗り広げやすく、いつでも気になる場所にたっぷりお使いいただけます。<br>
+軽くて持ち運びがしやすく地球環境にも優しい、リサイクルが可能なアルミ缶を使用しているのも特徴です。<br>
+<br>
+
+＊1（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス<br>
+<br>
+どんなシーンでも季節を問わず使い方も自在。<br>
+バームにお手持ちの美容オイルをプラスして、手のひらで揉み込み肌に塗ることも、毛先になじませてヘアスタイリングの仕上げに濡れ髪をつくることも。<br>
+爪とその周りの肌やアンダーマスクの乾燥対策にもお使いいただけます。<br>
+冬の乾燥だけでなく、一年を通して足先やかかと、肘がカサつく場合のケアにもおすすめです。<br>
+<br>
+
+Be独自の精油ブレンド<br>
+リラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自の精油をブレンドして作りました。<br>
+ご家族・パートナーにも心地よくお使いいただける穏やかな香りたちです。<br>
+<br>
+厳選されたオーガニック認証を取得<br>
+原材料は100%天然由来成分です。<br>
+さらに製造方法と過程においても合成成分を使用しない厳格なJOCA認証＊2を取得。<br>
+エコサートコスモスオーガニック認証＊3とのW認証を取得しました。
+<br>
+<br>
+＊2 http://joca.jp/oc/?page_id=315<br>
+＊3 エコサート／ECOCERTは1991年にフランスで設立され、ヨーロッパを拠点として、80か国以上で検査を実施。<br>
+2010年、エコサートを含む5つのヨーロッパの機関が参画し、国際基準となる世界初のオーガニックコスメ統一基準を打ち出した有機認証としてCOSMOS／コスモス認証が誕生。世界シェア約75%。オーガニック原料の割合に応じて「オーガニック認証」と「ナチュラル認証」の2種類を取り扱う。<br>
+<br>
+・無添加へのこだわり<br>
+・シリコンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成香料フリー<br>
+・合成着色料フリー<br>
+・紫外線吸収剤フリー<br>
+・パラベンフリー<br>
+・防腐剤（フェノキシエタノール）フリー<br>
+・動物由来原料フリー<br>
+<br>
+環境にやさしい容器へのこだわり<br>
+リサイクル可能なアルミ缶を使用しています。<br>
+外装箱の印刷にはベジタブルインキを使用、さらにFSC認証＊4を取得した紙を採用し、環境負荷に配慮しています。<br>
+<br>
+＊4 FSC（Forest Stewardship Council®、森林管理協議会）による国際的な森林認証制度<br>
+
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:57:"Be、ビー、オーガニック、organic、バーム、";s:11:"free_area_6";s:2809:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油＊、シア脂＊、ミツロウ＊、ヒマシ油＊、ツバキ種子油、ベルガモット果皮油、ラベンダー油＊、ローズマリー葉油＊、ヒマワリ種子油、トコフェロール、（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス＊＊、水、エタノール＊＊
+＊オーガニック原料
+＊＊オーガニック由来原料
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+27g
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+適量を指先にとり、乾燥が気になる部分になじませます。<br>顔、唇、手、爪、ひじ、踵、髪などにも使用できます。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。</li>
+<li>そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+　1,使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+　2,使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-12-29 05:34:12";s:13:"update_date_8";s:19:"2023-04-05 03:31:24";s:9:"message_9";s:81:"外的刺激から全身のうるおいを守る、爽やかな香りのバーム";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"393";s:15:"product_code_12";N;s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"4290.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 05:34:12";s:14:"update_date_21";s:19:"2023-07-12 04:26:01";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"393";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2022-12-29 05:34:12";s:14:"update_date_33";s:19:"2023-07-12 04:26:01";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"903";s:12:"file_name_49";s:28:"0106012011_63b6f8bba779d.jpg";s:10:"sort_no_50";s:1:"2";s:14:"create_date_51";s:19:"2023-01-05 16:20:17";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"356";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"393";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"356";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:22;a:87:{s:4:"id_0";s:3:"359";s:6:"name_1";s:28:"【Be】ヘアオイル 25ml";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:5815:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+カラーリングやパーマ、睡眠不足や日々の疲れ、紫外線や乾燥、加齢やストレスによる血行不良など、さまざまな要因によって引き起こされるヘアダメージ。<br>
+切れ毛、パサツキ、枝毛、乾燥、白髪、うねりなど、ダメージヘアに悩む方の多くが、頭皮や毛髪を健やかに保つケアを望んでいます。<br>
+<br>
+Beのオーガニックヘアオイルは、毛髪の乾燥や切れ毛・枝毛を防ぎ、ハリ・コシを与え、うるおいに満ちた頭皮と毛髪へ導く、植物由来100%のヘアオイルです。<br>
+国産原料のツバキオイルをはじめ、オリーブオイル、ホホバオイルをベースにし、天然由来100%のJOCA・エコサートコスモスのW認証も取得。<br>
+成分にこだわり、髪だけでなく、フェイス、ハンド、ボディと、全身にもお使いいただけます。<br>
+さらに、シャンプー前の頭皮マッサージ、毛髪ダメージケア、仕上げのスタイリングなどに使えることも魅力です。<br>
+外出先や旅行に携帯できるミニサイズの25mLとたっぷりお得な50mLの2サイズで展開します。<br>
+<br>
+毛髪を健やかに育むには、土台である頭皮を健やかな状態に保つことが大切です。<br>
+髪質を問わず、これひとつで、なめらかな指通り、うるおい溢れるツヤのある健康的な髪を育むケアを叶えます。<br>
+<br>
+・利島のツバキオイル<br>
+有機栽培の利島産ツバキオイル。<br>
+東京から南へ140kmほど離れた島の土壌の玄武岩地質は、植物の成長促進や病害虫への耐性向上に働く二酸化ケイ素を含むことから、椿の完全無農薬栽培を可能にしています。<br>
+ヤブツバキ（藪椿）の種子は、酸化しないよう島内で圧搾し、上質な油を多く含む一番搾りのみをフレッシュなうちに出荷し製品に配合しています。<br>
+有機栽培された日本古来の品種である利島産のヤブツバキ。<br>
+その種子から採れるツバキオイルには、肌の皮脂組成に似たキューティクルにも存在する86%ものオレイン酸が含まれています。<br>
+そのため肌や髪になじみやすく、髪や地肌にうるおいを与えてくれます。<br>
+<br>
+▶5種類の植物オイル（保湿・整肌）<br>
+ツバキオイルを含む5種のオイルが配合されています。<br>
+それぞれのオイルの働きで、髪の健やかな美しさをサポートします。<br>
+<br>
+・精製オリーブオイル<br>
+主成分のオレイン酸は肌になじみやすく、肌の柔軟性を保つビタミンEやポリフェノールを含んでいるのでエイジングケア*にも用いられています。<br>
+<br>
+・ゴールデンホホバオイル<br>
+保湿力があり、髪の毛を包み込むようにして乾燥を防ぎます。<br>
+頭皮の皮脂と近い成分で毛穴汚れにもなじんで浮かせる効果を期待できます。<br>
+<br>
+・国産ヒエヌカオイル<br>
+岩手県でサステナブルに有機栽培・抽出されたオイルです。<br>
+ルテイン、ゼアキサンチン、ビタミンE、リノール酸を含んでいます。<br>
+<br>
+・有機ブロッコリーシードオイル<br>
+エルカ酸を多く含み天然のシリコンと呼ばれる伸びの良いオイルを配合。<br>
+ビタミンAを含み、熱や紫外線から髪を守り、ツヤを与え、うるおいを守ります。<br>
+*年齢に応じたお手入れのこと<br>
+<br>
+▶Beオリジナル発酵原料と独自の精油ブレンド
+スキンケア成分と同じ、有機の国産マグワ果実とコメを発酵させて作られた、オーガニックのオリジナル発酵エキス＝「（アスペルギルス／サッカロミセス）／（マグワ果実／コメ）発酵粕エキス（整肌成分）」配合。<br>
+アミノ酸を豊富に含み、地肌のキメを整え健やかな髪を育みます。<br>
+<br>
+リラックスできる爽やかな香りは、ラベンダー、ローズマリー、ベルガモットをベースにしたBe独自のオーガニック精油ブレンドです。<br>
+手のひらに広げて香りをひと息吸ってから髪の毛になじませるとやわらかな香り立ちを楽しめます。<br>
+<br>
+▶厳しいオーガニック認証を取得<br>
+・原材料の100%は天然由来成分<br>
+・原材料の96%は有機成分<br>
+・JOCA認証・エコサートコスモス認証<br>
+<br>
+▶国産へのこだわり<br>
+一部原材料・包装資材の調達、製造工程にメイド・イン・ジャパンを採用しています。<br>
+これにより、環境負荷を削減し、輸送にかかる温室効果ガス排出量の削減につながります。<br>
+<br>
+▶無添加へのこだわり<br>
+・シリコーンフリー<br>
+・鉱物油フリー<br>
+・石油系界面活性剤フリー<br>
+・合成着色料フリー<br>
+・合成香料フリー<br>
+・紫外線吸収剤フリー<br>
+・パラベンフリー<br>
+・動物由来原料フリー<br>
+<br>
+▶地球環境にやさしい容器へのこだわり<br>
+メカニカルリサイクルPETを使用しています。<br>
+環境負荷に配慮した使用済みペットボトルから再生されたボトルです。<br>
+化粧箱はFSC認証基準の再生紙を使用しています。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:96:"Be、ビー、ヘアオイル、美容、オイル、ヘアケア、オーガニック、organic";s:11:"free_area_6";s:3353:"<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+オリーブ果実油*、ホホバ種子油*、ツバキ種子油*、ベルガモット果皮油、ラベンダー油*、ヒエヌカ油、（アスペルギルス／サッカロミセス）／（マグワ果実 ／コメ）発酵粕エキス**、ブロッコリー種子油*、ローズマリー葉油*、グリセリン**、水、ローズマリー葉エキス*、トコフェロール、エタノール**、ヒマワリ種子油、ミシマサイコ花／葉／茎エキス*、マグワ根皮エキス*
+*オーガニック原料
+**オーガニック由来原料
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        量
+    </div>
+    <div class="product-description__contents">
+25ml
+    </div>
+</div>
+
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        使用方法
+    </div>
+    <div class="product-description__contents">
+適量を手にとり、毛先から乾燥が気になる部分になじませてください。<br>
+タオルドライ後に使用する際は、適量を手のひらでのばし髪全体になじませて乾かしてください。<br>
+シャンプー前に適量を手にとり、頭皮になじませてマッサージいただくのにもおすすめです。その後シャンプーですすいでください。<br>
+スタイリングなど、乾いた髪へもご使用いただけます。<br>
+顔、手、足など全身にもお使いいただけます。<br>
+    </div>
+</div>
+<br>
+<div class="product-description">
+    <div class="product-description__title">
+        ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。</li>
+<li>そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+　1,使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+　2,使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>化粧品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>天然成分を使用している為、香りや色調に変化が生じる場合がございますが、ご使用には問題ありません。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2022-12-29 06:34:57";s:13:"update_date_8";s:19:"2023-04-05 03:32:20";s:9:"message_9";s:51:"毛髪と頭皮をケアして美しい髪を育む";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"396";s:15:"product_code_12";N;s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3960.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2022-12-29 06:34:57";s:14:"update_date_21";s:19:"2023-04-05 03:32:20";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"396";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2022-12-29 06:34:57";s:14:"update_date_33";s:19:"2023-04-05 03:32:20";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"953";s:12:"file_name_49";s:28:"0202090245_63dafda55c378.jpg";s:10:"sort_no_50";s:1:"2";s:14:"create_date_51";s:19:"2023-02-02 00:02:55";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"359";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"396";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"359";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:23;a:87:{s:4:"id_0";s:3:"399";s:6:"name_1";s:88:"【S・HEART・S】スカルプブラシ ワールドモデルロング(スタンド付)";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:768:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+
+「S・HEART・S」のスカルプブラシ　ワールドモデルロングは、髪の長い方でも使いやすいロングタイプのハンドルになつています。<br>
+ブラシも376本の先玉ピンと段差植毛、頭皮密着設計で毛穴の汚れを除去します。<br>
+<br>
+「S・HEART・S」の商品は、健康な頭皮から美しい髪をつくり、さらに髪のお悩みを解決すべく、シャンプー、トリートメント、ブロー、マッサージ、ボリュームアップ等のシーンでご利用いただける商品です。<br>
+ </div>
+</div>";s:13:"search_word_5";s:24:"ブラシ、スカルプ";s:11:"free_area_6";s:1140:"<div class="product-description">
+    <div class="product-description__title">
+        ご使用方法
+    </div>
+    <div class="product-description__contents">
+     
+シャンプーやトリートメント時はもちろん、ブローやアウトバスでのブラッシング、マッサージなどにもご使用いただけます。<br>
+<br>
+頭皮の毛穴に届く376本の先玉ピンは、頭皮を傷つけないように限りなく真球に近いピンになっていて、約4万個あるといわれる頭皮の毛穴をクレンジング&マッサージします。<br>
+指では落とせない汚れをやさしく、しっかり落としてくれます。<br><br>
+また、ブラシを立てて置けるブラシスタンド付きですので、使用後はブラシを立てて水切り・乾燥できるので衛生的です。<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        サイズ
+    </div>
+    <div class="product-description__contents">
+        長さ196×幅45×高さ40(mm) 約85g
+    </div>
+</div>
+<br><br>";s:13:"create_date_7";s:19:"2023-06-14 12:30:38";s:13:"update_date_8";s:19:"2023-06-27 07:11:19";s:9:"message_9";s:96:"頭皮マッサージや毛穴ヨゴレに。特許取得の頭皮密着構造ブラシです。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"455";s:15:"product_code_12";s:13:"4573113841083";s:8:"stock_13";s:1:"2";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"7150.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-06-14 12:30:38";s:14:"update_date_21";s:19:"2023-07-12 04:24:49";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"455";s:8:"stock_31";s:1:"2";s:14:"create_date_32";s:19:"2023-06-14 12:30:38";s:14:"update_date_33";s:19:"2023-07-12 04:24:49";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1226";s:12:"file_name_49";s:28:"0614223946_6489c3225f96d.JPG";s:10:"sort_no_50";s:1:"2";s:14:"create_date_51";s:19:"2023-06-14 13:39:48";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"3";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"399";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"3";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"455";s:13:"creator_id_73";s:1:"3";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"399";s:13:"creator_id_82";s:1:"3";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:24;a:87:{s:4:"id_0";s:3:"409";s:6:"name_1";s:46:"【MYTHOS】スージングジェル アロエ";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:724:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+
+MYTHOS スージングジェル アロエは、有機農法由来のアロエベラエキスやオリーブエキス、パンテノール＆トウゴマオイルを配合した爽やかなジェルです。<br>
+1年を通して太陽の日差しが降り注ぐ地中海沿岸のギリシャで生まれた、「日焼け後用のジェル」になります。<br>
+毎日の外出後や入浴後、運動後に乾いたお肌へ潤いと心地良い冷涼感を与え、しっとりとなめらかなお肌へと導きます。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:126:"MYTHOS、スージングジェル、アロエ、日焼け止め、ジェル、お肌、スキンケア、オリーブオイル";s:11:"free_area_6";s:3772:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+世界25カ国にて販売されているギリシャのオリーブコスメブランド『MYTHOS（ミトス）』のアロエラインです。<br>
+<br>
+有機農法由来のアロエベラエキスとギリシャで有機栽培されたオリーブの実から採れる一番搾りBIOオリーブオイル、数種類の植物エッセンスを配合しています。<br>
+ナチュラルなやさしい成分がお肌への潤いをサポートします。<br>
+<br>
+“MYTHOS”は、古代ギリシャの歴史から由来し、何世代にも渡って語り継がれてきた、決して古びることのない価値観が込められた言葉です。<br>
+MYTHOS特有の成分は、主にギリシャのコロニ地方の肥沃な土地で育ったオリーブの木から採れるオリーブオイルです。<br>
+この「コロネイキ」と呼ばれるオリーブオイルの品種は、ポリフェノール、オリゴペプチド、ビタミン、微量元素、アミノ酸を豊富に含んでおり、他の品種と比べて、最高品質を誇っています。<br><br>
+    </div>
+</div>
+<br><br>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+100mL<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        原産国
+    </div>
+    <div class="product-description__contents">
+ギリシャ<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+水・PEG-40水添ヒマシ油・パンテノール・ベンジルアルコール・（アクリレーツ／アクリル酸アルキル（C10−30））クロスポリマー・エチルヘキシルグリセリン・香料・ヒドロキシエチルセルロース・水酸化Na・グリセリン・アロエベラ液汁・オリーブ葉エキス・アマ種子エキス<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>本商品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま本商品の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>本商品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2023-07-17 21:58:26";s:13:"update_date_8";s:19:"2023-07-24 23:06:26";s:9:"message_9";s:120:"有機農法由来のアロエベラエキスとオリーブエキスで、お肌に心地良い冷涼感と潤いを。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"465";s:15:"product_code_12";s:13:"5202624547410";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:6:"880.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-07-17 21:58:26";s:14:"update_date_21";s:19:"2023-07-24 23:06:26";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"465";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2023-07-17 21:58:26";s:14:"update_date_33";s:19:"2023-07-24 23:06:26";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1233";s:12:"file_name_49";s:28:"0720004305_64b8048924250.JPG";s:10:"sort_no_50";s:1:"2";s:14:"create_date_51";s:19:"2023-07-19 15:43:52";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"409";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"465";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"409";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:25;a:87:{s:4:"id_0";s:3:"186";s:6:"name_1";s:93:"【EARTH】アースハート ナチュラルオイル ヘア&ボディ&ハンド用オイル";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:822:"今日はどんな髪型で楽しもうか。<br>
+朝のセットは完ぺきだったのに、午後には乾燥が目立ってきてしまうことありますよね。<br>
+ナチュラルオイルはしっとり感がなんと一日中続き、つけたてのウェットスタイルを一日中楽しめます。<br>
+全国展開されている美容室EARTHが開発し、最高と謳うヘア&ボディ&ハンドオイルです。<br>
+肌にもやさしい成分なので、髪にも安心して使えますよね。<br>
+見た目のシンプルでおしゃれで、洗面台のインテリアにもなりそうです。<br>
+朝も昼も夜もナチュラルでみずみずしいヘアスタイルを保てます。<br>
+ご自身用でも、プレゼントにも。おすすめの商品です。<br>
+<br><br>";s:13:"search_word_5";s:76:"アース,EARTH,ナチュラルオイル,ヘア,ハンド,ボディオイル";s:11:"free_area_6";s:4786:"<div class="product-description">
+    <div class="product-description__title">
+       うるおいの秘密
+    </div>
+    <div class="product-description__contents">
+うるおい効果の秘密は、最近注目されているシアバターです。シアバターには人の皮脂と似た成分が含まれており、髪・肌なじみが良くて長時間保湿力が続きます。<br>
+その他、肌を柔軟化させるコメヌカや浸透力が高いひまわり、うるおいを閉じ込めるオリーブ、抗酸化作用のあるゴマオイルなど厳選された自然のオイルを使用しています。<br>
+天然成分由来であるため、髪を乾燥から守りながらもボディオイルとしても使用できるのが驚きでうれしい特典ですね。<br>
+さらにベルガモットとオレンジのシトラス系の爽やかな香りがリフレッシュにもなります。<br>
+朝の準備の時間に。お出かけ前の気分のリセットに。身も心もナチュラルに楽しむ一日を創りましょう。
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+         毎日をキレイに
+    </div>
+    <div class="product-description__contents">
+忙しい毎日の朝の時間も楽しむ時間に。<br>
+お友達へのプレゼントに。<br>
+イメージをガラッと変えたいときに。<br>
+どんな瞬間でもキレイを目指す女性のためのヘア&ボディ&ハンドオイルです。
+    </div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+      商品詳細
+    </div>
+    <div class="product-description__contents">
+    美容室EARTH<br>
+100年続く美容室を。少しでも気分よくなってもらうため、美と健康から世界中を笑顔にしている美容室EARTH。<br>
+非日常空間、最新のヘアスタイル、オーガニック、リラクゼーション、サービスにこだわり全国に約240店舗以上のサロンをオープンしています。<br>
+カットやカラーやスパなどの美容室でできる美だけでなく、普段使いのケアアイテムまでも開発し日々の暮らしから出来る美を再現するために今もなお成長し続け、社会に貢献している企業です。<br>
+<br>
+<ul><li>香り</li>
+ベルガモットとオレンジのシトラスフルーティーな香り。<br>
+<li>適したスタイル</li>
+ボリュームを抑えたタイトなスタイル。パサつく毛先にうるおいを与えたいときに。</ul>
+</div>
+</div>
+
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+コメヌカ油、ミネラルオイル、ゴマ油、サフラワー油、ヒマワリ種子油、ホホバ種子油、シア脂油、オリーブ油、スクワラン、ベルガモット果実油、オレンジ果皮油、グレープフルーツ果皮油、ユズ果皮油、トコフェロール
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+     150mL<br>
+    </div>
+</div>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+使用方法
+    </div>
+    <div class="product-description__contents">
+<ul><li>ウェットスタイルにしたい場合は、洗髪後軽くタオルドライし髪が濡れた状態でオイルをなじませます。</li>
+<li>アウトバスオイルとしてご使用の場合はタオルドライ後、適量を手の平でのばし、毛先中心に塗布して髪全体によくなじませ乾かして仕上げます。</li>
+<li>お肌にご使用の場合は適量をよくなじませてお使いください。</li>
+    </div>
+</div>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+ご使用上の注意
+    </div>
+    <div class="product-description__contents">
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>お肌に合わないときは、ご使用をおやめください。</li>
+<li>目に入った際は、すぐに洗い流してください。</li>
+<li>乳幼児の手の届かないところに保管してください。</li>
+<li>直射日光の当たる場所や極端に低温・高温の場所に保管しないでください。</li>
+<li>天然由来成分を含んでいるため、まれに変色・沈殿物が出ることがありますが品質に問題はございません。</li></ul>
+</div>
+</div>";s:13:"create_date_7";s:19:"2021-02-23 14:31:59";s:13:"update_date_8";s:19:"2023-04-01 00:28:35";s:9:"message_9";s:116:"一日中ナチュラルを楽しむ。<br> オーガニックのオイルで髪や肌を乾燥から守ります。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"215";s:15:"product_code_12";s:13:"4540688945003";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:7:"3190.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2021-02-23 14:31:59";s:14:"update_date_21";s:19:"2023-04-01 00:28:35";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"215";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2021-02-23 14:31:59";s:14:"update_date_33";s:19:"2023-04-01 00:28:35";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:3:"449";s:12:"file_name_49";s:29:"0430223156_608c06cca9432.jpeg";s:10:"sort_no_50";s:1:"3";s:14:"create_date_51";s:19:"2021-04-30 13:32:13";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"9";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"186";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";s:1:"3";s:13:"creator_id_63";s:1:"9";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"215";s:13:"creator_id_73";s:1:"9";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"186";s:13:"creator_id_82";s:1:"9";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}i:26;a:87:{s:4:"id_0";s:3:"409";s:6:"name_1";s:46:"【MYTHOS】スージングジェル アロエ";s:6:"note_2";N;s:18:"description_list_3";N;s:20:"description_detail_4";s:724:"<div class="product-description">
+    <div class="product-description__title">
+        商品説明
+    </div>
+    <div class="product-description__contents">
+
+MYTHOS スージングジェル アロエは、有機農法由来のアロエベラエキスやオリーブエキス、パンテノール＆トウゴマオイルを配合した爽やかなジェルです。<br>
+1年を通して太陽の日差しが降り注ぐ地中海沿岸のギリシャで生まれた、「日焼け後用のジェル」になります。<br>
+毎日の外出後や入浴後、運動後に乾いたお肌へ潤いと心地良い冷涼感を与え、しっとりとなめらかなお肌へと導きます。<br>
+<br>
+    </div>
+</div>";s:13:"search_word_5";s:126:"MYTHOS、スージングジェル、アロエ、日焼け止め、ジェル、お肌、スキンケア、オリーブオイル";s:11:"free_area_6";s:3772:"<div class="product-description">
+    <div class="product-description__title">
+        商品詳細
+    </div>
+    <div class="product-description__contents">
+世界25カ国にて販売されているギリシャのオリーブコスメブランド『MYTHOS（ミトス）』のアロエラインです。<br>
+<br>
+有機農法由来のアロエベラエキスとギリシャで有機栽培されたオリーブの実から採れる一番搾りBIOオリーブオイル、数種類の植物エッセンスを配合しています。<br>
+ナチュラルなやさしい成分がお肌への潤いをサポートします。<br>
+<br>
+“MYTHOS”は、古代ギリシャの歴史から由来し、何世代にも渡って語り継がれてきた、決して古びることのない価値観が込められた言葉です。<br>
+MYTHOS特有の成分は、主にギリシャのコロニ地方の肥沃な土地で育ったオリーブの木から採れるオリーブオイルです。<br>
+この「コロネイキ」と呼ばれるオリーブオイルの品種は、ポリフェノール、オリゴペプチド、ビタミン、微量元素、アミノ酸を豊富に含んでおり、他の品種と比べて、最高品質を誇っています。<br><br>
+    </div>
+</div>
+<br><br>
+
+
+<div class="product-description">
+    <div class="product-description__title">
+        内容量
+    </div>
+    <div class="product-description__contents">
+100mL<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        原産国
+    </div>
+    <div class="product-description__contents">
+ギリシャ<br>
+<br>
+    </div>
+</div>
+<br><br>
+<div class="product-description">
+    <div class="product-description__title">
+        配合成分
+    </div>
+    <div class="product-description__contents">
+水・PEG-40水添ヒマシ油・パンテノール・ベンジルアルコール・（アクリレーツ／アクリル酸アルキル（C10−30））クロスポリマー・エチルヘキシルグリセリン・香料・ヒドロキシエチルセルロース・水酸化Na・グリセリン・アロエベラ液汁・オリーブ葉エキス・アマ種子エキス<br>
+<br>
+    </div>
+</div>
+<br><br>
+
+
+
+<div class="product-description">
+    <div class="product-description__title">
+       使用上の注意
+    </div>
+    <div class="product-description__contents">
+        <ul>
+<li>お肌に異常が生じていないかよく注意して使用してください。</li>
+<li>本商品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま本商品の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医などにご相談されることをおすすめします。</li>
+1．使用中、赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の異常があらわれた場合。<br>
+2．使用したお肌に直射日光があたり上記のような異常があらわれた場合。<br>
+<li>お肌に傷や腫物、湿疹、かぶれ等の異常のある場合にはご使用をおやめください。</li>
+<li>目に入った場合は、こすらずにすぐにきれいな水で洗い流してください。</li>
+<li>本商品は清潔な手で取り扱い、使用後はキャップをしっかりと閉め、直射日光、高温多湿を避け、お子様の手の届かない所に保管してください。</li>
+<li>誤って飲んだ場合は、直ちに医師の診断と適切な処置を受けてください。</li>
+<li>開封後はお早めにご使用ください。</li>
+        </ul>
+    </div>
+</div>";s:13:"create_date_7";s:19:"2023-07-17 21:58:26";s:13:"update_date_8";s:19:"2023-07-24 23:06:26";s:9:"message_9";s:120:"有機農法由来のアロエベラエキスとオリーブエキスで、お肌に心地良い冷涼感と潤いを。";s:15:"reserve_date_10";N;s:5:"id_11";s:3:"465";s:15:"product_code_12";s:13:"5202624547410";s:8:"stock_13";s:1:"3";s:18:"stock_unlimited_14";s:1:"0";s:13:"sale_limit_15";N;s:10:"price01_16";N;s:10:"price02_17";s:6:"880.00";s:15:"delivery_fee_18";N;s:10:"visible_19";s:1:"1";s:14:"create_date_20";s:19:"2023-07-17 21:58:26";s:14:"update_date_21";s:19:"2023-07-24 23:06:26";s:16:"currency_code_22";s:3:"JPY";s:13:"point_rate_23";N;s:5:"id_24";N;s:11:"tax_rate_25";N;s:13:"tax_adjust_26";N;s:13:"apply_date_27";N;s:14:"create_date_28";N;s:14:"update_date_29";N;s:5:"id_30";s:3:"465";s:8:"stock_31";s:1:"3";s:14:"create_date_32";s:19:"2023-07-17 21:58:26";s:14:"update_date_33";s:19:"2023-07-24 23:06:26";s:5:"id_34";N;s:15:"backend_name_35";N;s:7:"name_36";N;s:10:"sort_no_37";N;s:10:"visible_38";N;s:14:"create_date_39";N;s:14:"update_date_40";N;s:5:"id_41";N;s:15:"backend_name_42";N;s:7:"name_43";N;s:10:"sort_no_44";N;s:10:"visible_45";N;s:14:"create_date_46";N;s:14:"update_date_47";N;s:5:"id_48";s:4:"1234";s:12:"file_name_49";s:28:"0720004312_64b804901dbf6.png";s:10:"sort_no_50";s:1:"3";s:14:"create_date_51";s:19:"2023-07-19 15:43:52";s:5:"id_52";N;s:14:"create_date_53";N;s:21:"discriminator_type_54";s:7:"product";s:13:"creator_id_55";s:1:"2";s:20:"product_status_id_56";s:1:"1";s:21:"discriminator_type_57";s:12:"productclass";s:13:"product_id_58";s:3:"409";s:15:"sale_type_id_59";s:1:"1";s:21:"class_category_id1_60";N;s:21:"class_category_id2_61";N;s:23:"delivery_duration_id_62";N;s:13:"creator_id_63";s:1:"2";s:21:"discriminator_type_64";N;s:19:"product_class_id_65";N;s:13:"creator_id_66";N;s:13:"country_id_67";N;s:10:"pref_id_68";N;s:13:"product_id_69";N;s:19:"rounding_type_id_70";N;s:21:"discriminator_type_71";s:12:"productstock";s:19:"product_class_id_72";s:3:"465";s:13:"creator_id_73";s:1:"2";s:21:"discriminator_type_74";N;s:16:"class_name_id_75";N;s:13:"creator_id_76";N;s:21:"discriminator_type_77";N;s:16:"class_name_id_78";N;s:13:"creator_id_79";N;s:21:"discriminator_type_80";s:12:"productimage";s:13:"product_id_81";s:3:"409";s:13:"creator_id_82";s:1:"2";s:21:"discriminator_type_83";N;s:13:"product_id_84";N;s:9:"tag_id_85";N;s:13:"creator_id_86";N;}}}

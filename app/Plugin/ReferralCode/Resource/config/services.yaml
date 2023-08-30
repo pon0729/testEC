@@ -1,0 +1,6 @@
+parameters:
+  SESSION_KEY_SUBSCRIPTION_FLG: 'eccube.front.shopping.yamatosubscriptionflg'
+
+  SUBSCRIPTION_DISCOUNT_RATE_DEFAULT: 4
+
+  TAX_EXCLUDED_DELIVERY_FREE_AMOUNT_DEFAULT: 15000

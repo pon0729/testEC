@@ -1,0 +1,23 @@
+<svg id="ico_ranking01.svg" xmlns="http://www.w3.org/2000/svg" width="58" height="21" viewBox="0 0 58 21">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 26px;
+        fill: #ac9055;
+        font-family: "Yu Mincho";
+        font-weight: 600;
+      }
+
+      .cls-2 {
+        font-size: 15px;
+      }
+
+      .cls-3 {
+        fill: #d5bf84;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <text id="_1位" data-name="1位" class="cls-1" x="27.001" y="18.999">1<tspan class="cls-2">位</tspan></text>
+  <path id="シェイプ_14" data-name="シェイプ 14" class="cls-3" d="M562,1943.24a2.056,2.056,0,0,1-2.1,2,2.327,2.327,0,0,1-.376-0.03l-1.724,5.87v2.11H543.2V1951l-1.709-5.8a1.7,1.7,0,0,1-.392.04,2.007,2.007,0,1,1,2.1-2,1.948,1.948,0,0,1-.161.77c2.1,0.67,5.34,1.22,6.8-1.11a2,2,0,0,1-1.44-1.9,2.1,2.1,0,0,1,4.2,0,2.005,2.005,0,0,1-1.439,1.9c0.852,1.5,2.748,3.07,6.884,1.28a1.906,1.906,0,0,1-.249-0.94A2.1,2.1,0,0,1,562,1943.24ZM543.2,1956h14.6v-1.9H543.2v1.9Z" transform="translate(-539 -1937)"/>
+</svg>

@@ -1,0 +1,102 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'mypage' %}
+
+{% set mypageno = 'yamatosubscription' %}
+
+{# form_theme form 'Form/form_div_layout.twig' #}
+
+{% block stylesheet %}
+<style>
+.credit-card-table {
+    margin: 15px auto 20px auto;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    /*text-align: left;*/
+}
+.credit-card-table th {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    background-color: #F3F3F3;
+    font-weight: normal;
+    text-align: center;
+}
+.credit-card-table td {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+</style>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block main %}
+<div class="ec-layoutRole__main">
+    <div class="ec-mypageRole">
+        <div class="ec-pageHeader">
+            <h1>{{ 'front.mypage.title'|trans }}/{{ 'yamatosubscription.mypage.list.nav'|trans }}</h1>
+        </div>
+        {% include 'Mypage/navi.twig' %}
+    </div>
+    <div class="ec-mypageRole">
+        <div class="ec-editRole">
+            <form method="post" action="{{ url('plugin_yamato_subscription_mypage_change_credit_card', {'id': YamatoSubs.id}) }}" novalidate class="h-adr">
+                <input type="hidden" name="{{ constant('Eccube\\Common\\Constant::TOKEN_NAME') }}" value="{{ csrf_token(constant('Eccube\\Common\\Constant::TOKEN_NAME')) }}">
+                <div class="ec-rectHeading">
+                    <h2>{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.header'|trans }}</h2>
+                </div>
+                <div>
+                    <table summary="{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.table_summary'|trans }}" class="credit-card-table">
+                        <colgroup width="10%"></colgroup>
+                        <colgroup width="5%"></colgroup>
+                        <colgroup width="85%"></colgroup>
+                        <tr>
+                            <th class="">{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.choice'|trans }}<span class="ec-required">※</span></th>
+                            <th class="">{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.credit_card_key'|trans }}</th>
+                            <th class="">{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.credit_card_info'|trans }}</th>
+                        </tr>
+                        {% for cardData in creditCardList.cardData %}
+                        <tr>
+                            <td>
+                                <input id="card_key_{{ cardData.cardKey }}" name="card_key" required="required" class="payment" value="{{ cardData.cardKey }}" type="radio" {% if creditCardList.defaultCardKey == cardData.cardKey %} checked="checked" {% endif %}/>
+                            </td>
+                            <td>
+                                {{ cardData.cardKey }}
+                            </td>
+                            <td>
+                                <span>{{ cardData.data }}</span>
+                                <span>{{ 'yamatosubscription.mypage.change_credit_card.credit_card_selection.table_body.card_owner'|trans({'%card_owner%': cardData.cardOwner}) }}</span>
+                                <input id="card_key_{{ cardData.cardKey }}_last_credit_date" type="hidden" value="{{ cardData.lastCreditDate }}" />
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="ec-off4Grid">
+                    <div class="ec-off4Grid__cell">
+                        <button type="submit"
+                                class="ec-blockBtn--action" id="change_credit_card_button">{{ 'yamatosubscription.mypage.change_credit_card.change_credit_card_button'|trans }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,1022 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+    <div class="ec-role">
+        <div class="ec-pageHeader">
+            <h2>{{ 'ご利用ガイド'|trans }}</h2>
+        </div>
+        <div id="payment">
+            <h3>お支払い方法について</h3>
+            <p>以下の決済方法がご利用いただけます。</p>
+            <ul>
+                <li class="credit">
+                    <span>クレジットカード</span>
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f0b4f408/credit_visa.png" alt="VISA" class="creditlogo_visa">
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f36a42fe/credit_mastercard.png" alt="MasterCard" class="creditlogo_master">
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f5162f19/credit_amex.png" alt="AMEX" class="creditlogo_amex">
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f47f3ae5/credit_jcb.png" alt="JCB" class="creditlogo_jcb">
+                </li>
+                <li class="carrier">
+                    <span>携帯キャリア決済</span>
+                    <div>
+                        <img src="https://basefile.akamaized.net/ymtk/5cf87f6b2d665/carrier_docomo.png" alt="ドコモ払い">
+                        <img src="https://basefile.akamaized.net/ymtk/5e34e4c4a16bc/carrier_au.png" alt="au かんたん決済／au WALLET">
+                        <img src="https://basefile.akamaized.net/ymtk/5e34e4e532f57/carrier_softbank.png" alt="ソフトバンクまとめて支払い・ワイモバイルまとめて支払い">
+                    </div>
+                </li>
+                <li class="bank">
+                    <span>銀行振り込み</span>
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f5ce2f17/bank_smbc.png" alt="銀行振込">
+                </li>
+                <li class="combini">
+                    <span>コンビニ決済・Pay-easy</span>
+                    <img src="https://basefile.akamaized.net/ymtk/5cf87f77efaf5/combini.png" alt="コンビニ決済・Pay-easy	">
+                </li>
+                <li class="paylater">
+                    <span>代金後払い</span>
+                    <img src="https://basefile.akamaized.net/ymtk/5e34e556dcd5c/later_logos.png">
+                </li>
+            </ul>
+        </div>
+        <div id="shipping">
+            <h3>送料について</h3>
+            <p>この商品の送料は、配送方法によって異なります。</p>
+            <p>配送方法は、ご購入時に選択することができます。</p>
+        </div>
+        <div class="shippingInfoBlock">
+    <div class="shippingInfo__inner">
+        <div id="x_shippingAreaDomestic" class="shippingInfo__tabArea is_active">
+            <ul class="shippingListBlock">
+                <li class="shippingList">
+                    <h4 class="shippingList__title">
+                        ヤマト宅急便
+                    </h4>
+                    <p class="shippingList__description">
+                        ヤマトが提供する定番の配送方法です。荷物追跡に対応しています。
+                    </p>
+                    <!-- /.shippingList__description -->
+
+                    <div class="priceSet">
+                        地域別設定
+                    </div>
+                    <div>
+                        <table border="1" width="100%" >
+                            <tr>
+                                <th>大きさ(3辺計)</th>
+                                <th>重量</th>
+                                <th>北海道</th>
+                                <th>北東北</th>
+                                <th>南東北</th>
+                                <th>関東</th>
+                                <th>信越</th>
+                                <th>北陸</th>
+                                <th>中部</th>
+                                <th>関西</th>
+                                <th>中国</th>
+                                <th>四国</th>
+                                <th>九州</th>
+                                <th>沖縄</th>
+                            </tr>
+                            <tr>
+                                <th>60cm以内</td>
+                                <th>2kg以内</td>
+                                <td>1,240円</td>
+                                <td>940円</td>
+                                <td>840円</td>
+                                <td>840円</td>
+                                <td>840円</td>
+                                <td>840円</td>
+                                <td>840円</td>
+                                <td>940円</td>
+                                <td>1,040円</td>
+                                <td>1,040円</td>
+                                <td>1,240円</td>
+                                <td>1,240円</td>
+                            </tr>
+                            <tr>
+                                <th>80cm以内</th>
+                                <th>5kg以内</th>
+                                <td>1,440円</td>
+                                <td>1,140円</td>
+                                <td>1,040円</td>
+                                <td>1,040円</td>
+                                <td>1,040円</td>
+                                <td>1,040円</td>
+                                <td>1,040円</td>
+                                <td>1,140円</td>
+                                <td>1,240円</td>
+                                <td>1,240円</td>
+                                <td>1,440円</td>
+                                <td>1,740円</td>
+                            </tr>
+                            <tr>
+                                <th>100cm以内</th>
+                                <th>10kg以内</th>
+                                <td>1,660円</td>
+                                <td>1,360円</td>
+                                <td>1,260円</td>
+                                <td>1,260円</td>
+                                <td>1,260円</td>
+                                <td>1,260円</td>
+                                <td>1,260円</td>
+                                <td>1,360円</td>
+                                <td>1,460円</td>
+                                <td>1,460円</td>
+                                <td>1,660円</td>
+                                <td>2,260円</td>
+                            </tr>
+                            <tr>
+                                <th>120cm以内</th>
+                                <th>15kg以内</th>
+                                <td>1,860円</td>
+                                <td>1,560円</td>
+                                <td>1,460円</td>
+                                <td>1,460円</td>
+                                <td>1,460円</td>
+                                <td>1,460円</td>
+                                <td>1,460円</td>
+                                <td>1,560円</td>
+                                <td>1,660円</td>
+                                <td>1,660円</td>
+                                <td>1,860円</td>
+                                <td>2,760円</td>
+                            </tr>
+                            <tr>
+                                <th>140cm以内</th>
+                                <th>20kg以内</th>
+                                <td>2,080円</td>
+                                <td>1,780円</td>
+                                <td>1,680円</td>
+                                <td>1,680円</td>
+                                <td>1,680円</td>
+                                <td>1,680円</td>
+                                <td>1,680円</td>
+                                <td>1,780円</td>
+                                <td>1,880円</td>
+                                <td>1,880円</td>
+                                <td>2,080円</td>
+                                <td>3,280円</td>
+                            </tr>
+                            <tr>
+                                <th>160cm以内</th>
+                                <th>25kg以内</th>
+                                <td>2,280円</td>
+                                <td>1,980円</td>
+                                <td>1,880円</td>
+                                <td>1,880円</td>
+                                <td>1,880円</td>
+                                <td>1,880円</td>
+                                <td>1,880円</td>
+                                <td>1,980円</td>
+                                <td>2,080円</td>
+                                <td>2,080円</td>
+                                <td>2,280円</td>
+                                <td>3,780円</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="shippingList__info">
+                        <ul class="areaSetting_map">
+                            <li class="area1 postageArea">
+                                <div>
+                                    <p class="areaTitle">北海道</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">北海道</span>
+                                                <span class="postage">1,339円</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area2 postageArea">
+                                <div>
+                                    <p class="areaTitle">東北</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">青森県</span>
+                                                <span class="postage">1,015円</span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岩手県</span>
+                                                <span class="postage">1,015円</span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">宮城県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">秋田県</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山形県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福島県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area3 postageArea">
+                                <div>
+                                    <p class="areaTitle">関東</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">茨城県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">栃木県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">群馬県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">埼玉県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">千葉県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">東京都</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">神奈川県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山梨県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area4 postageArea">
+                                <div>
+                                    <p class="areaTitle">信越</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">新潟県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">長野県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area5 postageArea">
+                                <div>
+                                    <p class="areaTitle">北陸</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">富山県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">石川県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福井県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area6 postageArea">
+                                <div>
+                                    <p class="areaTitle">東海</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岐阜県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">静岡県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">愛知県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">三重県</span>
+                                                <span class="postage">
+                                                    907円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area7 postageArea">
+                                <div>
+                                    <p class="areaTitle">近畿</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">滋賀県</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">京都府</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">大阪府</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">兵庫県</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">奈良県</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">和歌山県</span>
+                                                <span class="postage">
+                                                    1,015円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area8 postageArea">
+                                <div>
+                                    <p class="areaTitle">中国</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">鳥取県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">島根県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岡山県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">広島県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山口県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area9 postageArea">
+                                <div>
+                                    <p class="areaTitle">四国</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">徳島県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">香川県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">愛媛県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">高知県</span>
+                                                <span class="postage">
+                                                    1,123円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area10 postageArea">
+                                <div>
+                                    <p class="areaTitle">九州</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福岡県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">佐賀県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">長崎県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">熊本県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">大分県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">宮崎県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">鹿児島県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area11 postageArea">
+                                <div>
+                                    <p class="areaTitle">沖縄</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">沖縄県</span>
+                                                <span class="postage">
+                                                    1,339円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul><!-- /.areaSetting_map -->
+                    </div><!-- /.shippingList__info -->
+                </li>
+                <li class="shippingList">
+                    <h4 class="shippingList__title">
+                        ゆうパック </h4>
+
+                    <p class="shippingList__description">
+                        日本郵便が提供する宅配サービスです。荷物追跡に対応しています。 </p><!-- /.shippingList__description -->
+
+                    <div class="priceSet">
+                        地域別設定 </div>
+                    <div class="shippingList__info">
+                        <ul class="areaSetting_map">
+                            <li class="area1 postageArea">
+                                <div>
+                                    <p class="areaTitle">北海道</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">北海道</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area2 postageArea">
+                                <div>
+                                    <p class="areaTitle">東北</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">青森県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岩手県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">宮城県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">秋田県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山形県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福島県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area3 postageArea">
+                                <div>
+                                    <p class="areaTitle">関東</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">茨城県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">栃木県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">群馬県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">埼玉県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">千葉県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">東京都</span>
+                                                <span class="postage">
+                                                    810円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">神奈川県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山梨県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area4 postageArea">
+                                <div>
+                                    <p class="areaTitle">信越</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">新潟県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">長野県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area5 postageArea">
+                                <div>
+                                    <p class="areaTitle">北陸</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">富山県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">石川県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福井県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area6 postageArea">
+                                <div>
+                                    <p class="areaTitle">東海</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岐阜県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">静岡県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">愛知県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">三重県</span>
+                                                <span class="postage">
+                                                    870円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area7 postageArea">
+                                <div>
+                                    <p class="areaTitle">近畿</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">滋賀県</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">京都府</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">大阪府</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">兵庫県</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">奈良県</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">和歌山県</span>
+                                                <span class="postage">
+                                                    970円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area8 postageArea">
+                                <div>
+                                    <p class="areaTitle">中国</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">鳥取県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">島根県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">岡山県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">広島県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">山口県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area9 postageArea">
+                                <div>
+                                    <p class="areaTitle">四国</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">徳島県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">香川県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">愛媛県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">高知県</span>
+                                                <span class="postage">
+                                                    1,100円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area10 postageArea">
+                                <div>
+                                    <p class="areaTitle">九州</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">福岡県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">佐賀県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">長崎県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">熊本県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">大分県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">宮崎県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">鹿児島県</span>
+                                                <span class="postage">
+                                                    1,300円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="area11 postageArea">
+                                <div>
+                                    <p class="areaTitle">沖縄</p>
+                                    <ul class="prefBox clearfix">
+                                        <li class="prefBox__list ">
+                                            <div>
+                                                <span class="prefecture">沖縄県</span>
+                                                <span class="postage">
+                                                    1,350円 </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul><!-- /.areaSetting_map -->
+                    </div><!-- /.shippingList__info -->
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+    </div>
+{% endblock %}

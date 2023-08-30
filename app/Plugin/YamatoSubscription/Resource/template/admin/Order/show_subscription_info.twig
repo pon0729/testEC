@@ -1,0 +1,22 @@
+<style>
+</style>
+
+<script>
+$(function() {
+    $('#orderOverview .card-body .row .col-6:nth-child(2)').append($('#show_subscription_info'));
+    $('#show_subscription_info_wrapper').remove();
+});
+</script>
+
+<div id="show_subscription_info_wrapper" class="d-none">
+    <div id="show_subscription_info" class="row">
+        <div class="col-3"><i class="fa fa-truck fa-fw mr-1" aria-hidden="true"></i>定期配送ID</div>
+        <div class="col">
+            {% if YamatoSubs is null %}
+                -
+            {% else %}
+                <a href="{{ url('plugin_yamato_subscription_admin_detail', { id: YamatoSubs.id }) }}">{{ YamatoSubs.id }}</a>&nbsp;（{{ 'yamatosubscription.admin.order.delivery_count'|trans({'%delivery_count%': Order.YamatoSubsHistory.first.deliveryCount}) }}{% if YamatoSubs.cancelledDate is null %}）{% else %}{{ 'yamatosubscription.admin.order.and_already_cancelled_at'|trans({'%cancelled_date%': YamatoSubs.cancelledDate|date("Y/m/d")}) }}）{% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

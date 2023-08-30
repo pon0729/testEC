@@ -1,0 +1,774 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['order', 'plugin_yamato_subscription_admin_list'] %}
+
+{% block title %}{{ 'yamatosubscription.admin.detail_change_contents.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'yamatosubscription.admin.detail_change_contents.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+{% form_theme searchProductModalForm '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <script>
+        $(function() {
+            // 項目数が多く、入力している項目によってEnter押下時に期待する動作が変わるので、いったん禁止
+            $(document).on('keydown', 'input', function(e) {
+                if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+
+            $('#addProductButton').on('click', function(e) {
+                if (!document.querySelector('#form1').reportValidity()) {
+                    return false;
+                }
+            });
+            // 商品検索
+            $('#searchProductModalButton').on('click', function() {
+                var $list = $('#searchProductModalList');
+                $list.children().remove();
+
+                var strExistProductIds = "";
+                $(this).closest('.card-body').find("#table-form-field tbody tr").each(function(index, row) {
+                    productId = $(row).data('product-id');
+                    if (productId) {
+                        strExistProductIds = strExistProductIds == "" ? productId : strExistProductIds + ',' + productId;
+                    }
+                });
+
+                $.ajax({
+                    url: '{{ url('plugin_yamato_subscription_admin_search_product') }}',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: {
+                        'id': $('#admin_search_product_id').val(),
+                        'category_id': $('#admin_search_product_category_id').val(),
+                        'exist_product_ids': strExistProductIds
+                    }
+                }).done(function(data) {
+                    $('#searchProductModalList').html(data);
+                }).fail(function(data) {
+                    alert('search product failed.');
+                });
+            });
+
+            // その他明細
+            $('#addOrderItemTypeButton').on('click', function(e) {
+                if (!document.querySelector('#form1').reportValidity()) {
+                    return false;
+                }
+            });
+            $('#addOrderItemType').on('show.bs.modal', function(e) {
+                var $list = $('#searchOrderItemTypeList');
+                $list.children().remove();
+
+                $.ajax({
+                    url: '{{ url('plugin_yamato_subscription_admin_search_order_item_type') }}',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: {
+                        {% if YamatoSubsUsersOrder.isMultiple %}
+                        'excludeDeliveryFee': true
+                        {% endif %}
+                    }
+                }).done(function(data) {
+                    $('#searchOrderItemTypeList').html(data);
+                }).fail(function(data) {
+                    alert('search order item type failed.');
+                });
+            });
+
+            // ページング処理
+            $(document).on('click', '#searchProductModalList ul.pagination li.page-item a.page-link', function(e) {
+                e.preventDefault();
+                var list = $('#searchProductModalList');
+                list.children().remove();
+                var url = $(this).attr('href');
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'html'
+                }).done(function(data) {
+                    $('#searchProductModalList').html(data);
+                }).fail(function(data) {
+                    alert('search product failed.');
+                });
+            });
+
+            // 商品追加の制御
+            $collectionHolder = $('#table-form-field');
+            formIdPrefix = '#yamato_subs_users_order_YamatoSubsUsersOrderItems_';
+            if ($collectionHolder.find('tbody > tr').length === 0) {
+                index = 0;
+            } else {
+                var $lastRow = $collectionHolder.find('tbody > tr').last();
+                index = parseInt($lastRow.data('index'), 10);
+            }
+
+            $('.js-delete-item-modal-button').on('click', function(e) {
+                if (!document.querySelector('#form1').reportValidity()) {
+                    return false;
+                }
+            });
+
+
+            $(document).on('click', '.delete', function(e) {
+                // 商品削除
+                $(this).parents('tr').remove();
+                index--;
+                $("#calculate").trigger('click');
+            });
+
+            // 計算結果の更新が押されたらページ内リンクさせる
+            $('#calculate').on('click', function() {
+                var $form = $('#form1');
+                if (!$form.get(0).reportValidity()) {
+                    return false;
+                }
+
+                $form.append('<input type="hidden" name="mode" value="calc">');
+                var data = $(this).data();
+                if (data.link) {
+                    $form.attr('action', '#' + data.link).submit();
+                }
+            });
+
+            // お届け時間の初期表示
+            $('#order_Shipping_Delivery').change();
+
+            var confirmFormChange = function(form, target, modal) {
+                var returnLink = form.find('input[type="hidden"][name*="return_link"]'),
+                    saveBtn = modal.find('a[data-action="save"]'),
+                    cancelBtn = modal.find('a[data-action="cancel"]');
+                modal.on('hidden.bs.modal', function() {
+                    returnLink.val('');
+                });
+                saveBtn.on('click', function() {
+                    if (!document.querySelector('#form1').reportValidity()) {
+                        return false;
+                    }
+
+                    returnLink.val($(this).data('return-link'));
+                    $(this).addClass('disabled');
+                    $('#form1').append('<input type="hidden" name="mode" value="register">');
+                    form.submit();
+                });
+                target.on('click', function() {
+                    modal.find('.modal-body .screen-name').text($(this).attr('title'));
+                    modal.modal('show');
+                    saveBtn.data('return-link', $(this).attr('href'));
+                    cancelBtn.attr('href', $(this).attr('href'));
+                    return false;
+                });
+            };
+            confirmFormChange($('#form1'), $('a[data-action="confirm"]'), $('#confirmFormChangeModal'));
+
+            // 配送業者選択時にお届け時間を設定
+            var times = {{ shippingDeliveryTimes|raw }};
+            $('#order_Shipping_Delivery').change(function() {
+                var deliveryId = $(this).val();
+                var $shippingDeliveryTime = $('#order_Shipping_DeliveryTime');
+                $shippingDeliveryTime.find('option').remove();
+                $shippingDeliveryTime.append($('<option></option>').val('').text('指定なし'));
+                if (typeof(times[deliveryId]) !== 'undefined') {
+                    for (var timeId in times[deliveryId]) {
+                        timeValue = times[deliveryId][timeId];
+                        $shippingDeliveryTime.append($('<option></option>')
+                            .val(timeId)
+                            .text(timeValue));
+                    }
+                }
+            });
+
+            //定期配送リセット確認
+            const form = document.querySelector("#form1");
+            form.addEventListener("submit", function(event){
+                if(typeof btnMode!=='undefined' && btnMode=='register' && document.getElementById("yamato_subs_users_order_delivery_count_reset").checked){
+                    	if(window.confirm('{{ 'yamatosubscription.admin.detail.reset_confirm'|trans }}')){ return true; }
+                        else{
+                            event.stopPropagation();
+                            event.preventDefault();           
+                            btnMode = null;        
+                        }
+                }
+            });
+
+        });
+
+        {# ポイント機能が有効かつ会員の場合のみポイントの割引金額を変更する #}
+        {% if BaseInfo.isOptionPoint and YamatoSubsUsersOrder.Customer is not null %}
+            // 再計算時のポイントの割引金額の更新
+            function updatePointItem() {
+                // ポイント換算レート
+                var pointConversionRate = {{ BaseInfo.point_conversion_rate }};
+                // 利用ポイント
+                var usePoint = $('#order_use_point').val();
+
+                // 利用ポイントが数値以外の時は割引金額を更新しない
+                if (isNaN(usePoint)) return;
+
+                // 割引金額を計算
+                var discountPrice = (-1) * pointConversionRate * usePoint;
+
+                // ポイント明細の金額の要素を取得
+                var $pointPrice = $('.pointPrice');
+
+                // ポイント明細の金額の要素がある場合はポイントの更新
+                if ($pointPrice.length) {
+                    $pointPrice.val(discountPrice);
+                }
+            }
+        {% endif %}
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <!-- 移動確認モーダル-->
+    <div class="modal fade" id="confirmFormChangeModal" tabindex="-1" role="dialog"
+         aria-labelledby="confirmFormChangeModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ 'admin.common.move_to_confirm_title'|trans }}</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="screen-name"></p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-ec-conversion" data-action="save" href="javascript:void(0)">
+                        {{ 'admin.common.move_to_confirm_save_and_move'|trans }}
+                    </a>
+                    <a class="btn btn-ec-sub" data-action="cancel" href="javascript:void(0)">
+                        {{ 'admin.common.move_to_confirm_move_only'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form name="form1" id="form1" method="post" action="?"{% if BaseInfo.isOptionPoint and YamatoSubsUsersOrder.Customer is not null %} onsubmit="updatePointItem()"{% endif %}>
+        <input type="hidden" name="mode" value="">
+        <input type="hidden" name="modal" value="">
+        <input type="hidden" name="yamato_subs_users_order_id" value="{{ YamatoSubsUsersOrder.id }}">
+        {{ form_widget(form._token) }}
+        {{ form_widget(form.return_link) }}
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <!-- 出荷情報 -->
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.shipping_info'|trans }}"><span class="card-title">{{ 'admin.order.shipping_info'|trans }}</span><i class="fa fa-question-circle fa-lg ml-1"></i></div>
+                                </div>
+                                <div class="col-4 text-right"><a data-toggle="collapse" href="#shippingInfo" aria-expanded="false" aria-controls="shippingInfo"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="collapse show ec-cardCollapse" id="shippingInfo">
+                            <div class="card-body">
+                                {% if YamatoSubsUsersOrder.isMultiple %}
+                                    {# 複数配送の場合は配送先の表示のみ #}
+                                    <div class="mb-3">
+                                        <a id="shipping-add" class="btn btn-ec-regular" data-action="confirm" title="{{ 'admin.common.move_to_confirm_message'|trans({'%name%' : 'admin.order.shipping_registration'|trans
+                                           }) }}" href="{{ path("plugin_yamato_subscription_admin_detail_shipping_edit", {id: id}) }}">{{ 'admin.order.edit_multiple_shipping'|trans }}</a>
+                                        <span class="ml-3">{{ 'admin.order.edit_multiple_shipping_description'|trans }}</span>
+                                    </div>
+                                    {% for yamatoSubsUsersShipping in YamatoSubsUsersOrder.yamatoSubsUsersShippings %}
+                                        <div class="col">
+                                            <span class="mr-5">{{ 'admin.order.delivery'|trans }}({{ loop.index }})</span>
+                                            {% set shipping_name = yamatoSubsUsersShipping.fullName ~ '(' ~ yamatoSubsUsersShipping.fullNameKana ~ ')' ~ yamatoSubsUsersShipping.companyName is not null ? yamatoSubsUsersShipping.companyName : '' %}
+                                            {% set shipping_addr = 'admin.common.postal_symbol'|trans ~ yamatoSubsUsersShipping.postalCode ~ ' ' ~ yamatoSubsUsersShipping.pref ~ yamatoSubsUsersShipping.addr01 ~ yamatoSubsUsersShipping.addr02 %}
+                                            {% set shipping_date = yamatoSubsUsersShipping.shippingDate is not null ? yamatoSubsUsersShipping.shippingDate|date_day : '' %}
+                                            {{ shipping_name }} {{ shipping_addr }} {{ shipping.phoneNumber }} {{ shipping_date }}
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <a id="shipping-add" class="btn btn-ec-regular" data-action="confirm" title="{{ 'admin.common.move_to_confirm_message'|trans({'%name%' : 'admin.order.shipping_registration'|trans
+                                            }) }}" href="{{ path("plugin_yamato_subscription_admin_detail_shipping_edit", {id: id}) }}">{{ 'admin.order.add_shipping'|trans }}</a>
+                                        </div>
+                                    </div>
+                                    {# 単数配送の場合は配送先の編集が可能 #}
+                                    <div class="row h-adr">
+                                        <span class="p-country-name" style="display:none;">Japan</span>
+                                        <div class="col-6">
+                                            <div class="row form-group">
+                                                <label class="col-3 col-form-label">{{ 'admin.common.name'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.name.name01) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.name.name01) }}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.name.name02) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.name.name02) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-3 col-form-label">{{ 'admin.common.kana'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.kana.kana01) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.kana.kana01) }}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.kana.kana02) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.kana.kana02) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-3 col-form-label">{{ 'admin.common.address'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                                <div class="col">
+                                                    <div class="row mb-3">
+                                                        <div class="col form-inline">
+                                                            {{ 'admin.common.postal_symbol'|trans }}
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.postal_code) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.postal_code) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.address.pref) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.address.pref) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.address.addr01) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.address.addr01) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            {{ form_widget(form.YamatoSubsUsersShipping.address.addr02) }}
+                                                            {{ form_errors(form.YamatoSubsUsersShipping.address.addr02) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="row form-group">
+                                                <label class="col-3 col-form-label">{{ 'admin.common.phone_number'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                                <div class="col">
+                                                    {{ form_widget(form.YamatoSubsUsersShipping.phone_number) }}
+                                                    {{ form_errors(form.YamatoSubsUsersShipping.phone_number) }}
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <label class="col-3 col-form-label">{{ 'admin.common.company_name'|trans }}</label>
+                                                <div class="col">
+                                                    {{ form_widget(form.YamatoSubsUsersShipping.company_name) }}
+                                                    {{ form_errors(form.YamatoSubsUsersShipping.company_name) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="row mb-3 form-group d-none">
+                                                <label class="col-3 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.shipping_info.delivery_provider'|trans }}">{{ 'admin.order.delivery_provider'|trans }}<span class="badge badge-primary ml-1"></span><i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                                <div class="col">
+                                                    {{ form_widget(form.YamatoSubsUsersShipping.Delivery) }}
+                                                    {{ form_errors(form.YamatoSubsUsersShipping.Delivery) }}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3 form-group">
+                                                <label class="col-3 col-form-label"><i class="fa fa-clock-o fa-fw mr-1" aria-hidden="true"></i>{{ 'admin.order.delivery_time'|trans }}</label>
+                                                <div class="col">
+                                                    {{ form_widget(form.YamatoSubsUsersShipping.DeliveryTime) }}
+                                                    {{ form_errors(form.YamatoSubsUsersShipping.DeliveryTime) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="row mb-3 form-group">
+                                                <label class="col-3 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.shipping_info.shop_memo'|trans }}">{{ 'admin.order.shop_memo_for_shipped'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                                <div class="col">
+                                                    {{ form_widget(form.YamatoSubsUsersShipping.note) }}
+                                                    {{ form_errors(form.YamatoSubsUsersShipping.note) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div><!-- .card.rounded -->
+
+                    {# 定期回数カウンター更新 #}
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.delivery_count'|trans }}"><span class="card-title">{{ 'yamatosubscription.admin.detail.delivery_count'|trans }}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="collapse show ec-cardCollapse" id="">
+                            <div class="card-body">
+                                    <div class="col-4 row">
+                                        <div class="col-6">
+                                            {{ form_widget(form.delivery_count_update, {value: YamatoSubs.deliveryCount} ) }}
+                                        </div>
+                                        <button type="submit" class="btn btn-ec-regular mr-2" name="mode" value="reset_counter" id="">{{ 'yamatosubscription.admin.detail.reset_count'|trans }}</button>
+                                    </div>
+                            </div>
+                            </div>
+                    </div>
+
+                    <!-- 商品情報 -->
+                    <div id="order-product" class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.product_info'|trans }}"><span class="card-title">{{ 'admin.order.product_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                                </div>
+                                <div class="col-4 text-right"><a data-toggle="collapse" href="#" aria-expanded="false" aria-controls="orderItem"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="collapse show ec-cardCollapse" id="">
+                            <div class="card-body">
+                                <div class="row justify-content-between mb-2">
+                                    <div class="col-6">
+                                        {# 複数配送の場合は商品追加できない #}
+                                        {% if not YamatoSubsUsersOrder.isMultiple %}
+                                            <a class="btn btn-ec-regular mr-2 add" id="addProductButton" data-toggle="modal" data-target="#addProduct">{{ 'admin.order.add_product_item'|trans }}</a>
+                                            <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProduct" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">{{ 'admin.order.add_product_item'|trans }}</h5>
+                                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{ form_widget(searchProductModalForm.id, { attr : {'class': 'mb-3', 'placeholder': 'admin.product.multi_search_label' }}) }}
+                                                            {{ form_widget(searchProductModalForm.category_id) }}
+                                                            <button type="button" id="searchProductModalButton" class="btn btn-ec-conversion px-5 mb-4 mt-2">{{ 'admin.common.search'|trans }}</button>
+                                                            <div id="searchProductModalList"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <a class="btn btn-ec-regular mr-2" id="addOrderItemTypeButton" data-toggle="modal" data-target="#addOrderItemType">{{ 'admin.order.add_other_item'|trans }}</a>
+                                        <div class="modal fade" id="addOrderItemType" tabindex="-1" role="dialog" aria-labelledby="addOrderItemType" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">{{ 'admin.order.add_other_item'|trans }}</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div id="searchOrderItemTypeList"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{ form_errors(form.YamatoSubsUsersOrderItemsErrors) }}
+
+                                    </div>
+                                    
+                                    {# カウンター #}
+                                    <div class="col-4 row">
+                                        <div class="col-8">
+                                            {{ form_widget(form.delivery_count_reset) }}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-2 text-right">
+                                        <button type="submit" class="btn btn-ec-regular mr-2" name="mode" value="calc" data-link="order-product" id="calculate">{{ 'admin.order.update_calculation_results'|trans }}</button>
+                                    </div>
+                                </div>
+                                <table id="table-form-field" class="table table-striped table-sm mb-0"
+                                       data-prototype="{{ include('@YamatoSubscription/admin/Detail/ChangeContents/yamato_subs_users_order_item_prototype.twig', {'Form': form.YamatoSubsUsersOrderItems.vars.prototype})|e }}">
+                                    <thead class="table-active">
+                                    <tr class="text-nowrap">
+                                        <th class="pt-2 pb-2 pl-3">{{ 'admin.product.product_name_and_code'|trans }}</th>
+                                        <th class="pt-2 pb-2">
+                                            <div class="col-8">{{ 'admin.order.amount'|trans }}</div>
+                                        </th>
+                                        <th class="pt-2 pb-2">
+                                            <div class="col-8">{{ 'admin.order.quantity'|trans }}</div>
+                                        </th>
+                                        <th class="pt-2 pb-2">
+                                            <div class="col-8">{{ 'admin.order.tax_rate'|trans }}</div>
+                                        </th>
+                                        <th class="pt-2 pb-2">
+                                            <div class="col-8">{{ 'admin.order.tax_type'|trans }}</div>
+                                        </th>
+                                        <th class="pt-2 pb-2">
+                                            <div class="col-8">{{ 'admin.order.subtotal'|trans }}</div>
+                                        </th>
+                                        <th class="pt-2 pb-2 pr-3"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for index, Form in form.YamatoSubsUsersOrderItems %}
+                                        {% set YamatoSubsUsersOrderItem = Form.vars.data %}
+                                        {% set isReferralCodeItem = 'ReferralCodeProcessor' in YamatoSubsUsersOrderItem.processorName %}
+                                        <tr data-index="{{ index }}" {% if YamatoSubsUsersOrderItem.isProduct %}data-product-id="{{ YamatoSubsUsersOrderItem.Product.id }}"{% endif %}>
+                                            {# hidden values #}
+                                            {{ form_widget(Form.ProductClass) }}
+                                            {{ form_widget(Form.order_item_type) }}
+                                            {{ form_widget(Form.tax_type) }}
+                                            <!-- 商品名 -->
+                                            <td class="align-middle w-25 pl-3">
+                                                <p class="mb-0 font-weight-bold">
+                                                    {# 商品とポイント値引きは名前変更できない #}
+                                                    {% if YamatoSubsUsersOrderItem.isProduct or YamatoSubsUsersOrderItem.isPoint %}
+                                                        {% if YamatoSubsUsersOrderItem.isProduct %}
+                                                            <a href="{{ url('admin_product_product_edit', {id: YamatoSubsUsersOrderItem.ProductClass.Product.id}) }}" target="_blank">
+                                                                {{ YamatoSubsUsersOrderItem.productName }}
+                                                            </a>
+                                                        {% else %}
+                                                            {{ YamatoSubsUsersOrderItem.productName }}
+                                                        {% endif %}
+                                                        {{ form_widget(Form.product_name, { 'type': 'hidden' }) }}
+                                                    {% else %}
+                                                        {{ form_widget(Form.product_name) }}
+                                                    {% endif %}
+                                                </p>
+                                                <span>
+                                                    {{ YamatoSubsUsersOrderItem.productCode }}
+                                                    {% if YamatoSubsUsersOrderItem.classCategoryName1 is not empty %}
+                                                        / (
+                                                        {{ YamatoSubsUsersOrderItem.className1 }}：
+                                                        {{ YamatoSubsUsersOrderItem.classCategoryName1 }}
+                                                        {% if YamatoSubsUsersOrderItem.classCategoryName2 is not empty %}
+                                                            /
+                                                            {{ YamatoSubsUsersOrderItem.className2 }}：
+                                                            {{ YamatoSubsUsersOrderItem.classCategoryName2 }}
+                                                        {% endif %}
+                                                        )
+                                                    {% endif %}
+                                                </span>
+                                                {{ form_errors(Form.product_name) }}
+                                            </td>
+                                            <!-- 金額 -->
+                                            <td class="align-middle">
+                                                <div class="col mt-3">
+                                                    {# ポイント値引きは価格変更できない #}
+                                                    {% if YamatoSubsUsersOrderItem.isPoint %}
+                                                        {{ form_widget(Form.price, {'attr': { 'readonly': 'readonly', 'class': 'pointPrice' } }) }}
+                                                    {% else %}
+                                                        {{ form_widget(Form.price) }}
+                                                    {% endif %}
+                                                    <div class="text-right small">({{ YamatoSubsUsersOrderItem.TaxDisplayType }})</div>
+                                                    {{ form_errors(Form.price) }}
+                                                </div>
+                                            </td>
+                                            <!-- 数量 -->
+                                            <td class="align-middle">
+                                                <div class="col-12 col-xl-8">
+                                                    {# 複数配送の場合は商品の個数を変更できない、ポイントの場合も個数を変更できない #}
+                                                    {% if (YamatoSubsUsersOrder.isMultiple and YamatoSubsUsersOrderItem.isProduct) or YamatoSubsUsersOrderItem.isPoint %}
+                                                        {{ form_widget(Form.quantity, { 'attr': { 'readonly': 'readonly' } }) }}
+                                                    {% elseif isReferralCodeItem %}
+                                                        {{ form_widget(Form.quantity, { 'attr': { 'readonly': 'readonly' } }) }}
+                                                    {% else %}
+                                                        {{ form_widget(Form.quantity) }}
+                                                    {% endif %}
+                                                    {{ form_errors(Form.quantity) }}
+                                                </div>
+                                            </td>
+                                            <!-- 税率 -->
+                                            <td class="align-middle">
+                                                <div class="col-12 col-xl-8">
+                                                    {# 複数配送・ポイント明細・不課税明細は商品の税率を変更できない #}
+                                                    {% if (YamatoSubsUsersOrder.isMultiple and YamatoSubsUsersOrderItem.isProduct) or YamatoSubsUsersOrderItem.isPoint or YamatoSubsUsersOrderItem.TaxType.id == constant('Eccube\\Entity\\Master\\TaxType::NON_TAXABLE') %}
+                                                        {{ form_widget(Form.tax_rate, { 'attr': { 'readonly': 'readonly' } }) }}
+                                                    {% elseif isReferralCodeItem %}
+                                                        {{ form_widget(Form.tax_rate, { 'attr': { 'readonly': 'readonly' } }) }}
+                                                    {% else %}
+                                                        {{ form_widget(Form.tax_rate) }}
+                                                    {% endif %}
+                                                    {{ form_errors(Form.tax_rate) }}
+                                                </div>
+                                            </td>
+                                            <!-- 課税区分 -->
+                                            <td class="align-middle">
+                                                <div class="col">
+                                                    {{ YamatoSubsUsersOrderItem.taxType }}
+                                                </div>
+                                            </td>
+                                            <!-- 小計 -->
+                                            <td class="align-middle">
+                                                <div class="col">
+                                                    <span>{{ YamatoSubsUsersOrderItem.totalPrice|price }}</span>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-right pr-3">
+                                                <div class="row justify-content-end">
+                                                    {# 複数配送の場合は商品を削除できない #}
+                                                    {# ポイント割引も削除できない #}
+                                                    {# 紹介コード割引も削除できない #}
+                                                    {% if (YamatoSubsUsersOrder.isMultiple and YamatoSubsUsersOrderItem.isProduct) or YamatoSubsUsersOrderItem.isPoint or isReferralCodeItem %}
+                                                        <div class="col-auto text-center">
+                                                            <div class="d-inline-block mr-3" data-tooltip="true"
+                                                                 data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                                <a class="btn btn-ec-actionIcon disabled">
+                                                                    <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="col-auto text-center">
+                                                            <div class="d-inline-block mr-3" data-tooltip="true"
+                                                                 data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                                <a class="btn btn-ec-actionIcon js-delete-item-modal-button" data-toggle="modal" data-target="#delete_{{ Form.vars.id }}">
+                                                                    <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                                </a>
+                                                            </div>
+                                                            <!-- 明細の削除確認モーダル -->
+                                                            <div class="modal fade" id="delete_{{ Form.vars.id }}" tabindex="-1" role="dialog" aria-labelledby="delete_{{ Form.vars.id }}" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">×</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body text-left">
+                                                                            <p class="text-left">{{ 'admin.order.delete_item__confirm_message'|trans({ '%name%' : YamatoSubsUsersOrderItem.productName }) }}</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                                                            <a href="#order-product" class="btn delete btn-ec-delete">{{ 'admin.common.delete'|trans }}</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <hr class="mt-0">
+                                <!-- 小計 -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.subtotal'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ YamatoSubsUsersOrder.subTotal|price }}</span></div>
+                                </div>
+                                <!-- 送料 -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.delivery_fee'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ YamatoSubsUsersOrder.deliveryFeeTotal|price }}</span></div>
+                                </div>
+                                <!-- 手数料 -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.common.charge'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ YamatoSubsUsersOrder.charge|price }}</span></div>
+                                </div>
+                                <!-- 値引き -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.discount'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle text-danger font-weight-normal">{{ YamatoSubsUsersOrder.taxableDiscount|price }}</span></div>
+                                </div>
+                                <hr>
+                                <!-- 合計 -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.total'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ YamatoSubsUsersOrder.taxableTotal|price }}</span></div>
+                                </div>
+                                {% for rate, total in YamatoSubsUsersOrder.taxableTotalByTaxRate %}
+                                    <div class="row justify-content-end mb-3">
+                                        <div class="col-auto"><span class="align-middle">{{ 'common.tax_rate_target'|trans({ '%rate%': rate }) }}</span></div>
+                                        <div class="col-2 text-right"><span class="align-middle font-weight-normal">{{ total|price }}</span></div>
+                                    </div>
+                                {% endfor %}
+                                <hr>
+                                {% for item in YamatoSubsUsersOrder.taxFreeDiscountItems %}
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ item.productName }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle text-danger font-weight-normal">{{ item.totalPrice|price }}</span></div>
+                                </div>
+                                {% endfor %}
+                                <!-- お支払い合計 -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.payment_total'|trans }}</span></div>
+                                    <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ YamatoSubsUsersOrder.paymentTotal|price }}</span></div>
+                                </div>
+                                <hr>
+                                <!-- 加算ポイント -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.add_point'|trans }}</span></div>
+                                    <div class="col-2 text-right">
+                                        <span class="h4 align-middle font-weight-normal">
+                                            {{ form.vars.value.addPoint|number_format }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- 利用ポイント -->
+                                <div class="row justify-content-end mb-3">
+                                    <div class="col-auto"><span class="align-middle">{{ 'admin.order.use_point'|trans }}</span></div>
+                                    <div class="col-2 text-right">
+                                        <span class="h4 align-middle font-weight-normal">
+                                            {# ポイント機能が有効かつ会員の場合のみポイントを編集可能とする #}
+                                            {% if BaseInfo.isOptionPoint and YamatoSubsUsersOrder.Customer is not null %}
+                                                {{ form_widget(form.use_point) }}
+                                            {% else %}
+                                                {{ form_widget(form.use_point, {'attr': { 'readonly': 'readonly' } }) }}
+                                            {% endif %}
+                                            {{ form_errors(form.use_point) }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .card.rounded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- コンバージョンエリア -->
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                            <a class="c-baseLink" href="{{ url('plugin_yamato_subscription_admin_detail', { 'resume': 1, 'id': id }) }}"><i class="fa fa-backward" aria-hidden="true"></i><span>{{ 'yamatosubscription.admin.detail_change_contents.back'|trans }}</span></a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-ec-conversion px-5" name="mode" value="register" onClick='btnMode="register"'>{{ 'admin.common.registration'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

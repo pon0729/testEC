@@ -1,0 +1,145 @@
+# log
+yamatosubscription.log.error.prefix: 予期しないエラー
+
+# nav
+yamatosubscription.admin.nav.list: 定期購入受注
+yamatosubscription.admin.nav.discount_list: 定期購入無料対象設定
+
+# flash messages
+yamatosubscription.shopping.system.error: 定期購入処理で予期しないエラーが発生しました。恐れ入りますがお問い合わせページよりご連絡ください。
+yamatosubscription.shopping.sorry.for.already.subscribing: 既に定期購入を継続中です。定期購入を追加したい場合は既存の定期購入を解約して頂き、再度登録をよろしくお願い致します。
+yamatosubscription.mypage.detail.success: お届け間隔を変更しました。
+yamatosubscription.mypage.change_credit_card.success: クレジットカードを変更しました。
+yamatosubscription.mypage.cancelled: 定期購入を解約しました。
+yamatosubscription.mypage.cancel.system.error: 定期購入の停止でシステムエラーが発生しました。大変お手数ですが、サイト管理者までご連絡ください。
+yamatosubscription.mypage.withdraw.cannot_if_subscripting: 定期購入の継続期間中、退会はできません。
+yamatosubscription.mypage.creditcard.cannot_delete_if_subscripting: 定期購入に利用しているクレジットカードの削除はできません。
+yamatosubscription.admin.save.success: 登録しました。
+yamatosubscription.admin.save.failed: 登録に失敗しました。
+yamatosubscription.admin.cancelled: 定期購入を停止しました。
+yamatosubscription.admin.bulk_credit.succeeded_order_ids: '注文番号 %succeeded_order_ids% の定期購入受注を作成しました。'
+yamatosubscription.admin.bulk_credit.failed_order_ids: '注文番号 %failed_order_ids% の継続購入に失敗しました。何度も繰り返す場合は、システム管理者に問い合わせてください。'
+yamatosubscription.admin.list.no_recredit_target_order: 再与信の対象受注がありませんでした。
+yamatosubscription.admin.detail_change_contents.save_message: 送料、手数料、割引の金額は自動計算されないため、必要な場合は運用者側で計算して手動で変更してください。
+yamatosubscription.admin.detail_shipping_edit.shipping_save_message: 出荷に関わる情報が変更されました。送料の変更が必要な場合は、受注内容編集画面より手動で変更してください。
+
+# twig
+yamatosubscription.shopping.normal_purchase_radio_button: 通常購入
+yamatosubscription.shopping.yamatosubscription_purchase_radio_button: 定期購入
+yamatosubscription.shopping.apply_yamatosubscription_button: 定期購入を申し込む
+#
+yamatosubscription.shopping.confirm_order.title: 注文内容確認
+yamatosubscription.shopping.cart_item.title: 注文内容
+yamatosubscription.shopping.subs_month_period.title: 定期お届け間隔を選択
+yamatosubscription.shopping.subs_month_period.1month: 1ヶ月間隔
+yamatosubscription.shopping.subs_month_period.2month: 2ヶ月間隔
+yamatosubscription.shopping.subs_month_period.3month: 3ヶ月間隔
+yamatosubscription.shopping.attention.title: 定期お届けサービス内容確認<br>（内容を確認いただき、チェックボックスにチェックを入れてください。）
+yamatosubscription.shopping.attention.attention_1: '定期お届けサービスは、お客様が解約されるまでの間、%subs_month_period_text%ヶ月ごとに自動的に決済と商品の発送が行われます。'
+yamatosubscription.shopping.attention.attention_2: 定期お届けサービスはいつでも解約いただけます。
+yamatosubscription.shopping.attention.attention_3: '定期お届けサービスご利用中は%shop_name%の退会はできません。退会を希望される場合は、先に定期お届けサービスを解約ください。'
+yamatosubscription.shopping.attention.attention_4: '定期お届けサービス決済に登録したクレジットカードの変更を希望する場合は、弊社までご連絡ください。<br>&nbsp;【弊社連絡先】<br>&nbsp;&nbsp;%contact_email%'
+yamatosubscription.shopping.go_to_confirm: ご注文確認画面へ
+#
+yamatosubscription.shopping_confirm.submit_button: 定期購入する
+yamatosubscription.shopping_confirm.back_button: 定期購入確認に戻る
+#
+yamatosubscription.mypage.list.nav: 定期購入履歴
+yamatosubscription.mypage.list.subs_month_period: お届け間隔
+yamatosubscription.mypage.list.credit_count: 購入回数
+yamatosubscription.mypage.list.delivery_count: 購入回数
+yamatosubscription.mypage.list.already_cancelled_at: '%cancelled_date% 定期購入解約済み'
+yamatosubscription.mypage.list.update_subs_month_period_button: お届け間隔を変更
+yamatosubscription.mypage.list.change_using_credit_card_button: クレジットカードを変更
+yamatosubscription.mypage.list.cancel_button: 定期購入を解約する
+yamatosubscription.mypage.list.confirm_cancel: 定期購入を解約します。\n本当に宜しいですか？
+#
+yamatosubscription.mypage.detail.subs_month_period: お届け間隔
+#
+yamatosubscription.mypage.change_credit_card.credit_card_selection.header: 現在登録されている定期購入カード情報
+yamatosubscription.mypage.change_credit_card.credit_card_selection.table_summary: クレジットカード選択
+yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.choice: 選択
+yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.credit_card_key: キー
+yamatosubscription.mypage.change_credit_card.credit_card_selection.table_header.credit_card_info: 登録カード番号選択
+yamatosubscription.mypage.change_credit_card.credit_card_selection.table_body.card_owner: 'カード名義：%card_owner%'
+yamatosubscription.mypage.change_credit_card.change_credit_card_button: 選択したカードを定期購入で利用する
+#
+yamatosubscription.admin.order.credit_count: '%credit_count%回購入'
+yamatosubscription.admin.order.delivery_count: '%delivery_count%回購入'
+yamatosubscription.admin.order.and_already_cancelled_at: '、%cancelled_date% 定期購入解約済み'
+#
+yamatosubscription.admin.discount.product_name: 継続利用割引
+yamatosubscription.admin.list.title: 定期購入一覧管理
+yamatosubscription.admin.list.sub_title: 定期購入受注一覧
+yamatosubscription.admin.list.bulk_credit: 一括再与信
+yamatosubscription.admin.list.table_header.id: 定期配送ID
+yamatosubscription.admin.list.table_header.subs_month_period: 配送間隔
+yamatosubscription.admin.list.table_header.order_date: 受注日
+yamatosubscription.admin.list.table_header.order_id: 注文番号
+yamatosubscription.admin.list.table_header.customer_name: お名前
+yamatosubscription.admin.list.table_header.payment_method: 支払い方法
+yamatosubscription.admin.list.table_header.payment_total: 購入金額（円）
+yamatosubscription.admin.list.table_header.commit_date: 発送日
+yamatosubscription.admin.list.table_header.status_name: 対応状況
+yamatosubscription.admin.list.filter: 検索条件を選択
+yamatosubscription.admin.list.confirm_recredit: 再与信可能な定期受注に対して決済操作を行います。\nよろしいですか？
+#
+yamatosubscription.admin.detail.title: 定期購入受注管理
+yamatosubscription.admin.detail.sub_title: 定期購入受注詳細
+yamatosubscription.admin.detail.header1: 定期購入情報
+yamatosubscription.admin.detail.id: 定期配送ID
+yamatosubscription.admin.detail.last_subs_order_id: 直近の注文番号
+yamatosubscription.admin.detail.subs_month_period: 配送間隔
+yamatosubscription.admin.detail.credit_count: 与信回数
+yamatosubscription.admin.detail.delivery_count: 配送回数
+yamatosubscription.admin.detail.cancelled_date: 停止日
+yamatosubscription.admin.detail.create_date: 作成日
+yamatosubscription.admin.detail.update_date: 更新日
+yamatosubscription.admin.detail.change_contents: 定期購入内容を変更
+yamatosubscription.admin.detail.stop_subscription: 定期購入を停止
+yamatosubscription.admin.detail.back: 定期購入受注一覧
+yamatosubscription.admin.detail.confirm_cancellation: こちらの定期購入を停止します。\n通常、ユーザーが自らの意思で解約する運用であり、\n本操作はユーザーに許可を得て実施する必要があります。\n本当に宜しいですか？
+yamatosubscription.admin.detail.reset_count: 定期回数リセット
+yamatosubscription.admin.detail.reset_confirm: 定期継続回数をクリアします。
+yamatosubscription.admin.detail.reset_label: 定期カウントをクリアする
+#
+yamatosubscription.admin.discount.title: 定期購入
+yamatosubscription.admin.discount.sub_title: 無料対象設定
+yamatosubscription.admin.discount.category_header: カテゴリ設定
+yamatosubscription.admin.discount.search_result.header.product_id: 商品ID
+yamatosubscription.admin.discount.search_result.header.product_name_and_code: 商品名・商品コード
+yamatosubscription.admin.edit.product_info: 商品情報
+yamatosubscription.admin.edit.tooltip.product_info: 配送12倍数回(12->24..)に割引を行う商品を追加してください。
+yamatosubscription.admin.edit.table_header.product_name: 商品名
+yamatosubscription.admin.edit.add_product_item: 商品を追加
+yamatosubscription.admin.edit.product.multi_search_label: 商品名・商品ID
+yamatosubscription.admin.delete_item__confirm_message: '明細が削除されます。「%name%」を削除してよろしいですか？'
+#
+yamatosubscription.admin.detail_change_contents.title: 定期購入受注管理
+yamatosubscription.admin.detail_change_contents.sub_title: 定期購入受注内容編集
+yamatosubscription.admin.detail_change_contents.back: 定期購入受注詳細
+#
+yamatosubscription.admin.detail_shipping_edit.title: 定期購入受注管理
+yamatosubscription.admin.detail_shipping_edit.sub_title: 定期購入受注出荷情報編集
+yamatosubscription.admin.detail_shipping_edit.back: 定期購入受注内容編集
+yamatosubscription.admin.detail_shipping_edit.delivery_time: お届け時間
+#
+yamatosubscription.admin.config.title: 定期配送設定画面
+yamatosubscription.admin.config.sub_title: 各種設定
+yamatosubscription.admin.config.header1: 基本設定
+yamatosubscription.admin.config.save: 登録
+yamatosubscription.admin.config.back: プラグイン一覧
+
+# front・admin error
+yamatosubscription.error.badrequest: 不正なリクエストです。
+yamatosubscription.system.error: システムエラーが発生しました。繰り返す場合は大変お手数ですが、サイト管理者までご連絡ください。
+
+# front error
+yamatosubscription.shopping.error.please_check_register_card: 定期購入の場合は「このカードを登録する」にチェックを入れてください。
+yamatosubscription.shopping.error.check_all_attention_message: 定期お届けサービス内容を全て確認してから決済へ進んでください。
+yamatosubscription.shopping.error.please_check_subs_month_period: 定期お届け間隔を選択してください。
+yamatosubscription.mypage.detail.error.check_all_attention_message: 定期お届けサービス内容を全て確認してから変更してください。
+
+# admin error
+yamatosubscription.admin.cancel.system.error: 定期購入の停止でシステムエラーが発生しました。大変お手数ですが、サイト管理者までご連絡ください。
+yamatosubscription.admin.detail_change_contents.error.calculate: 計算結果の更新に失敗しました

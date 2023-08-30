@@ -1,0 +1,63 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+<div class="ec-footerRole">
+    <div class="ec-footerRole__inner">
+        <div class="ec-footerTitle">
+            <div class="ec-footerTitle__logo">
+                <a href="{{ url('homepage') }}"><img src="/html/user_data/assets/img/top/logo.svg"></a>
+            </div>
+            <div class="ec-footerNaviRole">
+                <ul class="ec-footerNaviRole__left">
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('help_about') }}">当サイトについて</a>
+                    </li>
+                    {#
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('product_list', {'category_id': 7}) }}">食品</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('product_list', {'category_id': 9}) }}">化粧品</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('product_list', {'category_id': 8}) }}">日用品・洗面</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('product_list', {'category_id': 11}) }}">雑貨</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('product_list', {'category_id': 10}) }}">ベビー用品</a>
+                    </li>
+                    #}
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('help_guide') }}">ご利用ガイド</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('help_privacy') }}">プライバシーポリシー</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('help_tradelaw') }}">特定商取引法に基づく表記</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('help_agreement') }}">ご利用規約</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="{{ url('contact') }}">お問い合わせ</a>
+                    </li>
+                    <li class="ec-footerNavi__link">
+                        <a href="https://gift-communication.shop/user_data/faq">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ec-footerCopyright">&copy; 2020 {{ BaseInfo.shop_name }} All Rights Reserved.</div>
+</div>

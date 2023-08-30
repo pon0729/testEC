@@ -1,0 +1,90 @@
+{#
+ * This file is part of the Recommend Product plugin
+ *
+ * Copyright (C) 2016 LOCKON CO.,LTD. All Rights Reserved.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+#}
+{% set recommend_products = repository('Plugin\\Recommend4\\Entity\\RecommendProduct').getRecommendProduct %}
+
+{% block javascript %}
+<script>
+$(function() {
+    $('.ec-newArrival__list').slick({
+        swipe: true,
+        autoplay: true,
+        fade: false,
+        speed: 500,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        slide: '.ec-newArrival__listItem',
+        responsive: [{
+                breakpoint: 1020,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                }
+            }
+        ]
+    });
+});
+</script>
+{% endblock %}
+
+<!-- ▼item_list▼ -->
+<!--▼新着商品　※おすすめ商品ブロックにあります▼-->
+<div class="ec-newArrival">
+    <div class="ec-newArrival__wrapper">
+        <h3 class="ec-newArrival__title">
+            <img src="{{ asset('assets/img/top/tit_new_arrival.svg') }}">
+        </h3>
+        <ul class="ec-shelfGrid ec-newArrival__list">
+            {% for RecommendProduct in recommend_products %}
+                <li class="ec-shelfGrid__item ec-newArrival__listItem">
+                    <a href="{{ url('product_detail', {'id': RecommendProduct.Product.id}) }}">
+                        <img src="{{ asset(RecommendProduct.Product.mainFileName|no_image_product, "save_image") }}">
+                        <p>{{ RecommendProduct.comment|raw|nl2br }}</p>
+                        <dl>
+                            <dt class="item_name">{{ RecommendProduct.Product.name }}</dt>
+                            <dd class="item_price">
+                                {% if RecommendProduct.Product.hasProductClass %}
+                                    {% if RecommendProduct.Product.getPrice02Min == RecommendProduct.Product.getPrice02Max %}
+                                        {{ RecommendProduct.Product.getPrice02IncTaxMin|price }}
+                                    {% else %}
+                                        {{ RecommendProduct.Product.getPrice02IncTaxMin|price }} ～ {{ RecommendProduct.Product.getPrice02IncTaxMax|price }}
+                                    {% endif %}
+                                {% else %}
+                                    {{ RecommendProduct.Product.getPrice02IncTaxMin|price }}
+                                {% endif %}
+                            </dd>
+                        </dl>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!--▲ 新着商品　※おすすめ商品ブロックにあります▲ -->
+<!-- ▲item_list▲ -->

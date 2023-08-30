@@ -1,0 +1,46 @@
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'front_page' %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block javascript %}
+<script>
+$(function() {
+  $('.main_visual')
+    .slick({
+      dots: true,
+      infinite: true,
+      speed: 1000,
+      fade: true,
+      arrows: false,
+      accessibility: false,
+      draggable: true,
+      slidesToScroll: 1,
+      vertical: false,
+      autoplay: true,
+      cssEase: 'linear',
+      centerMode: true,
+      lazyLoad: 'ondemand',
+      pauseOnHover: false
+    });
+});
+</script>
+{% endblock javascript %}
+
+{% block main %}
+<div class="ec-sliderRole">
+  <div class="main_visual">
+    <div class="item slick-slide">
+      <a href="#" class="main_visual_01"></a>
+    </div>
+    <div class="item slick-slide">
+      <a href="#" class="main_visual_02"></a>
+    </div>
+    <div class="item slick-slide">
+      <a href="#" class="main_visual_03"></a>
+    </div>
+  </div>
+</div>
+{% endblock %}

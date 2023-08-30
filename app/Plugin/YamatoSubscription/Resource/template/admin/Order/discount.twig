@@ -1,0 +1,322 @@
+{#
+This file is part of EC-CUBE
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+http://www.lockon.co.jp/
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['order', 'plugin_yamato_subscription_admin_discount_list'] %}
+
+{% block title %}{{ 'yamatosubscription.admin.discount.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'yamatosubscription.admin.discount.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+<script>
+var $productCollectionHolder = null;
+var $categoryCollectionHolder = null;
+var productDetailLength = 0;
+var detailFormIdPrefix = '#admin_discount_DiscountProduct_';
+
+$(function() {
+    // ==================================
+    // 商品の追加 ボタンクリック時表示
+    // ==================================
+    $('#showProductSearchModalButton').on('click', function() {
+        $('#searchProductModalList').children().remove();
+    });
+
+    // ==================================
+    // 商品検索ダイアログ - エンターキー押された時に検索
+    // ==================================
+    $('.modal-dialog input[name="admin_search_product\[id\]"], .modal-dialog select[name="admin_search_product\[category_id\]"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('#searchProductModalButton').trigger('click');
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // ==================================
+    // 商品検索ダイアログ - 検索ボタンクリック時表示
+    // ==================================
+    $('#searchProductModalButton').on('click', function() {
+        var existProductId = "";
+        $("input[id^=" + detailFormIdPrefix.replace('#', '') + "][id$=_Product]").each(function(index, elem) {
+            existProductId = existProductId == "" ? elem.value : existProductId + ',' + elem.value;
+        });
+        var $list = $('#searchProductModalList');
+        $list.children().remove();
+        $.ajax({
+            url: '{{ url('plugin_yamato_subscription_admin_discount_search_product') }}',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                'id' : $('#admin_search_product_id').val(),
+                'category_id' : $('#admin_search_product_category_id').val(),
+                'exist_product_id' : existProductId
+            }
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search product failed.');
+        });
+    });
+    // ページング処理
+    $(document).on('click', '#searchProductModalList ul.pagination li.page-item a.page-link', function(e) {
+        e.preventDefault();
+        var $list = $('#searchProductModalList');
+        $list.children().remove();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search product failed.');
+        });
+    });
+
+    // ==================================
+    // カテゴリ検索ダイアログ - エンターキー押された時に検索
+    // ==================================
+    $('.modal-dialog input[name="plugin_yamato_subscription_admin_discount_search_category\[id\]"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('#searchCategoryModalButton').trigger('click');
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // ==================================
+    // カテゴリ検索ダイアログ - 検索ボタンクリック時表示
+    // ==================================
+    $('#searchCategoryModalButton').on('click', function() {
+        var existCategorytId = "";
+        $("input[id^=" + detailFormIdPrefix.replace('#', '') + "][id$=_Category]").each(function(index, elem) {
+            existCategorytId = existCategorytId == "" ? elem.value : existCategorytId + ',' + elem.value;
+        });
+        var $list = $('#searchCategoryModalList');
+        $list.children().remove();
+        $.ajax({
+            url: '{{ url('plugin_yamato_subscription_admin_discount_search_category') }}',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                'id' : $('#plugin_yamato_subscription_admin_search_category_id').val(),
+                'exist_category_id' : existCategorytId
+            }
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search category failed.');
+        });
+    });
+    // ページング処理
+    $(document).on('click', '#searchCategoryModalList ul.pagination li.page-item a.page-link', function(e) {
+        e.preventDefault();
+        var $list = $('#searchCategoryModalList');
+        $list.children().remove();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search category failed.');
+        });
+    });
+
+    // 商品管理
+    $productCollectionHolder = $('#product_table_form_field');
+    productDetailLength = $productCollectionHolder.find('tbody > tr').length;
+    $(document).on('click', '.delete-product-row', function(e) {
+        var $self = $(this);
+        var rowIndex = $self.data('row-index');
+        $('#delete_product_modal_' + rowIndex.toString()).modal('hide');
+        setTimeout(function() {
+            $self.closest('tr').remove();
+        }, 500);
+        productDetailLength--;
+        return false;
+    });
+
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<form method="post">
+{{ form_widget(form._token) }}
+<div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <!-- カテゴリ設定 -->
+                <div id="yamato_subscription_category_info" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block"><span class="card-title">{{ 'yamatosubscription.admin.discount.category_header'|trans }}</span></div>
+                            </div>
+                            <div class="col-4 text-right">
+                                    <a data-toggle="collapse" href="#categoryOverview" aria-expanded="false" aria-controls="categoryOverview">
+                                        <i class="fa fa-angle-up fa-lg"></i>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="categoryOverview">
+                        <div class="c-directoryTree--register p-3">
+                            {% import _self as renderMacro %}
+                            {% for TopCategory in TopCategories %}
+                                <ul class="list-unstyled">
+                                    {{ renderMacro.tree(ChoicedCategoryIds, TopCategory, form.Category) }}
+                                </ul>
+                            {% endfor %}
+                            {{ form_errors(form.Category) }}
+                        </div>
+                        {% macro tree(ChoicedIds, Category, form) %}
+                            {% import _self as selfMacro %}
+                            <li class="c-directoryTree--registerItem category-li">
+                                <input type="checkbox" id="admin_product_category_{{ Category.id }}" name="admin_discount[Category][]" value="{{ Category.id }}" {% if Category.id in ChoicedIds %}checked{% endif %}>
+                                <label for="admin_product_category_{{ Category.id }}">{{ Category.name }}</label>
+                                <ul class="list-unstyled">
+                                    {% for child,ChildCategory in Category.children %}
+                                        {{ selfMacro.tree(ChoicedIds, ChildCategory, form) }}
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endmacro %}
+                    </div>
+                </div>
+                <!-- カテゴリ設定 -->
+
+                <!-- 商品情報 -->
+                <div id="yamato_subscription_detail_product_area" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'yamatosubscription.admin.edit.tooltip.product_info'|trans }}"><span class="card-title">{{ 'yamatosubscription.admin.edit.product_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#yamatosubscription_discount_detail_product" aria-expanded="false" aria-controls="yamatosubscription_discount_detail_product"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="yamatosubscription_discount_detail_product">
+                        <div class="card-body">
+                            <div class="row justify-content-between mb-2">
+                                <div class="col-6">
+                                    <a id="showProductSearchModalButton" class="btn btn-ec-regular mr-2 add" data-toggle="modal" data-target="#addProduct">{{ 'yamatosubscription.admin.edit.add_product_item'|trans }}</a>
+                                    <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProduct" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ 'yamatosubscription.admin.edit.add_product_item'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form_widget(searchProductModalForm.id, { attr : {'class': 'mb-3', 'placeholder': 'yamatosubscription.admin.edit.product.multi_search_label'|trans }}) }}
+                                                    {{ form_widget(searchProductModalForm.category_id) }}
+                                                    <button type="button" id="searchProductModalButton" class="btn btn-ec-conversion px-5 mb-4 mt-2">{{ 'admin.common.search'|trans }}</button>
+                                                    <div id="searchProductModalList"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .row -->
+
+                            <!-- 商品明細 -->
+                            <table id="product_table_form_field" class="table table-striped table-sm mb-0"
+                                data-prototype="{% filter escape %}{{ include('@YamatoSubscription/admin/Order/product_prototype.twig') }}{% endfilter %}">
+                                <thead class="table-active">
+                                    <tr class="text-nowrap">
+                                        <th class="pt-2 pb-2 pl-3">{{ 'yamatosubscription.admin.edit.table_header.product_name'|trans }}</th>
+                                        <th class="pt-2 pb-2 pr-3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for yamatoDiscountDetailForm in form.DiscountProduct %}
+                                    {% set YamatoDiscountDetail = yamatoDiscountDetailForm.vars.data %}
+                                        <tr>
+                                            {# hidden values #}
+                                            {{ form_widget(yamatoDiscountDetailForm.Product) }}
+                                            <td class="align-middle w-25 pl-3">
+                                                <p class="mb-0 font-weight-bold">
+                                                    <a href="{{ url('admin_product_product_edit', {id: YamatoDiscountDetail.id}) }}" target="_blank">
+                                                        {{ YamatoDiscountDetail.name }}
+                                                    </a>
+                                                </p>
+                                            </td>
+                                            <td class="align-middle text-right pr-3">
+                                                <div class="row justify-content-end">
+                                                    <div class="col-auto text-center">
+                                                        <div class="d-inline-block mr-3" data-tooltip="true"
+                                                             data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                            <a class="btn btn-ec-actionIcon" data-toggle="modal" data-target="#delete_product_modal_{{ loop.index0 }}">
+                                                                <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!-- 明細の削除確認モーダル -->
+                                                        <div class="modal fade" id="delete_product_modal_{{ loop.index0 }}" tabindex="-1" role="dialog" aria-labelledby="delete_product_modal_{{ loop.index0 }}" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body text-left">
+                                                                        <p class="text-left">{{ 'yamatosubscription.admin.delete_item__confirm_message'|trans({ '%name%' : YamatoDiscountDetail.name }) }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                                                        <a href="#delete_product_modal_{{ loop.index0 }}" class="btn delete-product-row btn-ec-delete" data-row-index="{{ loop.index0 }}">{{ 'admin.common.delete'|trans }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- 明細の削除確認モーダル -->
+                                                    </div>
+                                                </div><!-- .row.justify-content-end -->
+                                            </td>
+                                        </tr>
+                                {% endfor %}              
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商品フォーム -->
+
+            </div>
+        </div>
+</div>
+
+<!-- コンバージョンエリア -->
+<div class="c-conversionArea">
+    <div class="c-conversionArea__container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-6">
+                <div class="c-conversionArea__leftBlockItem">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row align-items-center justify-content-end">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-ec-conversion px-5" name="mode" value="register">{{ 'admin.common.registration'|trans }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+<svg id="pagetop" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="長方形_205" data-name="長方形 205" fill="#fff" stroke="#ccc" stroke-width="1">
+    <rect width="50" height="50" stroke="none"/>
+    <rect x="0.5" y="0.5" width="49" height="49" fill="none"/>
+  </g>
+  <g id="多角形_8" data-name="多角形 8" transform="translate(22 23)" fill="#ccc">
+    <path d="M 5.898116111755371 3.5 L 1.101883769035339 3.5 L 3.5 0.7592957019805908 L 5.898116111755371 3.5 Z" stroke="none"/>
+    <path d="M 3.5 1.518591403961182 L 2.2037672996521 3 L 4.796232223510742 3 L 3.5 1.518591403961182 M 3.5 0 L 7 4 L 0 4 L 3.5 0 Z" stroke="none" fill="#ccc"/>
+  </g>
+</svg>

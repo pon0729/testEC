@@ -1,0 +1,61 @@
+<script>
+$(function() {
+    var $flashMessageArea = $('#flash_message_area');
+    $('.ec-layoutRole__contents .ec-mypageRole:last').prepend($flashMessageArea);
+    $('#flash_message_area_wrapper').remove();
+});
+</script>
+
+<div id="flash_message_area_wrapper" class="d-none">
+    <div id="flash_message_area">
+        {% for message in app.flashes('eccube.front.info') %}
+        <div class="alert alert-primary alert-dismissible show m-3" role="alert">
+            <i class="fa fa-comment fa-lg mr-2"></i>
+            <span class="font-weight-bold">{{ message|trans }}</span>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        {% endfor %}
+        
+        {% for message in app.flashes('eccube.front.success') %}
+        <div class="alert alert-success alert-dismissible show m-3" role="alert">
+            <i class="fa fa-check fa-lg mr-2"></i>
+            <span class="font-weight-bold">{{ message|trans }}</span>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        {% endfor %}
+        
+        {% for message in app.flashes('eccube.front.danger') %}
+        <div class="alert alert-danger alert-dismissible show m-3" role="alert">
+            <i class="fa fa-warning fa-lg mr-2"></i>
+            <span class="font-weight-bold">{{ message|trans }}</span>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        {% for message in app.flashes('eccube.front.error') %}
+        <div class="alert alert-danger alert-dismissible show m-3" role="alert">
+            <i class="fa fa-warning fa-lg mr-2"></i>
+            <span class="font-weight-bold">{{ message|trans }}</span>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        {% endfor %}
+        
+        {% for message in app.flashes('eccube.front.warning') %}
+        <div class="alert alert-warning alert-dismissible show m-3" role="alert">
+            <i class="fa fa-warning fa-lg mr-2"></i>
+            <span class="font-weight-bold">{{ message|trans }}</span>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>

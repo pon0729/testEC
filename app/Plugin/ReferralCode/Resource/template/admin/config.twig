@@ -1,0 +1,134 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_list'] %}
+
+{% block title %}{{ 'referral_code.admin.config.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'referral_code.admin.config.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+<script>
+$(document).on('submit', '#config_form', function(e) {
+    if ($('.normal-order-flg:checked').length === 0) {
+        alert('{{ 'referral_code.admin.config.error.required_normal_order'|trans }}');
+        e.preventDefault();
+        return false;
+    }
+    if ($('.referral-code-order-flg:checked').length === 0) {
+        alert('{{ 'referral_code.admin.config.error.required_referral_code_order'|trans }}');
+        e.preventDefault();
+        return false;
+    }
+});
+</script>
+{% endblock %}
+
+{% block main %}
+    <form id="config_form" method="post" action="{{ url('referral_code_admin_config_update') }}">
+        {{ form_widget(form._token) }}
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header"><span>{{ 'referral_code.admin.config.header1'|trans }}</span></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.config.tooltip.delivery_free_amount'|trans }}">
+                                        <span>{{ 'referral_code.admin.form.referral_code_config_type.delivery_free_amount.label'|trans }}</span>
+                                        <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                    </div>
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.delivery_free_amount) }}
+                                    {{ form_errors(form.delivery_free_amount) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="d-inline-block">
+                                        <span>{{ 'referral_code.admin.form.referral_code_config_type.subscription_discount_rate.label'|trans }}</span>
+                                        <span class="badge badge-primary ml-1">
+                                            {{ 'admin.common.required'|trans }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.subscription_discount_rate) }}
+                                    {{ form_errors(form.subscription_discount_rate) }}
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <p>
+                                    {{ 'referral_code.admin.config.table_caption'|trans }}
+                                    <span class="badge badge-primary ml-1">
+                                        {{ 'admin.common.required'|trans }}
+                                    </span>
+                                </p>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ 'referral_code.admin.config.table_header_normal_order'|trans }}</th>
+                                            <th>{{ 'referral_code.admin.config.table_header_referral_code_order'|trans }}</th>
+                                            <th>{{ 'referral_code.admin.config.table_header_delivery'|trans }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% set index = 0 %}
+                                        {% for ReferralCodeDeliveryConfig in ReferralCodeDeliveryConfigs %}
+                                            <tr>
+                                                <td><input type="checkbox" class="normal-order-flg" name="ReferralCodeDeliveryConfigs[{{ index }}][normal_order_flg]" value="1" {% if ReferralCodeDeliveryConfig.isNormalOrderEnable() %} checked="checked" {% endif %} /></td>
+                                                <td><input type="checkbox" class="referral-code-order-flg" name="ReferralCodeDeliveryConfigs[{{ index }}][referral_code_order_flg]" value="1" {% if ReferralCodeDeliveryConfig.isReferralCodeOrderEnable() %} checked="checked" {% endif %} /></td>
+                                                <td>
+                                                    <input type="hidden" name="ReferralCodeDeliveryConfigs[{{ index }}][id]" value="{{ ReferralCodeDeliveryConfig.getId() }}" />
+                                                    <input type="hidden" name="ReferralCodeDeliveryConfigs[{{ index }}][delivery_id]" value="{{ ReferralCodeDeliveryConfig.getDelivery().getId() }}" />
+                                                    {{ ReferralCodeDeliveryConfig.getDelivery().getName() }}
+                                                </td>
+                                            </tr>
+                                            {% set index = index + 1 %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- /.card-body -->
+                    </div><!-- /.card.rounded -->
+                </div>
+            </div>
+        </div><!-- /.c-contentsArea__cols -->
+
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                            <a class="c-beseLink"
+                               href="{{ url('admin_store_plugin') }}">
+                                <i class="fa fa-backward" aria-hidden="true"></i>
+                                <span>{{ 'referral_code.admin.config.back'|trans }}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button class="btn btn-ec-conversion px-5"
+                                        type="submit">{{ 'referral_code.admin.config.save'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.c-contentsArea__cols -->
+    </form>
+{% endblock %}

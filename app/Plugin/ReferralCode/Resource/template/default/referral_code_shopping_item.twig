@@ -1,0 +1,40 @@
+<style>
+.current-referral-code-status {
+    margin-bottom: 0.6em;
+}
+</style>
+<script>
+$(function() {
+    var $messageInputArea = $('.ec-orderRole__detail .ec-orderDelivery');
+    $messageInputArea.before($('#referral_code_shopping_item_area'));
+    $('#referral_code_shopping_item_area_wrapper').remove();
+});
+</script>
+<div id="referral_code_shopping_item_area_wrapper" class="d-none">
+    <div id="referral_code_shopping_item_area" class="ec-orderPayment">
+        <div class="ec-rectHeading">
+            <h2>{{ 'referral_code.shopping.index.referral_code_info'|trans }}</h2>
+        </div>
+        <div class="ec-input">
+            {% if ReferralCodeOrder %}
+                <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code'|trans({'%referral_code%': ReferralCodeOrder.referralCode}) }}</strong></p>
+                {% if ReferralCodeOrder.discount > 0 %}
+                    <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code_sub'|trans }}</strong></p>
+                {% endif %}
+                {% if not referral_code_is_fixed %}
+                    <div>
+                        <button type="button" class="ec-inlineBtn" data-trigger="click" data-path="{{ path('plugin_referral_code_shopping') }}">{{ 'referral_code.shopping.index.change_referral_code_button'|trans }}</button>
+                    </div>
+                {% endif %}
+            {% elseif user_associated_referral_code %}
+                {# 対象商品がないなどして割引はされないが、紹介コードを利用している事を明記 #}
+                <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code'|trans({'%referral_code%': user_associated_referral_code}) }}</strong></p>
+            {% else %}
+                <p class="current-referral-code-status">{{ 'referral_code.shopping.index.please_input_referral_code'|trans }}</p>
+                <div>
+                    <button type="button" class="ec-inlineBtn" data-trigger="click" data-path="{{ path('plugin_referral_code_shopping') }}">{{ 'referral_code.shopping.index.input_referral_code_button'|trans }}</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% block javascript %}
+<script>
+{#
+$(function() {
+  // スクロールして何ピクセルでアニメーションさせるか
+  var px_change = 800;
+
+  function on(anime_off) {
+    var className = anime_off ? "nav_02 anime_off" : "nav_02";
+    $(".ec-headerNaviRole, .ec-headerRole nav_02 anime_off").addClass(className);
+  }
+
+  function off() {
+    $(".ec-headerNaviRole, .ec-headerRole nav_02 anime_off").removeClass("nav_02");
+  }
+
+  function topPage_onScroll() {
+    if ($(window).scrollTop() > px_change) {
+      // 変化するポイントまでスクロールしたらクラスを追加
+      on();
+    } else {
+      // 変化するポイント以前であればクラスを削除
+      off();
+    }
+  }
+
+  // スクロールのイベントハンドラを登録
+  if ($('body').hasClass('front_page')) {
+    $(window).on('scroll', topPage_onScroll);
+  } else {
+    on(true);
+  }
+});
+#}
+</script>
+{% endblock %}
+
+<div class="ec-headerNaviRole">
+    <div class="ec-headerNaviRole__right">
+        <div class="ec-headerNaviRole__nav">
+            {{ include('Block/login.twig') }}
+        </div>
+        <div class="ec-headerRole__cart">
+            {{ include('Block/cart.twig') }}
+        </div>
+    </div>
+    <div class="ec-headerNaviRole__left">
+        <div class="ec-headerNaviRole__search">
+            {{ render(path('block_search_product')) }}
+        </div>
+        <div class="ec-headerRole__navSP">
+            {{ include('Block/nav_sp.twig') }}
+        </div>
+    </div>
+</div>

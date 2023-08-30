@@ -1,0 +1,3 @@
+0
+%255BPlugin%255CCMBlog%255CEntity%255CCategory%2524BlogCategories%255D%255B1%255D
+a:1:{i:0;O:30:"Doctrine\ORM\Mapping\OneToMany":6:{s:8:"mappedBy";s:8:"Category";s:12:"targetEntity";s:33:"Plugin\CMBlog\Entity\BlogCategory";s:7:"cascade";N;s:5:"fetch";s:10:"EXTRA_LAZY";s:13:"orphanRemoval";b:0;s:7:"indexBy";N;}}

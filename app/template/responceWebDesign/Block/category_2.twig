@@ -1,0 +1,136 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+<!--▼コンテンツ内カテゴリはPCのみ表示　カテゴリブロックにあります▼-->
+<div class="ec-categoryRole">
+    <div class="ec-role">
+        {#
+        <div class="ec-secHeading">
+            <h3 class="ec-secHeading__en_title">
+                <img src="{{ asset('/html/user_data/assets/img/category/tit_category@0.5x.png') }}" alt="CATEGORY">
+            </h3>
+        </div>
+        #}
+        <div class="ec-categoryRole__list">
+            <!--カテゴリー1-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: 7 }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/SP_category_food.svg') }}"></span>
+                    <p><strong>食品</strong></p>
+                    <p>FOOD</p>
+                </a>
+            </div>
+
+            <!--カテゴリー2-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: 8 }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/SP_category_daily.svg') }}"></span>
+                    <p><strong>日用品</strong></p>
+                    <p>DAILY ITEM</p>
+                </a>
+            </div>
+
+            <!--カテゴリー3-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: 11 }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/SP_category_general.svg') }}"></span>
+                    <p><strong>日常を彩るもの</strong></p>
+                    <p>GENERAL ITEM</p>
+                </a>
+            </div>
+
+            <!--カテゴリー4-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: 10 }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/SP_category_baby.svg') }}"></span>
+                    <p><strong>ベビー用品</strong></p>
+                    <p>BABY</p>
+                </a>
+            </div>
+
+            <!--カテゴリー5-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: 14 }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_supplement.svg') }}"></span>
+                    <p><strong>サプリメント</strong></p>
+                    <p>SUPPLEMENT</p>
+                </a>
+            </div>
+            
+            <!--カテゴリー6-->
+            <div class="ec-categoryRole__listItem">
+                <a href="{{ url('product_list', { category_id: null }) }}">
+                    <span><img src="{{ asset('/html/user_data/assets/img/category/PC_category_all.svg') }}"></span>
+                    <p><strong>全商品</strong></p>
+                    <p>ALL</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--▲コンテンツ内カテゴリはPCのみ表示　カテゴリブロックにあります▲-->
+
+
+{#
+<div id="category_pc" class="pc">
+    <h3 class="top_title">
+      <img src="{{ app.config.front_urlpath }}/img/top/tit_category.svg">
+      </h3>
+    <ul>
+        <li>
+            <!--カテゴリー1-->
+            <a href="{{url('product_list')}}?category_id=1">
+                <dl>
+                    <dt><img src="{{ app.config.front_urlpath }}/img/top/category_01.png"></dt>
+                    <dd>食品</dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+            <!--カテゴリー2-->
+            <a href="{{url('product_list')}}?category_id=1">
+                <dl>
+                    <dt><img src="{{ app.config.front_urlpath }}/img/top/category_02.png"></dt>
+                    <dd>化粧品</dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+            <!--カテゴリー3-->
+            <a href="{{url('product_list')}}?category_id=1">
+                <dl>
+                    <dt><img src="{{ app.config.front_urlpath }}/img/top/category_03.png"></dt>
+                    <dd>日用品</dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+            <!--カテゴリー4-->
+            <a href="{{url('product_list')}}?category_id=1">
+                <dl>
+                    <dt><img src="{{ app.config.front_urlpath }}/img/top/category_04.png"></dt>
+                    <dd>雑貨</dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+            <!--カテゴリー5-->
+            <a href="{{url('product_list')}}?category_id=1">
+                <dl>
+                    <dt><img src="{{ app.config.front_urlpath }}/img/top/category_05.png"></dt>
+                    <dd>ベビー用品</dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+
+#}

@@ -1,0 +1,156 @@
+# log
+referral_code.admin.log.error.prefix: 予期しないエラー
+
+# nav
+referral_code.admin.nav.referral_code_list: 紹介コード一覧
+referral_code.admin.nav.referral_code_new: 紹介コード登録
+
+# flash messages
+referral_code.admin.save.success: 登録しました。
+referral_code.admin.save.failed: 登録に失敗しました。
+referral_code.admin.error.notfound: 紹介コードが存在しません。
+referral_code.admin.enable.success: 紹介コードの状態を変更しました。
+referral_code.admin.delete.success: 紹介コードを削除しました。
+
+# twig
+referral_code.shopping.index.referral_code_info: 紹介コード
+referral_code.shopping.index.current_referral_code: 紹介コード %referral_code% を利用しています。
+referral_code.shopping.index.current_referral_code_sub: 紹介コードをご入力頂いているため、一部商品に値引きが発生しております。
+referral_code.shopping.index.please_input_referral_code: 紹介コードをお持ちの方はコードを入力してください。
+referral_code.shopping.index.change_referral_code_button: 紹介コードを変更する
+referral_code.shopping.index.input_referral_code_button: 紹介コードを利用する
+
+referral_code.shopping.shopping_referral_code.title: 紹介コードの入力
+referral_code.shopping.shopping_referral_code.referral_code_use: 紹介コード利用
+referral_code.shopping.shopping_referral_code.referral_code: 紹介コード
+
+referral_code.admin.delete_item__confirm_message: 明細が削除されます。「%name%」を削除してよろしいですか？
+
+referral_code.admin.referral_code_list.title: 紹介コード管理
+referral_code.admin.referral_code_list.sub_title: 紹介コード内容設定
+referral_code.admin.referral_code_list.download_referral_code_orders_csv: CSVダウンロード
+referral_code.admin.referral_code_list.table_header.id: 紹介コードID
+referral_code.admin.referral_code_list.table_header.referral_code: 紹介コード
+referral_code.admin.referral_code_list.table_header.referral_code_name: 紹介者
+referral_code.admin.referral_code_list.table_header.referral_code_type: 種別
+referral_code.admin.referral_code_list.table_header.referral_code_member: 会員のみ
+referral_code.admin.referral_code_list.table_header.discount: 値引き
+referral_code.admin.referral_code_list.table_header.remaining_use_time: 残発行枚数
+referral_code.admin.referral_code_list.table_header.referral_code_lower_limit: 下限金額
+referral_code.admin.referral_code_list.table_header.available_date: 有効期間
+referral_code.admin.referral_code_list.table_header.edit: 編集
+referral_code.admin.referral_code_list.table_header.enable_toggle: 状態
+referral_code.admin.referral_code_list.table_header.delete: 削除
+referral_code.admin.referral_code_list.delete_confirm_message: この紹介コードを削除しても宜しいですか？
+
+referral_code.admin.edit.title: 紹介コード管理
+referral_code.admin.edit.sub_title: 紹介コード内容設定
+referral_code.admin.edit.header1: 紹介コード情報
+referral_code.admin.edit.referral_code: 紹介コード
+referral_code.admin.edit.tooltip.referral_code: システム内で一意の紹介コードを設定してください。
+referral_code.admin.edit.referral_code_name: 紹介者
+referral_code.admin.edit.tooltip.referral_code_name: 紹介者名を設定してください。
+referral_code.admin.edit.referral_code_type: 対象商品
+referral_code.admin.edit.tooltip.referral_code_type: 値引き対象の種別を設定してください。
+referral_code.admin.edit.referral_code_member: 利用制限
+referral_code.admin.edit.tooltip.referral_code_member: 紹介コードの利用制限を設定してください。
+referral_code.admin.edit.discount_type: 値引き種別
+referral_code.admin.edit.tooltip.discount_type: 値引き種別を設定してください。
+referral_code.admin.edit.discount_price: 値引き額(円)
+referral_code.admin.edit.tooltip.discount_price: 値引き額(円)を設定してください。
+referral_code.admin.edit.discount_rate: 値引き率(％)
+referral_code.admin.edit.tooltip.discount_rate: 値引き率(％)を設定してください。
+referral_code.admin.edit.referral_code_release: 発行枚数
+referral_code.admin.edit.tooltip.referral_code_release: 発行枚数を設定してください。
+referral_code.admin.edit.referral_code_lower_limit: 下限金額(円)
+referral_code.admin.edit.tooltip.referral_code_lower_limit: 紹介コードを利用できる下限の購入金額(円、税抜き)を設定してください。
+referral_code.admin.edit.available_from_date: 有効期間
+referral_code.admin.edit.tooltip.available_from_date: 有効期間を設定してください。
+#
+referral_code.admin.edit.delete_existing_cagetories__confirm_message: 登録済みのカテゴリがあります。削除してよろしいですか？
+referral_code.admin.edit.delete_existing_products__confirm_message: 登録済みの商品があります。削除してよろしいですか？
+referral_code.admin.edit.delete_existing_products_and_categories__confirm_message: 登録済みの商品・カテゴリがあります。削除してよろしいですか？
+#
+referral_code.admin.edit.product_info: 商品情報
+referral_code.admin.edit.tooltip.product_info: 紹介コードが利用可能な商品を追加してください。
+referral_code.admin.edit.add_product_item: 商品を追加
+referral_code.admin.edit.product.multi_search_label: 商品名・商品ID
+referral_code.admin.edit.tooltip.product.multi_search_label: 情報を入力して一覧の絞り込み検索ができます。より詳細な条件を指定するには［詳細検索］を開いてください。
+referral_code.admin.edit.table_header.product_name: 商品名
+referral_code.admin.edit.product_modal.search_result.header.product_id: 商品ID
+referral_code.admin.edit.product_modal.search_result.header.product_name_and_code: 商品名・商品コード
+referral_code.admin.edit.product_modal.search_result.header.product_class__short: 規格
+#
+referral_code.admin.edit.category_info: カテゴリ情報
+referral_code.admin.edit.tooltip.category_info: 紹介コードが利用可能なカテゴリを追加してください。
+referral_code.admin.edit.add_category_item: カテゴリを追加
+referral_code.admin.edit.category.multi_search_label: カテゴリ名・カテゴリID
+referral_code.admin.edit.tooltip.category.multi_search_label: 情報を入力して一覧の絞り込み検索ができます。より詳細な条件を指定するには［詳細検索］を開いてください。
+referral_code.admin.edit.table_header.category_name: カテゴリ名
+referral_code.admin.edit.category_modal.search_result.header.category_id: カテゴリID
+referral_code.admin.edit.category_modal.search_result.header.category_name: カテゴリ名
+#
+referral_code.admin.order.referral_code_info: ご利用紹介コード
+referral_code.admin.order.tooltip.referral_code_info: 注文時に利用した紹介コードを表示します。
+referral_code.admin.order.referral_code_label: 紹介コード
+#
+referral_code.admin.config.title: 紹介コードプラグイン
+referral_code.admin.config.sub_title: 各種設定
+referral_code.admin.config.header1: 基本設定
+referral_code.admin.config.tooltip.delivery_free_amount: （基本設定の送料無料金額が設定されている状態で）紹介コード有りの購入をした場合、この送料無料金額が有効となります。
+referral_code.admin.config.table_caption: 紹介コード利用時の配送先を選択
+referral_code.admin.config.table_header_normal_order: 通常
+referral_code.admin.config.table_header_referral_code_order: 紹介コード
+referral_code.admin.config.table_header_delivery: 配送先一覧
+referral_code.admin.config.save: 登録
+referral_code.admin.config.back: プラグイン一覧
+
+# form type
+referral_code.form.referral_code_use_type.referral_code.label: 紹介コード
+referral_code.form.referral_code_use_type.referral_code_use.choices.not_use: 紹介コードを利用しない
+referral_code.form.referral_code_use_type.referral_code_use.choices.use: 紹介コードを利用する
+#
+referral_code.admin.form.referral_code_type.referral_code.label: 紹介コード
+referral_code.admin.form.referral_code_type.referral_code_name.label: 紹介者
+referral_code.admin.form.referral_code_type.referral_code_type.label: 対象商品
+referral_code.admin.form.referral_code_type.referral_code_type.choices.product: 商品
+referral_code.admin.form.referral_code_type.referral_code_type.choices.category: カテゴリ
+referral_code.admin.form.referral_code_type.referral_code_type.choices.all: 全商品
+referral_code.admin.form.referral_code_type.referral_code_member.label: 利用制限
+referral_code.admin.form.referral_code_type.referral_code_member.choices.member: 会員のみ
+referral_code.admin.form.referral_code_type.referral_code_member.choices.all: なし
+referral_code.admin.form.referral_code_type.discount_type.label: 値引き種別
+referral_code.admin.form.referral_code_type.discount_type.choices.discount_price: 値引き額
+referral_code.admin.form.referral_code_type.discount_type.choices.discount_rate: 値引き率
+referral_code.admin.form.referral_code_type.referral_code_lower_limit.label: 下限金額(円)
+referral_code.admin.form.referral_code_type.discount_price.label: 値引き額(円)
+referral_code.admin.form.referral_code_type.discount_rate.label: 値引率(％)
+referral_code.admin.form.referral_code_type.available_from_date.label: 有効期間
+referral_code.admin.form.referral_code_type.available_to_date.label: 有効期間(TO)
+referral_code.admin.form.referral_code_type.referral_code_release.label: 発行枚数
+#
+referral_code.admin.form.referral_code_config_type.delivery_free_amount.label: （税込）配送料無料金額
+referral_code.admin.form.referral_code_config_type.subscription_discount_rate.label: 定期購入時に適用する割引率(%)
+
+# mail
+referral_code.mail.referral_code: 紹介コード
+
+# 割引明細
+referral_code.order_item.discount.product_name: 紹介コード割引
+
+# front errors
+referral_code.shopping.error.notfound: 紹介コードが存在しません。
+referral_code.shopping.error.member: 会員のみ利用できる紹介コードです。
+referral_code.shopping.error.referral_code_use_time: この紹介コードはご利用できないか、対象商品がございません。
+referral_code.shopping.error.changeorder: 注文内容が変更になりました。紹介コードをご利用の場合は再度設定をお願いいたします。
+referral_code.shopping.error.lowerlimit: この紹介コード割引を適用するには、対象商品を%lowerLimit%円以上購入してください。
+referral_code.shopping.error.sameuser: この紹介コードは既にご利用いただいています。
+referral_code.shopping.error.minus: 合計金額を超えるため、この紹介コード割引をご利用いただくことはできません。
+
+# admin errors
+referral_code.admin.edit.error.referral_code_type.required: 紹介コード有効対象となる商品情報またはカテゴリ情報を設定してください。
+referral_code.admin.edit.error.available_date.invalid: 有効期間に誤りがあります。
+referral_code.admin.edit.error.referral_code.duplicate: 既に利用されている紹介コードです。
+#
+referral_code.admin.config.error.required_normal_order: 通常配送先を1つ以上選択してください。
+referral_code.admin.config.error.required_referral_code_order: 紹介コード用配送先を1つ以上選択してください。

@@ -1,0 +1,46 @@
+{% if Category is not empty %}
+  {% set category_recommend_products = repository('Plugin\\CategoryRecommend4\\Entity\\CategoryRecommendProduct').getCategoryRecommendProduct(Category) %}
+  {% if category_recommend_products | length > 0 %}
+    <script>
+      $(function () {
+          $('.ec-layoutRole__contents').after($('#category_recommend_products'))
+      })
+    </script>
+    <!-- ▼item_list▼ -->
+    <div id="category_recommend_products" class="ec-shelfRole">
+      <div class="tw-wrapper">
+        <h3 class="tw-text-5xl tw-font-bold tw-mb-4">「{{ Category.name }}」のおすすめ商品</h3>
+        <ul class="ec-shelfGrid">
+          {% for CategoryRecommendProduct in category_recommend_products %}
+            {% set Product = CategoryRecommendProduct.Product %}
+            <li class="ec-shelfGrid__item">
+            <a href="{{ url('product_detail', {'id': Product.id}) }}" class='tw-item-list tw-rounded'>
+              <div class="tw-shadow-lg tw-flex tw-flex-col tw-justify-between tw-h-full tw-bg-white">
+                <div class='tw-item-list-header tw-relative'>
+                  <p class='ec-shelfGrid__item-image'>
+                    <img src="{{ asset(Product.main_list_image|no_image_product, 'save_image') }}" alt="">
+                  </p>
+                </div>
+                <div class='tw-item-list-body'>
+                  <p>{{ Product.name }}</p>
+                  <p class='price02-default'>
+                    {% if Product.hasProductClass %}
+                      {% if Product.getPrice02Min == Product.getPrice02Max %}
+                        {{ Product.getPrice02IncTaxMin|price }}
+                      {% else %}
+                        {{ Product.getPrice02IncTaxMin|price }} ～ {{ Product.getPrice02IncTaxMax|price }}
+                      {% endif %}
+                    {% else %}
+                      {{ Product.getPrice02IncTaxMin|price }}
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

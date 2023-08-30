@@ -1,0 +1,33 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<!-- トピックブロック[BEGIN] -->
+<!--▼人気商品ランキング　※トピックブロックにあります▼-->
+<div class="ec-rankingRole">
+    <h3 class="ec-rankingRole__title">
+        Ranking
+    </h3>
+    <ol class="ec-rankingRole__list">
+        <li class="ec-rankingRole__listItem">
+            <!--ランキング -->
+            <h4 class="ec-rankingRole__itemDetail"></h4>
+            <a href="{{ url('product_detail', {'id': Product.id }) }}">
+                <div class="ec-rankingRole__itemPhoto">
+                    <img src="/html/user_data/data/{{ Product.id }}/{{ Product.id }}_a.jpg"></div>
+                <dl>
+                    <dt class="ec-rankingRole__itemName">{{ Product.name }}</dt>
+                    <dd class="ec-rankingRole__itemPrice">{{ Product.getPrice02IncTaxMin|price }}</dd>
+                </dl>
+            </a>
+        </li>
+    </ol>
+</div>
+<!--▲人気商品ランキング　※トピックブロックにあります▲-->
+<!-- トピックブロック[END] -->

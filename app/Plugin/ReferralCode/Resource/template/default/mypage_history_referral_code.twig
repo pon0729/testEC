@@ -1,0 +1,20 @@
+<script>
+$(function() {
+    var $contactArea = $('.ec-orderConfirm');
+    $contactArea.before($('#mypage_history_referral_code_area'));
+    $('#mypage_history_referral_code_area_wrapper').remove();
+});
+</script>
+<div id="mypage_history_referral_code_area_wrapper" class="d-none">
+    <div id="mypage_history_referral_code_area" class="ec-orderPayment">
+        <div class="ec-rectHeading">
+            <h2>{{ 'referral_code.shopping.index.referral_code_info'|trans }}</h2>
+        </div>
+        <div class="ec-input">
+            <p class="current-referral_code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code'|trans({'%referral_code%': ReferralCodeOrder.referralcode}) }}</strong></p>
+            {% if ReferralCodeOrder.discount > 0 %}
+                <p class="current-referral-code-status"><strong class="text-danger">{{ 'referral_code.shopping.index.current_referral_code_sub'|trans }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+</div>

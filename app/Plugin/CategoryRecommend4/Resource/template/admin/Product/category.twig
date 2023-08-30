@@ -1,0 +1,16 @@
+{% if Categories|length > 0 %}
+    {% for Category in Categories %}
+        <script>
+            $(function() {
+                $('#ex-category-{{ Category.id }} a.action-edit').after($('#recommend_category_icon_{{ Category.id }}'));
+            });
+        </script>
+
+        <a id="recommend_category_icon_{{ Category.id }}" class="btn btn-ec-actionIcon mr-2 action-image"
+           href="{{ url('admin_product_recommend_category', {id: Category.id}) }}"
+           data-tooltip="true" data-placement="top"
+           title="おすすめ商品">
+            <i class="fa fa-cube fa-lg text-secondary"></i>
+        </a>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,99 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block stylesheet %}
+<style>
+.ec-cartRole {
+    display: block;
+}
+</style>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$(function() {
+    $('input[name~="referral_code_use\[referral_code_use\]"]').each(function(index, element) {
+        id = $(element).attr('id');
+        $(element).prependTo( $('label[for="' + id + '"]') );
+    });
+
+    $('input[name~="referral_code_use\[referral_code_use\]"]').on('change', function () {
+        if ($(this).val() == {{ constant('Eccube\\Common\\Constant::DISABLED') }}) {
+            $('input[name="referral_code_use\[referral_code\]"]')
+                .attr('readonly', 'readonly')
+                .css('background-color', '#eee');
+        } else {
+            $('input[name="referral_code_use\[referral_code\]"]')
+                .removeAttr('readonly', 'readonly')
+                .css('background-color', 'white');
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="ec-layoutRole__main">
+    <div class="ec-Role">
+        <div class="ec-pageHeader">
+            <h1>{{ 'referral_code.shopping.shopping_referral_code.title'|trans }}</h1>
+        </div>
+    </div>
+    <div class="ec-Role">
+        <div class="ec-cartRole">
+            <div class="ec-off1Grid">
+                <div class="ec-off1Grid__cell">
+                    <form method="post" action="{{ url('plugin_referral_code_shopping') }}" novalidate class="h-adr">
+                        {{ form_widget(form._token) }}
+                        <div class="ec-borderedDefs">
+                            <dl>
+                                <dt>
+                                    {{ form_label(form.referral_code_use, 'referral_code.shopping.shopping_referral_code.referral_code_use', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                </dt>
+                                <dd>
+                                    <div class="ec-radio{{ has_errors(form.referral_code_use) ? ' error'}}">
+                                        {{ form_widget(form.referral_code_use) }}
+                                        {{ form_errors(form.referral_code_use) }}
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    {{ form_label(form.referral_code, 'referral_code.shopping.shopping_referral_code.referral_code', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                </dt>
+                                <dd>
+                                    <div class="ec-halfInput{{ has_errors(form.referral_code) ? ' error'}}">
+                                        {{ form_widget(form.referral_code) }}
+                                        {{ form_errors(form.referral_code) }}
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <div class="ec-RegisterRole__actions">
+                            <div class="ec-off4Grid">
+                                <div class="ec-off4Grid__cell">
+                                    <button type="submit"
+                                            class="ec-blockBtn--action">{{ 'common.registration'|trans }}</button>
+                                    <a href="{{ url("shopping") }}" class="ec-blockBtn--cancel">{{ 'front.shopping.back_to_order'|trans }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

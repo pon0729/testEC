@@ -1,0 +1,125 @@
+<style>
+.purchase-method {
+    margin: 1.2em auto;
+    width: 100%;
+}
+.purchase-method-border {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #ccc;
+}
+.purchase_method_label {
+    color:#525263;
+    margin-bottom: 5px;
+}
+.purchase-method-area {
+    margin-bottom: 0.25em;
+    padding: 0.25em;
+    color: #525263;
+}
+.subscription-flg-label {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    display: inline-block;
+    background-color: #DFE1E1;
+    border-radius: 24px;
+    margin: 5px;
+    padding-right: 0.75em;
+    padding-left: 0.75em;
+    cursor: pointer;
+}
+
+.purchase-method-button-area {
+    margin-top: 8px;
+}
+</style>
+
+<script>
+$(function() {
+    var $normalPurchaseSubmitButton = $('.ec-totalBox__btn .ec-blockBtn--action');
+    var normalPurchaseSubmitButtonEvents = $._data($normalPurchaseSubmitButton.get(0), "events");
+    var originalNormalPurchaseButtonClickEventHandler = normalPurchaseSubmitButtonEvents && normalPurchaseSubmitButtonEvents.click.length > 0
+      ? normalPurchaseSubmitButtonEvents.click[0].handler
+      : function() {};
+
+    var confirmUrl = '{{ url('shopping_confirm') }}';
+    var yamatoSubscriptionShoppingUrl = '{{ url('plugin_yamato_subscription_shopping') }}';
+
+    // 「通常購入」と「定期購入」の切り替えパネルを追加
+    $('.ec-totalBox__btn').html($('#purchase_method'));
+    $('#purchase_method_wrapper').remove();
+
+    // 「確認する」ボタンのバリデーションなどを「定期購入を申し込む」ボタンでも有効にする
+    // そのために、通常購入のボタンも少し制御してる。。
+    $normalPurchaseSubmitButton = $('.ec-totalBox__btn .normal-purchase .ec-blockBtn--action');
+    $normalPurchaseSubmitButton.off('click', originalNormalPurchaseButtonClickEventHandler);
+    $normalPurchaseSubmitButton.on('click', function(e) {
+        $(this).closest('form').prop('action', confirmUrl);
+        originalNormalPurchaseButtonClickEventHandler();
+        e.preventDefault();
+        return false;
+    });
+
+    var $applyYamatoSubscriptionButton = $('#apply_yamatosubscription_button');
+    $applyYamatoSubscriptionButton.off('click', originalNormalPurchaseButtonClickEventHandler);
+    $applyYamatoSubscriptionButton.on('click', function(e) {
+        $(this).closest('form').prop('action', yamatoSubscriptionShoppingUrl);
+
+        // 「このカードを登録する」のボタンの必須チェック（クレカを記憶しないと定期購入させられない）
+        var $registerCardCheckbox = $('input[name="_shopping_order\[register_card\]"]');
+        var $useRegisterCardCheckbox = $('input[name="_shopping_order\[use_registed_card\]"]');
+        if ( !$useRegisterCardCheckbox.prop('checked') && !$registerCardCheckbox.prop('checked') ) {
+            alert('{{ 'yamatosubscription.shopping.error.please_check_register_card'|trans }}');
+            $('html,body').animate({ scrollTop: ($registerCardCheckbox.offset().top - 150) }, 'slow');
+            e.preventDefault();
+            return false;
+        }
+
+        originalNormalPurchaseButtonClickEventHandler();
+        e.preventDefault();
+        return false;
+    });
+
+    {# ref: Resource/template/default/Shopping/index.twig #}
+    var redirectCallback = function() {
+        loadingOverlay();
+        $('#shopping-form').attr('action', '{{ url("shopping") }}').submit(); // post
+        setTimeout(function () {
+            loadingOverlay("hide");
+        }, 2000);
+    };
+    $('.subscription-flg-radio-button').on('change', redirectCallback);
+});
+</script>
+
+<div id="purchase_method_wrapper" class="d-none">
+    <div id="purchase_method" class="purchase-method">
+        <div class="purchase-method-border">
+            <p class="text-center purchase_method_label">購入方法</p>
+            <div class="purchase-method-area text-center">
+                <label for="subscription_flg_off" class="subscription-flg-label">
+                    <input type="radio" id="subscription_flg_off" class="subscription-flg-radio-button" name="subscription_flg" value="0" {{ subscription_flg ? '' : 'checked="checked"' }} />
+                    {{ 'yamatosubscription.shopping.normal_purchase_radio_button'|trans }}
+                </label>
+                <label for="subscription_flg_on" class="subscription-flg-label">
+                    <input type="radio" id="subscription_flg_on" class="subscription-flg-radio-button" name="subscription_flg" value="1" {{ subscription_flg ? 'checked="checked"' : '' }} />
+                    {{ 'yamatosubscription.shopping.yamatosubscription_purchase_radio_button'|trans }}
+                </label>
+            </div>
+        </div>
+        <div class="purchase-method-button-area">
+            {% if subscription_flg %}
+            <div class="purchase-method-button yamatosubscription">
+                <button type="submit" id="apply_yamatosubscription_button" class="ec-blockBtn--action apply-yamatosubscription-button">{{ 'yamatosubscription.shopping.apply_yamatosubscription_button'|trans }}</button>
+                <a href="{{ url("cart") }}" class="ec-blockBtn--cancel">{{ 'カートに戻る'|trans }}</a>
+            </div>
+            {% else %}
+            <div class="purchase-method-button normal-purchase">
+                <button type="submit" class="ec-blockBtn--action">{{ '確認する'|trans }}</button>
+                <a href="{{ url("cart") }}" class="ec-blockBtn--cancel">{{ 'カートに戻る'|trans }}</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

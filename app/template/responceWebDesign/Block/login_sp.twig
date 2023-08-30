@@ -1,0 +1,58 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+<div class="ec-headerLinkArea">
+    <div class="ec-headerLink__list">
+        {% if is_granted('ROLE_USER') %}
+            <a class="ec-headerLink__item" href="{{ url('logout') }}">
+                <div class="ec-headerLink__icon">
+                  <img src="/html/user_data/assets/img/memu/sp_logout.svg">
+                </div>
+                <span>{{ 'ログアウト'|trans }}</span>
+            </a>
+            {% if BaseInfo.option_favorite_product %}
+                <a class="ec-headerLink__item" href="{{ url('mypage_favorite') }}">
+                    <div class="ec-headerLink__icon">
+                      <img src="/html/user_data/assets/img/memu/sp_favorite.svg">
+                    </div>
+                    <span>{{ 'お気に入り'|trans }}</span>
+                </a>
+            {% endif %}
+            <a class="ec-headerLink__item" href="{{ url('mypage') }}">
+                <div class="ec-headerLink__icon">
+                  <img src="/html/user_data/assets/img/memu/sp_mypage.svg">
+                </div>
+                <span>{{ 'マイページ'|trans }}</span>
+            </a>
+        {% else %}
+            <a class="ec-headerLink__item" href="{{ url('mypage_login') }}">
+                <div class="ec-headerLink__icon">
+                  <img src="/html/user_data/assets/img/memu/sp_login.svg">
+                </div>
+                <span>{{ 'ログイン'|trans }}</span>
+            </a>
+            {% if BaseInfo.option_favorite_product %}
+                <a class="ec-headerLink__item" href="{{ url('mypage_favorite') }}">
+                    <div class="ec-headerLink__icon">
+                      <img src="/html/user_data/assets/img/memu/sp_favorite.svg">
+                    </div>
+                    <span>{{ 'お気に入り'|trans }}</span>
+                </a>
+            {% endif %}
+            <a class="ec-headerLink__item" href="{{ url('entry') }}">
+                <div class="ec-headerLink__icon">
+                  <img src="/html/user_data/assets/img/memu/sp_new_entry.svg">
+                </div>
+                <span>{{ '新規登録'|trans }}</span>
+            </a>
+        {% endif %}
+    </div>
+</div>

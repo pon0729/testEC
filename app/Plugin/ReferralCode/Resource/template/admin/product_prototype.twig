@@ -1,0 +1,59 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<tr>
+{#
+本来はform_widgetを使いたかったが、category_prototype.twigとで2回レンダリングできないため
+hiddenを直で書く。
+    {{ form_widget(referralCodeDetailForm.referral_code_type) }}
+    {{ form_widget(referralCodeDetailForm.Product) }}
+    {{ form_widget(referralCodeDetailForm.Category) }}
+#}
+    <input type="hidden" id="referral_code_ReferralCodeDetails___name___referral_code_type" name="referral_code[ReferralCodeDetails][__name__][referral_code_type]" />
+    <input type="hidden" id="referral_code_ReferralCodeDetails___name___Product" name="referral_code[ReferralCodeDetails][__name__][Product]" />
+    <input type="hidden" id="referral_code_ReferralCodeDetails___name___Category" name="referral_code[ReferralCodeDetails][__name__][Category]" />
+    <td class="align-middle w-25 pl-3">
+        <p class="mb-0 font-weight-bold">
+            <a href="{{ url('admin_product_product_edit', {id: 99999999999}) }}" target="_blank">__product_name__</a>
+        </p>
+    </td>
+    <td class="align-middle text-right pr-3">
+        <div class="row justify-content-end">
+            <div class="col-auto text-center">
+                <div class="d-inline-block mr-3" data-tooltip="true"
+                     data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                    <a class="btn btn-ec-actionIcon" data-toggle="modal" data-target="#delete_product_modal___name__">
+                        <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <!-- 明細の削除確認モーダル -->
+                <div class="modal fade" id="delete_product_modal___name__" tabindex="-1" role="dialog" aria-labelledby="delete_product_modal___name__" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left">
+                                <p class="text-left">{{ 'referral_code.admin.delete_item__confirm_message'|trans({ '%name%' : '__product_name__' }) }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                <a href="#delete_product_modal___name__" class="btn delete-product-row btn-ec-delete" data-row-index="__name__">{{ 'admin.common.delete'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .row.justify-content-end -->
+    </td>
+</tr>

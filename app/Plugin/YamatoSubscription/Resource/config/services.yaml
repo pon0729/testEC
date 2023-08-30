@@ -1,0 +1,26 @@
+parameters:
+  SESSION_KEY_SUBSCRIPTION_FLG: 'eccube.front.shopping.yamatosubscriptionflg'
+  SESSION_KEY_SUBSCRIPTION_MONTH_PERIOD: 'eccube.front.shopping.yamatosubscription_month_period'
+
+  YAMATO_FUNCTION_DIV_NORMAL_CREDIT_PAYMENT: 'A01'
+  YAMATO_FUNCTION_DIV_CREDIT_CARD_INFO_INQUIRY: 'A03'
+  YAMATO_FUNCTION_DIV_ORDER_INQUIRY: 'E04'
+
+  YAMATO_DEVICE_DIV_SP: 1
+  YAMATO_DEVICE_DIV_PC: 2
+
+  YAMATO_AUTH_DIV_BYPASS: 0
+  YAMATO_AUTH_DIV_SECURITY_CODE: 2
+
+  YAMATO_OPTION_SERVICE_DIV_NORMAL_ORDER: '00'
+  YAMATO_OPTION_SERVICE_DIV_OPTION_SERVICE_ORDER: '01'
+
+  PRODUCTION:
+    YAMATO_CREDIT_PAYMENT_API_URL: 'https://api.kuronekoyamato.co.jp/api/credit'
+    YAMATO_CREDIT_CARD_INFO_INQUIRY_API_URL: 'https://api.kuronekoyamato.co.jp/api/creditInfoGet'
+    YAMATO_ORDER_INQUIRY_API_URL: 'https://api.kuronekoyamato.co.jp/api/tradeInfo'
+
+  DEVELOPMENT:
+    YAMATO_CREDIT_PAYMENT_API_URL: 'https://ptwebcollect.jp/test_gateway/credit.api'
+    YAMATO_CREDIT_CARD_INFO_INQUIRY_API_URL: 'https://ptwebcollect.jp/test_gateway/creditInfoGet.api'
+    YAMATO_ORDER_INQUIRY_API_URL: 'https://ptwebcollect.jp/test_gateway/tradeInfo.api'

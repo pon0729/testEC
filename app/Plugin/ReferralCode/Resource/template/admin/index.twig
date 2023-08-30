@@ -1,0 +1,195 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['order', 'plugin_referral_code_admin_list'] %}
+
+{% block title %}{{ 'referral_code.admin.referral_code_list.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'referral_code.admin.referral_code_list.sub_title'|trans }}{% endblock %}
+
+{# form_theme searchForm '@admin/Form/bootstrap_4_layout.html.twig' #}
+
+{% block stylesheet %}
+<style>
+.table .in-active {
+    opacity: 0.7;
+}
+</style>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block main %}
+<!--検索条件設定テーブルここから-->
+<!--検索条件設定テーブルここまで-->
+<div class="c-contentsArea__cols">
+    <div class="c-contentsArea__primaryCol">
+        <div class="c-primaryCol">
+            {% if pagination and totalItemCount > 0 %}
+                <div class="row justify-content-between mb-2">
+                    <div class="col-7">
+                        <div class="c-outsideBlock__contents">
+                            <div class="row">
+                                <div class="mb-4">
+                                    <div class="col-12">
+                                        {% if pagination %}
+                                            <span class="font-weight-bold ml-2" id="search_total_count">{{ 'admin.common.search_result'|trans({"%count%": totalItemCount})|raw }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 text-right">
+                        {#
+                        <div class="d-inline-block">
+                            <select class="custom-select" onchange="location = this.value;">
+                                {% for pageMax in pageMaxis %}
+                                    <option {% if pageMax.name == page_count %} selected {% endif %}
+                                            value="{{ path('admin_order_page', {'page_no': 1, 'page_count': pageMax.name}) }}">
+                                        {{ 'admin.common.count'|trans({ '%count%': pageMax.name }) }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        #}
+                    </div>
+                </div>
+
+                <div class="row justify-content-between mb-2">
+                    <div class="col-7">
+                    </div>
+                    <div class="col-5 text-right">
+                        <div class="d-inline-block">
+                            <a id="download_button" class="btn btn-ec-regular pull-right" href="{{ url('plugin_referral_code_admin_download_referral_code_orders_csv') }}">
+                                <i class="fa fa-cloud-download mr-1 text-secondary"></i>
+                                <span>{{ 'referral_code.admin.referral_code_list.download_referral_code_orders_csv'|trans }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card rounded border-0 mb-4 d-block">
+                    <div class="card-body p-0">
+                        <table class="table table-sm" id="search_result">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.id'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.referral_code'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.referral_code_name'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.referral_code_type'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.referral_code_member'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.discount'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.remaining_use_time'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.referral_code_lower_limit'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.available_date'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.edit'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.enable_toggle'|trans }}</th>
+                                    <th class="border-top-0 pt-2 pb-2 text-center">{{ 'referral_code.admin.referral_code_list.table_header.delete'|trans }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for ReferralCode in pagination %}
+                                <tr class="{% if ReferralCode.isEnable %}active{% else %}in-active{% endif %}">
+                                    <td class="align-middle pl-4 text-left">
+                                        {{ ReferralCode.id }}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {{ ReferralCode.referralCode }}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {{ ReferralCode.referralCodeName }}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {% if ReferralCode.referralCodeType == constant('Plugin\\ReferralCode\\Entity\\ReferralCode::PRODUCT') %}
+                                        商品
+                                        {% elseif ReferralCode.referralCodeType == constant('Plugin\\ReferralCode\\Entity\\ReferralCode::CATEGORY') %}
+                                        カテゴリ
+                                        {% elseif ReferralCode.referralCodeType == constant('Plugin\\ReferralCode\\Entity\\ReferralCode::ALL') %}
+                                        全商品
+                                        {% endif %}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {% if ReferralCode.referralCodeMember == constant('Eccube\\Common\\Constant::ENABLED') %}
+                                        YES
+                                        {% else %}
+                                        NO
+                                        {% endif %}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {% if ReferralCode.discountType == constant('Plugin\\ReferralCode\\Entity\\ReferralCode::DISCOUNT_PRICE') %}
+                                        {{ ReferralCode.discountPrice|price }}
+                                        {% elseif ReferralCode.discountType == constant('Plugin\\ReferralCode\\Entity\\ReferralCode::DISCOUNT_RATE') %}
+                                        {{ ReferralCode.discountRate }} %
+                                        {% else %}
+                                        {% endif %}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {{ ReferralCode.referralCodeUseTime|number_format }} / {{ ReferralCode.referralCodeRelease|number_format }}
+                                    </td>
+                                    <td class="align-middle pl-4 text-left">
+                                        {{ ReferralCode.referralCodeLowerLimit|price }}
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        {{ ReferralCode.availableFromDate|date_format }} ～ {{ ReferralCode.availableToDate|date_format }}
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <a href="{{ url('plugin_referral_code_admin_edit', { id: ReferralCode.id }) }}">編集</a>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <a href="{{ url('plugin_referral_code_admin_enable', { id: ReferralCode.id }) }}">
+                                            {% if ReferralCode.isEnable %}
+                                            有効
+                                            {% else %}
+                                            無効
+                                            {% endif %}
+                                        </a>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <a href="{{ url('plugin_referral_code_admin_delete', { id: ReferralCode.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete" data-message="{{ 'referral_code.admin.referral_code_list.delete_confirm_message'|trans }}">削除</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {# ページング処理は時間があったら実装する。。。
+                    <div class="row justify-content-md-center mb-4">
+                        {% if totalItemCount > 0 %}
+                            {% include "@admin/pager.twig" with { 'pages' : pagination.paginationData, 'routes' : 'plugin_referral_code_admin_list' } %}
+                        {% endif %}
+                    </div>
+                    #}
+                </div>
+            {#
+            {% elseif has_errors %}
+                <div class="card rounded border-0">
+                    <div class="card-body p-4">
+                        <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_invalid_condition'|trans }}</div>
+                        <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                    </div>
+                </div>
+            #}
+            {% else %}
+                {# 検索結果なし #}
+                <div class="card rounded border-0">
+                    <div class="card-body p-4">
+                        <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_no_result'|trans }}</div>
+                        {#
+                        <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                        <div class="text-center text-muted">{{ 'admin.common.search_try_advanced_search'|trans }}</div>
+                        #}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

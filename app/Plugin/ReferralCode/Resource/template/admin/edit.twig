@@ -1,0 +1,640 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['order', 'plugin_referral_code_admin_new'] %}
+
+{% block title %}{{ 'referral_code.admin.edit.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'referral_code.admin.edit.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+<script>
+var $productCollectionHolder = null;
+var $categoryCollectionHolder = null;
+var productDetailLength = 0;
+var categoryDetailLength = 0;
+var detailFormIdPrefix = '#referral_code_ReferralCodeDetails_';
+
+$(function() {
+    // ==================================
+    // 商品の追加 ボタンクリック時表示
+    // ==================================
+    $('#showProductSearchModalButton').on('click', function() {
+        $('#searchProductModalList').children().remove();
+    });
+
+    // ==================================
+    // カテゴリの追加 ボタンクリック時表示
+    // ==================================
+    $('#showCategorySearchModalButton').on('click', function() {
+        $('#searchCategoryModalList').children().remove();
+    });
+
+    // ==================================
+    // 商品検索ダイアログ - エンターキー押された時に検索
+    // ==================================
+    $('.modal-dialog input[name="admin_search_product\[id\]"], .modal-dialog select[name="admin_search_product\[category_id\]"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('#searchProductModalButton').trigger('click');
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // ==================================
+    // 商品検索ダイアログ - 検索ボタンクリック時表示
+    // ==================================
+    $('#searchProductModalButton').on('click', function() {
+        var existProductId = "";
+        $("input[id^=" + detailFormIdPrefix.replace('#', '') + "][id$=_Product]").each(function(index, elem) {
+            existProductId = existProductId == "" ? elem.value : existProductId + ',' + elem.value;
+        });
+
+        var $list = $('#searchProductModalList');
+        $list.children().remove();
+        $.ajax({
+            url: '{{ url('plugin_referral_code_admin_search_product') }}',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                'id' : $('#admin_search_product_id').val(),
+                'category_id' : $('#admin_search_product_category_id').val(),
+                'exist_product_id' : existProductId
+            }
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search product failed.');
+        });
+    });
+    // ページング処理
+    $(document).on('click', '#searchProductModalList ul.pagination li.page-item a.page-link', function(e) {
+        e.preventDefault();
+        var $list = $('#searchProductModalList');
+        $list.children().remove();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search product failed.');
+        });
+    });
+
+
+    // ==================================
+    // カテゴリ検索ダイアログ - エンターキー押された時に検索
+    // ==================================
+    $('.modal-dialog input[name="plugin_referral_code_admin_search_category\[id\]"]').on('keypress', function(e) {
+        if (e.which === 13) {
+            $('#searchCategoryModalButton').trigger('click');
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // ==================================
+    // カテゴリ検索ダイアログ - 検索ボタンクリック時表示
+    // ==================================
+    $('#searchCategoryModalButton').on('click', function() {
+        var existCategorytId = "";
+        $("input[id^=" + detailFormIdPrefix.replace('#', '') + "][id$=_Category]").each(function(index, elem) {
+            existCategorytId = existCategorytId == "" ? elem.value : existCategorytId + ',' + elem.value;
+        });
+
+
+        var $list = $('#searchCategoryModalList');
+        $list.children().remove();
+        $.ajax({
+            url: '{{ url('plugin_referral_code_admin_search_category') }}',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                'id' : $('#plugin_referral_code_admin_search_category_id').val(),
+                'exist_category_id' : existCategorytId
+            }
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search category failed.');
+        });
+    });
+    // ページング処理
+    $(document).on('click', '#searchCategoryModalList ul.pagination li.page-item a.page-link', function(e) {
+        e.preventDefault();
+        var $list = $('#searchCategoryModalList');
+        $list.children().remove();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'html'
+        }).done(function(data) {
+            $list.html(data);
+        }).fail(function(data) {
+            alert('search category failed.');
+        });
+    });
+
+    // 商品管理
+    var $referralCodeDetailProductArea = $('#referral_code_detail_product_area');
+    $productCollectionHolder = $('#product_table_form_field');
+    productDetailLength = $productCollectionHolder.find('tbody > tr').length;
+    $(document).on('click', '.delete-product-row', function(e) {
+        var $self = $(this);
+        var rowIndex = $self.data('row-index');
+        $('#delete_product_modal_' + rowIndex.toString()).modal('hide');
+        setTimeout(function() {
+            $self.closest('tr').remove();
+        }, 500);
+        productDetailLength--;
+        return false;
+    });
+
+    // カテゴリ管理
+    var $referralCodeDetailCategoryArea = $('#referral_code_detail_category_area');
+    $categoryCollectionHolder = $('#category_table_form_field');
+    categoryDetailLength = $categoryCollectionHolder.find('tbody > tr').length;
+    $(document).on('click', '.delete-category-row', function(e) {
+        var $self = $(this);
+        var rowIndex = $self.data('row-index');
+        $('#delete_category_modal_' + rowIndex.toString()).modal('hide');
+        setTimeout(function() {
+            $self.closest('tr').remove();
+        }, 500);
+        categoryDetailLength--;
+        return false;
+    });
+
+    // 各種項目宣言
+    var $referralCodeTypeProduct = $('#referral_code_referral_code_type_0');
+    var $referralCodeTypeCategory = $('#referral_code_referral_code_type_1');
+    var $referralCodeTypeAll = $('#referral_code_referral_code_type_2');
+    //
+    var $referralCodeMemberEnabled = $('#referral_code_referral_code_member_0');
+    //
+    var $discountTypePrice = $("#referral_code_discount_type_0");
+    var $discountTypeRate = $("#referral_code_discount_type_1");
+    //
+    var $discountPrice = $('input[name="referral_code\[discount_price\]"]');
+    var $discountRate = $('input[name="referral_code\[discount_rate\]"]');
+
+    // 値引き種別などのラジオボタン デフォルト値を設定
+    if ($('input[name="referral_code\[referral_code_type\]"]:checked').length == 0) {
+        $referralCodeTypeProduct.attr('checked', 'checked');
+    }
+    if ($('input[name="referral_code\[referral_code_member\]"]:checked').length == 0) {
+        $referralCodeMemberEnabled.attr('checked', 'checked');
+    }
+    if ($('input[name="referral_code\[discount_type\]"]:checked').length == 0) {
+        $discountTypePrice.attr('checked', 'checked');
+    }
+
+    // ラジオボタン選択時の制御
+    // 値引き額
+    $discountTypePrice.on("change", function() {
+        $discountPrice.removeAttr('disabled');
+        $discountRate.attr('disabled', 'disabled');
+    });
+    // 値引き率
+    $discountTypeRate.on("change", function() {
+        $discountPrice.attr('disabled', 'disabled');
+        $discountRate.removeAttr('disabled');
+    });
+    // 紹介コード種別 - 商品
+    $referralCodeTypeProduct.on("change", function() {
+        if($categoryCollectionHolder.find('tbody > tr').length > 0) {
+            if(confirm("{{ 'referral_code.admin.edit.delete_existing_cagetories__confirm_message'|trans }}")) {
+                $categoryCollectionHolder.find('tbody > tr').remove();
+                categoryDetailLength = 0;
+            } else {
+                $referralCodeTypeCategory.prop('checked', 'checked');
+                return false;
+            }
+        }
+        $referralCodeDetailProductArea.show();
+        $referralCodeDetailCategoryArea.hide();
+    });
+    // 紹介コード種別 - カテゴリ
+    $referralCodeTypeCategory.on("change", function() {
+        if($productCollectionHolder.find('tbody > tr').length > 0) {
+            if(confirm("{{ 'referral_code.admin.edit.delete_existing_products__confirm_message'|trans }}")) {
+                $productCollectionHolder.find('tbody > tr').remove();
+                categoryDetailLength = 0;
+            } else {
+                $referralCodeTypeProduct.prop('checked', 'checked');
+                return false;
+            }
+        }
+        $referralCodeDetailProductArea.hide();
+        $referralCodeDetailCategoryArea.show();
+    });
+    // 紹介コード種別 - 全商品
+    $referralCodeTypeAll.on("change", function() {
+        if($productCollectionHolder.find("tbody > tr").length > 0 || $categoryCollectionHolder.find("tbody > tr").length > 0) {
+            if(confirm("{{ 'referral_code.admin.edit.delete_existing_products_and_categories__confirm_message'|trans }}")) {
+                $productCollectionHolder.find('tbody > tr').remove();
+                $categoryCollectionHolder.find('tbody > tr').remove();
+                productDetailLength = 0;
+                categoryDetailLength = 0;
+            } else {
+                if($productCollectionHolder.find("tbody > tr").length > 0) {
+                    $referralCodeTypeProduct.prop('checked', 'checked');
+                }
+                if($categoryCollectionHolder.find("tbody > tr").length > 0) {
+                    $referralCodeTypeCategory.prop('checked', 'checked');
+                }
+                return false;
+            }
+        }
+        $referralCodeDetailProductArea.hide();
+        $referralCodeDetailCategoryArea.hide();
+    });
+
+    // ==========================
+    // 初期表示処理
+    // ==========================
+    // 値引き額
+    if ($discountTypePrice.prop('checked')) {
+        $discountPrice.removeAttr('disabled');
+    } else {
+        $discountPrice.attr('disabled', 'disabled');
+    }
+    // 値引率
+    if($discountTypeRate.prop('checked')) {
+        $discountRate.removeAttr('disabled');
+    } else {
+        $discountRate.attr('disabled', 'disabled');
+    }
+    // 紹介コード種別 - 商品
+    if($referralCodeTypeProduct.prop('checked')) {
+        $referralCodeDetailProductArea.show();
+    } else {
+        $referralCodeDetailProductArea.hide();
+    }
+    // 紹介コード種別 - カテゴリ
+    if($referralCodeTypeCategory.prop('checked')) {
+        $referralCodeDetailCategoryArea.show();
+    } else {
+        $referralCodeDetailCategoryArea.hide();
+    }
+
+    // ==================================
+    // ユーザーによっては金額にカンマつけられちゃうのでカンマを消す。。。
+    // ==================================
+    $('form').on('submit', function(e) {
+        const $discountPriceInput = $('input[name="referral_code\[discount_price\]"]');
+        const $referralCodeLowerLimitInput = $('input[name="referral_code\[referral_code_lower_limit\]"]');
+        $discountPriceInput.val($discountPriceInput.val().replace(/,/g, ''));
+        $referralCodeLowerLimitInput.val($referralCodeLowerLimitInput.val().replace(/,/g, ''));
+    });
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<form role="form" name="form1" id="form1" method="post" action="">
+    <input type="hidden" name="mode" value="">
+    {{ form_widget(form._token) }}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <!-- 紹介コード情報 -->
+                <div id="referral_code_info" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block"><span class="card-title">{{ 'referral_code.admin.edit.header1'|trans }}</span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#referralCodeOverview" aria-expanded="false" aria-controls="referralCodeOverview"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="referralCodeOverview">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code'|trans }}">{{ 'referral_code.admin.edit.referral_code'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code) }}
+                                            {{ form_errors(form.referral_code) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code_name'|trans }}">{{ 'referral_code.admin.edit.referral_code_name'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code_name) }}
+                                            {{ form_errors(form.referral_code_name) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code_type'|trans }}">{{ 'referral_code.admin.edit.referral_code_type'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code_type) }}
+                                            {{ form_errors(form.referral_code_type) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code_member'|trans }}">{{ 'referral_code.admin.edit.referral_code_member'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code_member) }}
+                                            {{ form_errors(form.referral_code_member) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.discount_type'|trans }}">{{ 'referral_code.admin.edit.discount_type'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.discount_type) }}
+                                            {{ form_errors(form.discount_type) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.discount_price'|trans }}">{{ 'referral_code.admin.edit.discount_price'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.discount_price) }}
+                                            {{ form_errors(form.discount_price) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.discount_rate'|trans }}">{{ 'referral_code.admin.edit.discount_rate'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.discount_rate) }}
+                                            {{ form_errors(form.discount_rate) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code_release'|trans }}">{{ 'referral_code.admin.edit.referral_code_release'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code_release) }}
+                                            {{ form_errors(form.referral_code_release) }}
+                                        </div>
+                                        {# hidden #}
+                                        {{ form_widget(form.referral_code_use_time) }}
+                                        <input type="hidden" name="referral_code_release_old" value="{{ form.vars.value.referralCodeRelease }}">
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.referral_code_lower_limit'|trans }}">{{ 'referral_code.admin.edit.referral_code_lower_limit'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            {{ form_widget(form.referral_code_lower_limit) }}
+                                            {{ form_errors(form.referral_code_lower_limit) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 form-group">
+                                        <label class="col-2 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.available_from_date'|trans }}">{{ 'referral_code.admin.edit.available_from_date'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col form-inline">
+                                            {{ form_widget(form.available_from_date) }}&nbsp;～&nbsp;{{ form_widget(form.available_to_date) }}
+                                            {{ form_errors(form.available_from_date) }}
+                                            {{ form_errors(form.available_to_date) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .row -->
+                        </div>
+                    </div><!-- #referralCodeOverview -->
+                </div><!-- #referral_code_info -->
+
+                {% set referralCodeDetailPrototypeForm = form.ReferralCodeDetails.vars.prototype %}
+
+                <!-- 商品情報 -->
+                <div id="referral_code_detail_product_area" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.product_info'|trans }}"><span class="card-title">{{ 'referral_code.admin.edit.product_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#referral_code_detail_product" aria-expanded="false" aria-controls="referral_code_detail_product"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="referral_code_detail_product">
+                        <div class="card-body">
+                            <div class="row justify-content-between mb-2">
+                                <div class="col-6">
+                                    <a id="showProductSearchModalButton" class="btn btn-ec-regular mr-2 add" data-toggle="modal" data-target="#addProduct">{{ 'referral_code.admin.edit.add_product_item'|trans }}</a>
+                                    <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProduct" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ 'referral_code.admin.edit.add_product_item'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form_widget(searchProductModalForm.id, { attr : {'class': 'mb-3', 'placeholder': 'referral_code.admin.edit.product.multi_search_label'|trans }}) }}
+                                                    {{ form_widget(searchProductModalForm.category_id) }}
+                                                    <button type="button" id="searchProductModalButton" class="btn btn-ec-conversion px-5 mb-4 mt-2">{{ 'admin.common.search'|trans }}</button>
+                                                    <div id="searchProductModalList"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .row -->
+
+                            <!-- 商品明細 -->
+                            <table id="product_table_form_field" class="table table-striped table-sm mb-0"
+{#
+                                   data-prototype="{% filter escape %}{{ include('@ReferralCode/admin/product_prototype.twig', {'referralCodeDetailForm': referralCodeDetailPrototypeForm}) }}{% endfilter %}">
+#}
+                                   data-prototype="{% filter escape %}{{ include('@ReferralCode/admin/product_prototype.twig') }}{% endfilter %}">
+                                <thead class="table-active">
+                                    <tr class="text-nowrap">
+                                        <th class="pt-2 pb-2 pl-3">{{ 'referral_code.admin.edit.table_header.product_name'|trans }}</th>
+                                        <th class="pt-2 pb-2 pr-3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for referralCodeDetailForm in form.ReferralCodeDetails %}
+                                    {% set ReferralCodeDetail = referralCodeDetailForm.vars.data %}
+                                    {% if ReferralCodeDetail.Product is not null and ReferralCodeDetail.Product.name is not null %}
+                                        <tr>
+                                            {# hidden values #}
+                                            {{ form_widget(referralCodeDetailForm.referral_code_type) }}
+                                            {{ form_widget(referralCodeDetailForm.Product) }}
+                                            {{ form_widget(referralCodeDetailForm.Category) }}
+                                            <td class="align-middle w-25 pl-3">
+                                                <p class="mb-0 font-weight-bold">
+                                                    <a href="{{ url('admin_product_product_edit', {id: ReferralCodeDetail.Product.id}) }}" target="_blank">
+                                                        {{ ReferralCodeDetail.Product.name }}
+                                                    </a>
+                                                </p>
+                                            </td>
+                                            <td class="align-middle text-right pr-3">
+                                                <div class="row justify-content-end">
+                                                    <div class="col-auto text-center">
+                                                        <div class="d-inline-block mr-3" data-tooltip="true"
+                                                             data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                            <a class="btn btn-ec-actionIcon" data-toggle="modal" data-target="#delete_product_modal_{{ loop.index0 }}">
+                                                                <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!-- 明細の削除確認モーダル -->
+                                                        <div class="modal fade" id="delete_product_modal_{{ loop.index0 }}" tabindex="-1" role="dialog" aria-labelledby="delete_product_modal_{{ loop.index0 }}" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body text-left">
+                                                                        <p class="text-left">{{ 'referral_code.admin.delete_item__confirm_message'|trans({ '%name%' : ReferralCodeDetail.Product.name }) }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                                                        <a href="#delete_product_modal_{{ loop.index0 }}" class="btn delete-product-row btn-ec-delete" data-row-index="{{ loop.index0 }}">{{ 'admin.common.delete'|trans }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .row.justify-content-end -->
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div><!-- .card-body -->
+                    </div><!-- #referral_code_detail_product -->
+                </div><!-- #referral_code_detail_product_area -->
+
+                <!-- カテゴリ情報 -->
+                <div id="referral_code_detail_category_area" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'referral_code.admin.edit.tooltip.category_info'|trans }}"><span class="card-title">{{ 'referral_code.admin.edit.category_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#referral_code_detail_category" aria-expanded="false" aria-controls="referral_code_detail_category"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="referral_code_detail_category">
+                        <div class="card-body">
+                            <div class="row justify-content-between mb-2">
+                                <div class="col-6">
+                                    <a id="showCategorySearchModalButton" class="btn btn-ec-regular mr-2 add" data-toggle="modal" data-target="#addCategory">{{ 'referral_code.admin.edit.add_category_item'|trans }}</a>
+                                    <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="addCategory" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ 'referral_code.admin.edit.add_category_item'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form_widget(searchCategoryModalForm.id, { attr : {'class': 'mb-3', 'placeholder': 'referral_code.admin.edit.category.multi_search_label'|trans }}) }}
+                                                    <button type="button" id="searchCategoryModalButton" class="btn btn-ec-conversion px-5 mb-4 mt-2">{{ 'admin.common.search'|trans }}</button>
+                                                    <div id="searchCategoryModalList"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .row -->
+
+                            <!-- カテゴリ明細 -->
+                            <table id="category_table_form_field" class="table table-striped table-sm mb-0"
+{#
+                                   data-prototype="{% filter escape %}{{ include('@ReferralCode/admin/category_prototype.twig', {'referralCodeDetailForm': referralCodeDetailPrototypeForm}) }}{% endfilter %}">
+#}
+                                   data-prototype="{% filter escape %}{{ include('@ReferralCode/admin/category_prototype.twig') }}{% endfilter %}">
+                                <thead class="table-active">
+                                    <tr class="text-nowrap">
+                                        <th class="pt-2 pb-2 pl-3">{{ 'referral_code.admin.edit.add_category_item'|trans }}</th>
+                                        <th class="pt-2 pb-2 pr-3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for referralCodeDetailForm in form.ReferralCodeDetails %}
+                                    {% set ReferralCodeDetail = referralCodeDetailForm.vars.data %}
+                                    {% if ReferralCodeDetail.Category is not null and ReferralCodeDetail.categoryFullName is not null %}
+                                        <tr>
+                                            {# hidden values #}
+                                            {{ form_widget(referralCodeDetailForm.referral_code_type) }}
+                                            {{ form_widget(referralCodeDetailForm.Product) }}
+                                            {{ form_widget(referralCodeDetailForm.Category) }}
+                                            <td class="align-middle w-25 pl-3">
+                                                <p class="mb-0 font-weight-bold">
+                                                    <a href="{{ url('admin_product_category_edit', {id: ReferralCodeDetail.Category.id}) }}" target="_blank">
+                                                        {{ ReferralCodeDetail.categoryFullName }}
+                                                    </a>
+                                                </p>
+                                            </td>
+                                            <td class="align-middle text-right pr-3">
+                                                <div class="row justify-content-end">
+                                                    <div class="col-auto text-center">
+                                                        <div class="d-inline-block mr-3" data-tooltip="true"
+                                                             data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                            <a class="btn btn-ec-actionIcon" data-toggle="modal" data-target="#delete_category_modal_{{ loop.index0 }}">
+                                                                <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!-- 明細の削除確認モーダル -->
+                                                        <div class="modal fade" id="delete_category_modal_{{ loop.index0 }}" tabindex="-1" role="dialog" aria-labelledby="delete_category_modal_{{ loop.index0 }}" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body text-left">
+                                                                        <p class="text-left">{{ 'referral_code.admin.delete_item__confirm_message'|trans({ '%name%' : ReferralCodeDetail.categoryFullName }) }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                                                        <a href="#delete_category_modal_{{ loop.index0 }}" class="btn delete-category-row btn-ec-delete" data-row-index="{{ loop.index0 }}">{{ 'admin.common.delete'|trans }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .row.justify-content-end -->
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div><!-- .card-body -->
+                    </div><!-- #referral_code_detail_category -->
+                </div><!-- #referral_code_detail_category_area -->
+
+            </div><!-- .c-primaryCol -->
+        </div><!-- .c-contentsArea__primaryCol -->
+    </div><!-- .c-contentsArea__cols -->
+
+    <!-- コンバージョンエリア -->
+    <div class="c-conversionArea">
+        <div class="c-conversionArea__container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-6">
+                    <div class="c-conversionArea__leftBlockItem">
+                        <a class="c-baseLink" href="{{ url('plugin_referral_code_admin_list') }}"><i class="fa fa-backward" aria-hidden="true"></i><span>{{ 'referral_code.admin.nav.referral_code_list'|trans }}</span></a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row align-items-center justify-content-end">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-ec-conversion px-5" name="mode" value="register">{{ 'admin.common.registration'|trans }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

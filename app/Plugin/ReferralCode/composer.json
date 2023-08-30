@@ -1,0 +1,12 @@
+{
+    "name": "ec-cube/ReferralCode",
+    "version": "1.1.11",
+    "description": "紹介コードプラグイン",
+    "type": "eccube-plugin",
+    "require": {
+        "ec-cube/plugin-installer": "~0.0.6"
+    },
+    "extra": {
+        "code": "ReferralCode"
+    }
+}

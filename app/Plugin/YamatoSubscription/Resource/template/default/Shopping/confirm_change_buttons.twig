@@ -1,0 +1,14 @@
+<script>
+$(function() {
+    const $submitButton = $('.ec-blockBtn--action');
+    $submitButton.text('{{ 'yamatosubscription.shopping_confirm.submit_button'|trans }}');
+
+    const $backLinkButton = $('.ec-blockBtn--cancel');
+    $backLinkButton.text('{{ 'yamatosubscription.shopping_confirm.back_button'|trans }}');
+    $backLinkButton.on('click', function(e) {
+        history.back();
+        e.preventDefault();
+        return false;
+    });
+});
+</script>

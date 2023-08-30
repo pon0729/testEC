@@ -1,0 +1,9 @@
+<script>
+$(function() {
+    $('.ec-navlistRole__navlist .ec-navlistRole__item').first().after($('#yamatosubscription_navi'));
+});
+</script>
+
+<li id="yamatosubscription_navi" class="ec-navlistRole__item {% if mypageno|default('') == 'yamatosubscription' %}active{% endif %}">
+    <a href="{{ url('plugin_yamato_subscription_mypage') }}">{{ 'yamatosubscription.mypage.list.nav'|trans }}</a>
+</li>

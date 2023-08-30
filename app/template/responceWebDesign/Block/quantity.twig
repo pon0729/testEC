@@ -1,0 +1,33 @@
+<div>
+  <label>数量 
+    <input type="number" class="input-quantity" id="quantity174" value="1">
+  </label>
+</div>
+
+
+<div class="quantity-btn">
+ <button id="btn-up" class="input-btn">up</button>
+ <button id="btn-down" class="input-btn">down</button>
+</div>
+<script>
+(() => {
+  //HTMLのid値を使って以下のDOM要素を取得
+  const num = document.getElementById('quantity174');
+  const up = document.getElementById('btn-up');
+  const down = document.getElementById('btn-down');
+
+  //ボタンが押されたらカウント減
+  down.addEventListener('click', (event) => {
+  //0以下にはならないようにする
+  if(num.value >= 1) {
+    num.value--;
+  }
+  });
+
+  //ボタンが押されたらカウント増
+  up.addEventListener('click', (event) => {
+    num.value++;
+  })
+
+})();
+</script>
